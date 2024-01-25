@@ -1,27 +1,36 @@
 import { Route, Routes } from 'react-router-dom';
-import SharedLayout from 'components/SharedLayout/SharedLayout';
-import FirstPage from 'pages/FirstPage/FirstPage';
-import SecondPage from 'pages/SecondPage/SecondPage';
-import HalfPage from 'pages/HalfPage/HalfPage';
-import ErrorPage from 'pages/ErrorPage/ErrorPage';
+import { Suspense, lazy } from 'react';
+import { Header } from './components/Header/Header';
 import { AppWrapper } from './App.styled';
 
-const test = import.meta.env.VITE_API_TEST;
+const WelcomePage = lazy(() => import('./pages/WelcomePage/WelcomePage'));
+const SignUpPage = lazy(() => import('./pages/SignUpPage/SignUpPage'));
+const SigninPage = lazy(() => import('./pages/SignInPage/SigninPage'));
 
-function App() {
-  console.log(test);
+const appRoutes = [
+  { path: '/', element: <WelcomePage /> },
+  {
+    path: '/sign-up',
+    element: <SignUpPage />,
+  },
+  {
+    path: '/sign-in',
+    element: <SigninPage />,
+  },
+];
+
+const App = () => {
   return (
     <AppWrapper>
-      <Routes>
-        <Route path="/" element={<SharedLayout />}>
-          <Route path="/first" element={<FirstPage />} />
-          <Route path="/second" element={<SecondPage />}>
-            <Route path=":half" element={<HalfPage />} />
-          </Route>
-          <Route path="*" element={<ErrorPage />} />
-        </Route>
-      </Routes>
+      <Header />
+      <Suspense fallback={<div>Loader...</div>}>
+        <Routes>
+          {appRoutes.map(({ path, element }) => (
+            <Route key={path} path={path} element={element} />
+          ))}
+        </Routes>
+      </Suspense>
     </AppWrapper>
   );
-}
+};
 export default App;

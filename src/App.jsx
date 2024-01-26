@@ -5,7 +5,7 @@ import { AppWrapper } from './App.styled';
 
 const WelcomePage = lazy(() => import('./pages/WelcomePage/WelcomePage'));
 const SignUpPage = lazy(() => import('./pages/SignUpPage/SignUpPage'));
-const SigninPage = lazy(() => import('./pages/SignInPage/SigninPage'));
+const SigninPage = lazy(() => import('./pages/SignInPage/SignInPage'));
 
 const appRoutes = [
   { path: '/', element: <WelcomePage /> },

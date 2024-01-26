@@ -1,5 +1,7 @@
+@import url(./css/root.css);
+
 body {
-  background-color: #fff;
+  background-color: var(--Primery-Color-white);
   /* background-image: url('./assets/background.png'); */
   background-size: auto 100%;
   background-position: center center;

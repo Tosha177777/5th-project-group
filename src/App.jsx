@@ -1,7 +1,7 @@
 import { Route, Routes } from 'react-router-dom';
 import { Suspense, lazy } from 'react';
 import { Header } from './components/Header/Header';
-import { AppWrapper } from './App.styled';
+import { AppContainer, AppWrapper } from './App.styled';
 
 const WelcomePage = lazy(() => import('./pages/WelcomePage/WelcomePage'));
 const SignUpPage = lazy(() => import('./pages/SignUpPage/SignUpPage'));
@@ -21,16 +21,21 @@ const appRoutes = [
 
 const App = () => {
   return (
-    <AppWrapper>
+    <>
       <Header />
-      <Suspense fallback={<div>Loader...</div>}>
-        <Routes>
-          {appRoutes.map(({ path, element }) => (
-            <Route key={path} path={path} element={element} />
-          ))}
-        </Routes>
-      </Suspense>
-    </AppWrapper>
+
+      <AppWrapper>
+        <AppContainer>
+          <Suspense fallback={<div>Loader...</div>}>
+            <Routes>
+              {appRoutes.map(({ path, element }) => (
+                <Route key={path} path={path} element={element} />
+              ))}
+            </Routes>
+          </Suspense>
+        </AppContainer>
+      </AppWrapper>
+    </>
   );
 };
 export default App;

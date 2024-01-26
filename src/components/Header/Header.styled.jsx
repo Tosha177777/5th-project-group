@@ -1,8 +1,22 @@
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 
+export const HeaderEl = styled.header``;
+
 export const HeaderContainer = styled.div`
-  padding: 20px;
+  margin: 0 auto;
+  padding: 0 20px;
+  max-width: 320px;
+
+  @media (min-width: 768px) {
+    padding: 0 32px;
+
+    max-width: 768px;
+  }
+
+  @media (min-width: 1440px) {
+    max-width: 1440px;
+  }
 `;
 
 export const Navigation = styled.nav`

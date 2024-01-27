@@ -1,13 +1,20 @@
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 
-export const HeaderEl = styled.header``;
+export const HeaderEl = styled.header`
+  display: flex;
+  align-items: center;
+`;
 
 export const HeaderContainer = styled.div`
+  display: flex;
+  align-items: center;
+
   margin: 0 auto;
   padding: 0 20px;
   max-width: 320px;
-
+  width: 100%;
+  height: 48px;
   @media (min-width: 768px) {
     padding: 0 32px;
 
@@ -21,33 +28,21 @@ export const HeaderContainer = styled.div`
 
 export const Navigation = styled.nav`
   display: flex;
-  justify-content: center;
+  flex-direction: row;
+
   align-items: center;
+  justify-content: space-between;
+
+  width: 100%;
 `;
 
-export const StyledLink = styled(Link)`
-  padding: 8px 16px;
-  color: #ffffff; /* White text color */
-  text-shadow:
-    0 0 5px #00baff,
-    0 0 10px #00baff,
-    0 0 20px #00baff,
-    0 0 40px #00baff,
-    0 0 80px #00baff;
-  transition:
-    color 0.3s,
-    text-shadow 0.3s;
+export const StyledPersonDiv = styled.div``;
 
-  &:hover,
-  &:focus {
-    color: #00baff; /* Blue text color on hover/focus */
-    text-shadow:
-      0 0 5px #00baff,
-      0 0 10px #00baff,
-      0 0 20px #00baff,
-      0 0 40px #00baff,
-      0 0 80px #00baff;
-  }
+export const StyledLink = styled(Link)`
+  color: #407bff;
+  font-size: 16px;
+  font-style: normal;
+  line-height: 20px;
 `;
 
 export const IconWrapper = styled.svg`

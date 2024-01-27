@@ -25,7 +25,7 @@ export const requestLogout = async () => {
   return data;
 };
 
-export const requestRefreshUser = async () => {
-  const { data } = await instance.get('endpoint');
-  return data;
-};
+// export const requestRefreshUser = async () => {
+//   const { data } = await instance.get('endpoint');
+//   return data;
+// };

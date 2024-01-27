@@ -21,6 +21,6 @@ export const AppContainer = styled.div`
   }
 
   @media (min-width: 1440px) {
-    max-width: 1440px;
+    max-width: 1280px;
   }
 `;

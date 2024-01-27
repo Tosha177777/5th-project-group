@@ -6,7 +6,7 @@ export const ContainerModal = styled.div`
   margin-bottom: 24px;
 `;
 
-export const AddWaterBackground = styled.div`
+export const AddWaterForm = styled.form`
   background: #ffffff;
 
   position: relative;
@@ -30,10 +30,8 @@ export const PageName = styled.h2`
 `;
 
 export const CloseBtn = styled.svg`
-  color: #2f2f2f;
-
-  width: 24px;
-  height: 24px;
+  width: 12px;
+  height: 12px;
 
   position: absolute;
 `;
@@ -122,6 +120,12 @@ export const InputTimeWater = styled.input`
     width: 180px;
     height: 44px;
     opacity: 0;
+  }
+
+  &::-webkit-inner-spin-button,
+  &::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
   }
 `;
 

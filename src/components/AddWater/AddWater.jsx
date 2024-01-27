@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import {
   ContainerModal,
-  AddWaterBackground,
+  AddWaterForm,
   PageName,
   CloseBtn,
   PageText,
@@ -15,10 +15,10 @@ import {
   BtnSave,
 } from './AddWater.styled';
 
-export const AddWater = ({ initialAmount, initialTime, onSave }) => {
-  const [amountWater, setAmountWater] = useState(initialAmount || 0);
-  const [time, setTime] = useState(initialTime || getCurrentTime());
-  const [hasPreviousData] = useState(!!initialAmount);
+export const AddWater = ({ onSave }) => {
+  const [amountWater, setAmountWater] = useState(0);
+  const [time, setTime] = useState(getCurrentTime());
+  const [waterCards, setWaterCards] = useState([]);
 
   function getCurrentTime() {
     const now = new Date();
@@ -27,7 +27,18 @@ export const AddWater = ({ initialAmount, initialTime, onSave }) => {
     return `${hours}:${minutes}`;
   }
 
-  const saveData = () => {
+  const saveData = (e) => {
+    e.preventDefault();
+
+    const newWaterCard = {
+      amount: amountWater,
+      time: time,
+    };
+
+    setWaterCards((prevCards) => [...prevCards, newWaterCard]);
+
+    setAmountWater(0);
+    setTime(getCurrentTime());
     onSave(amountWater, time);
   };
 
@@ -51,13 +62,17 @@ export const AddWater = ({ initialAmount, initialTime, onSave }) => {
 
   return (
     <div>
-      <AddWaterBackground>
+      <AddWaterForm onSubmit={saveData}>
         <PageName>Edit the entered amount of water</PageName>
         <CloseBtn>X</CloseBtn>
 
-        {hasPreviousData ? (
+        {waterCards.length > 0 ? (
           <div>
-            <p>{`${initialAmount} ml, ${initialTime}`}</p>
+            {waterCards.map((card, index) => (
+              <div key={index}>
+                <p>{`${card.amount} ml, ${card.time}`}</p>
+              </div>
+            ))}
           </div>
         ) : (
           <p>No notes yet</p>
@@ -66,11 +81,16 @@ export const AddWater = ({ initialAmount, initialTime, onSave }) => {
         <PageText>Correct entered data:</PageText>
         <ContainerModal>
           <AmountWater>Amount of water:</AmountWater>
-          <BtnPlusMinus name="minus" onClick={handleChangeWater}>
+          <BtnPlusMinus name="minus" type="button" onClick={handleChangeWater}>
             -
           </BtnPlusMinus>
-          <InputWaterFix type="number" name="water" value={amountWater} />
-          <BtnPlusMinus name="plus" onClick={handleChangeWater}>
+          <InputWaterFix
+            type="number"
+            name="water"
+            value={amountWater}
+            onChange={handleChange}
+          />
+          <BtnPlusMinus name="plus" type="button" onClick={handleChangeWater}>
             +
           </BtnPlusMinus>
         </ContainerModal>
@@ -92,15 +112,16 @@ export const AddWater = ({ initialAmount, initialTime, onSave }) => {
             type="number"
             name="water"
             value={amountWater}
+            min={0}
             onChange={handleChange}
           />
         </ContainerModal>
 
         <div>
           <FinallyWater>{amountWater}</FinallyWater>
-          <BtnSave onClick={saveData}>Save</BtnSave>
+          <BtnSave type="submit">Save</BtnSave>
         </div>
-      </AddWaterBackground>
+      </AddWaterForm>
     </div>
   );
 };

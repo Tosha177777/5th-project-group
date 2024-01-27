@@ -3,6 +3,7 @@ import {
   HeaderContainer,
   Navigation,
   StyledLink,
+  StyledPersonDiv,
 } from './Header.styled';
 
 export const Header = () => {
@@ -10,17 +11,12 @@ export const Header = () => {
     <HeaderEl>
       <HeaderContainer>
         <Navigation>
-          <StyledLink to="/sign-in">Sign in</StyledLink>
+          <StyledLink to="/">Welcome</StyledLink>
+          <StyledPersonDiv>
+            <StyledLink to="/sign-in">Sign in</StyledLink>
+          </StyledPersonDiv>
         </Navigation>
       </HeaderContainer>
     </HeaderEl>
   );
 };
-{
-  /* <StyledLink to="/sign-up">
-            <IconWrapper>
-              <use href={`${sprite}#icon-logo`} />
-            </IconWrapper>
-            SignUpPage
-          </StyledLink> */
-}

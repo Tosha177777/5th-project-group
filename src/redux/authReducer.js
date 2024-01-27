@@ -19,7 +19,7 @@ const INITIAL_STATE = {
 };
 
 const authSlice = createSlice({
-  name: 'contacts',
+  name: 'auth',
   initialState: INITIAL_STATE,
   extraReducers: (builder) =>
     builder

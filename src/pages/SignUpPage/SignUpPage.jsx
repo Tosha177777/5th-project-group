@@ -2,8 +2,8 @@ import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import * as yup from 'yup';
 import { useFormik } from 'formik';
-import { clearAuthError, registerThunk } from 'redux/operations' ;
-import { selectAuthError } from 'redux/authSelectors';
+import { clearAuthError, registerThunk } from '../../redux/operations';
+import { selectAuthError } from '../../redux/authSelectors';
 import { StyledPageContainer } from './SignUpPage.styled';
 
 const SignUpSchema = yup.object().shape({
@@ -29,11 +29,12 @@ const SignUpPage = () => {
       password: '',
       // repeatPassword: '',
     },
-    validationSchema: {SignUpSchema},
+    validationSchema: SignUpSchema,
     onSubmit: (values, { resetForm }) => {
       dispatch(registerThunk(values));
       resetForm();
-    }})
+    },
+  });
 
   const dispatch = useDispatch();
   const error = useSelector(selectAuthError);
@@ -50,36 +51,36 @@ const SignUpPage = () => {
         <form onSubmit={formik.handleSubmit}>
           <h1>Sign Up</h1>
           <label>
-           <span>Enter your email</span>
-          <input
-            id="email"
-            name="email"
-            type="email"
-            placeholder="E-mail"
-            onChange={formik.handleChange}
-            value={formik.values.email}
+            <span>Enter your email</span>
+            <input
+              id="email"
+              name="email"
+              type="email"
+              placeholder="E-mail"
+              onChange={formik.handleChange}
+              value={formik.values.email}
             />
-            {<p>{formik.errors.email ? formik.errors.email : ""}</p>}
+            {<p>{formik.errors.email ? formik.errors.email : ''}</p>}
           </label>
           <label>
-           <span>Enter your password</span>
-          <input
-            id="password"
-            name="password"
-            type="password"
-            placeholder="Password"
-            onChange={formik.handleChange}
-            value={formik.values.password}
+            <span>Enter your password</span>
+            <input
+              id="password"
+              name="password"
+              type="password"
+              placeholder="Password"
+              onChange={formik.handleChange}
+              value={formik.values.password}
             />
-            {<p>{formik.errors.password ? formik.errors.password : ""}</p>}
-            </label>
+            {<p>{formik.errors.password ? formik.errors.password : ''}</p>}
+          </label>
           <label>
             <span>Repeat password</span>
-          <input
-            id="email"
-            name="email"
-            type="email"
-            onChange={formik.handleChange}
+            <input
+              id="repeat"
+              name="email"
+              type="email"
+              onChange={formik.handleChange}
             />
           </label>
           <button type="submit">Submit</button>
@@ -89,38 +90,38 @@ const SignUpPage = () => {
         <picture>
           {/* mobile */}
           <source
-            srcSet="../../images/mobile/Bottle Sign In@1x.png"
+            srcSet="../../images/mobile/Bottle-Sign-In@1x.png"
             type="image/png"
           />
           <source
-            srcSet="../../images/mobile/Bottle Sign In@2x.png"
+            srcSet="../../images/mobile/Bottle-Sign-In@2x.png"
             type="image/png"
           />
           {/* tablet */}
           <source
             media="min-width:768px"
-            srcSet="../../images/tablet/Bottle Sign In@1x.png"
+            srcSet="../../images/tablet/Bottle-Sign-In@1x.png"
             type="image/png"
           />
           <source
             media="min-width:768px"
-            srcSet="../../images/tablet/Bottle Sign In@2x.png"
+            srcSet="../../images/tablet/Bottle-Sign-In@2x.png"
             type="image/png"
           />
           {/* desktop */}
           <source
             media="min-width:1440px"
-            srcSet="../../images/desktop/Bottle Sign In@1x.png"
+            srcSet="../../images/desktop/Bottle-Sign-In@1x.png"
             type="image/png"
           />
           <source
             media="min-width:1440px"
-            srcSet="../../images/desktop/Bottle Sign In@2x.png"
+            srcSet="../../images/desktop/Bottle-Sign-In@2x.png"
             type="image/png"
           />
 
           <img
-            src="../../images/mobile/Bottle Sign In.png"
+            src="../../images/mobile/Bottle-Sign-In.png"
             alt="a bottle of water"
             loading="lazy"
           />

@@ -22,7 +22,7 @@ export const HeaderContainer = styled.div`
   }
 
   @media (min-width: 1440px) {
-    max-width: 1440px;
+    max-width: 1280px;
   }
 `;
 
@@ -36,9 +36,37 @@ export const Navigation = styled.nav`
   width: 100%;
 `;
 
-export const StyledPersonDiv = styled.div``;
+export const StyledPersonDiv = styled.div`
+  display: flex;
+  flex-direction: row;
+  gap: 8px;
+`;
 
-export const StyledLink = styled(Link)`
+export const StyledLogoText = styled.p`
+  margin: 0;
+  width: 58px;
+`;
+
+export const StyledLogoLink = styled(Link)`
+  display: flex;
+  align-items: center;
+  gap: 4px;
+
+  font-size: 12px;
+  font-weight: 700;
+  line-height: normal;
+  text-transform: uppercase;
+  color: #407bff;
+
+  @media (min-width: 768px) {
+  }
+`;
+
+export const StyledSignLink = styled(Link)`
+  display: flex;
+  align-items: center;
+  gap: 8px;
+
   color: #407bff;
   font-size: 16px;
   font-style: normal;

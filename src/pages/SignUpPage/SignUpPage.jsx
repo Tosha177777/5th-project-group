@@ -2,7 +2,7 @@ import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import * as yup from 'yup';
 import { useFormik } from 'formik';
-import { clearAuthError, registerThunk } from '../../redux/operations';
+import { clearAuthError, registerThunk } from '../../redux/authOperations';
 import { selectAuthError } from '../../redux/authSelectors';
 import { StyledPageContainer } from './SignUpPage.styled';
 

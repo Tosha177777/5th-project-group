@@ -67,3 +67,7 @@ export const logoutThunk = createAsyncThunk(
     }
   }
 );
+
+export const clearAuthError = () => ({
+  type: 'auth/clearError',
+});

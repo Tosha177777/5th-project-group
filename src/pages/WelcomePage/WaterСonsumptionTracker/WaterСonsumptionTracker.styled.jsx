@@ -1,8 +1,8 @@
 import styled from "styled-components";
 
-import { ReactComponent as CalendarSvg } from '../../../../img/icons/calendar.svg';
-import { ReactComponent as StatisticsSvg } from '../../../../img/icons/statistics.svg';
-import { ReactComponent as SettingSvg } from '../../../../img/icons/setting.svg';
+import { ReactComponent as CalendarSvg } from '../../../svgs/icons/calendar.svg';
+import { ReactComponent as PresentationSvg } from '../../../svgs/icons/presentation.svg';
+import { ReactComponent as ToolsSvg } from '../../../svgs/icons/tools.svg';
 
 export const MainTitle = styled.h1`
   color: var(--Primery-Color-Black, #2F2F2F);
@@ -130,7 +130,7 @@ export const CalendarIcon = styled(CalendarSvg)`
   }
 `;
 
-export const StatisticsIcon = styled(StatisticsSvg)`
+export const PresentationIcon = styled(PresentationSvg)`
    margin-right: 8px;
    @media screen and (min-width: 768px) {
     width: 40px;
@@ -138,7 +138,7 @@ export const StatisticsIcon = styled(StatisticsSvg)`
   }
 `;
 
-export const SettingIcon = styled(SettingSvg)`
+export const ToolsIcon = styled(ToolsSvg)`
    margin-right: 8px;
    @media screen and (min-width: 768px) {
     width: 40px;

@@ -13,6 +13,7 @@ export const AppContainer = styled.div`
   padding: 0 20px;
   max-width: 320px;
   height: 100vh;
+  position: relative;
 
   @media (min-width: 768px) {
     padding: 0 32px;

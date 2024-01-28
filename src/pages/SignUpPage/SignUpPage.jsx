@@ -1,10 +1,11 @@
 import { useEffect } from 'react';
+import { NavLink } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import * as yup from 'yup';
 import { useFormik } from 'formik';
 import { clearAuthError, registerThunk } from '../../redux/authOperations';
 import { selectAuthError } from '../../redux/authSelectors';
-import { StyledPageContainer } from './SignUpPage.styled';
+import { StyledPageContainer , StyledWrap} from './SignUpPage.styled';
 
 const SignUpSchema = yup.object().shape({
   email: yup.string().email('Please enter a valid email').required(),
@@ -27,11 +28,12 @@ const SignUpPage = () => {
     initialValues: {
       email: '',
       password: '',
-      // repeatPassword: '',
+      repeatPassword: '',
     },
     validationSchema: SignUpSchema,
-    onSubmit: (values, { resetForm }) => {
-      dispatch(registerThunk(values));
+    onSubmit: ({email, password}, { resetForm }) => {
+      const userValues = { email, password };
+      dispatch(registerThunk(userValues));
       resetForm();
     },
   });
@@ -45,9 +47,11 @@ const SignUpPage = () => {
       dispatch(clearAuthError());
     }
   }, [error, dispatch]);
+
   return (
-    <StyledPageContainer>
-      <div>
+    <>
+    <StyledWrap></StyledWrap>
+    <StyledPageContainer>      
         <form onSubmit={formik.handleSubmit}>
           <h1>Sign Up</h1>
           <label>
@@ -77,15 +81,17 @@ const SignUpPage = () => {
           <label>
             <span>Repeat password</span>
             <input
-              id="repeat"
-              name="email"
-              type="email"
+              id="repeatPassword"
+              name="repeatPassword"
+              type="password"
+              placeholder="Repeat password"
               onChange={formik.handleChange}
+              value={formik.values.repeatPassword}
             />
           </label>
-          <button type="submit">Submit</button>
+          <button type="submit">Sign Up</button>
+          <NavLink to="/sign-in">Sign in</NavLink>
         </form>
-      </div>
       <div>
         <picture>
           {/* mobile */}
@@ -127,7 +133,8 @@ const SignUpPage = () => {
           />
         </picture>
       </div>
-    </StyledPageContainer>
+      </StyledPageContainer>
+      </>
   );
 };
 

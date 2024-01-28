@@ -7,7 +7,8 @@ export const StyledPageContainer = styled.div`
   gap: 16px;
   margin-top: 24px;
   width: 100%;
-
+  }
+  
   h1{
   font-size: 26px;
   line-height: 1.23;

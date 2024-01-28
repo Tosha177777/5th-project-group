@@ -2,7 +2,7 @@ import styled from '@emotion/styled';
 import example from './assets/background.png';
 
 export const AppWrapper = styled.div`
-  background-image: url(${example});
+  // background-image: url(${example});
   background-repeat: no-repeat;
   background-position: left top;
   background-size: 100% 100%;

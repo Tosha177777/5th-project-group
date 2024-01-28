@@ -8,8 +8,8 @@ import {
     TrackerContainer,
     MainButton, 
     CalendarIcon, 
-    StatisticsIcon, 
-    SettingIcon } from "./WaterСonsumptionTracker.styled";
+    PresentationIcon, 
+    ToolsIcon } from "./WaterСonsumptionTracker.styled";
 
 export const WaterСonsumptionTracker = () => {
     const navigate = useNavigate();
@@ -27,11 +27,11 @@ export const WaterСonsumptionTracker = () => {
                 Habit drive
             </BenefitsItem>
             <BenefitsItem>
-                <StatisticsIcon/>
+                <PresentationIcon/>
                 View statistics
             </BenefitsItem>
             <BenefitsItem>
-                <SettingIcon/>
+                <ToolsIcon/>
                 Personal rate setting
             </BenefitsItem>
         </BenefitsList>

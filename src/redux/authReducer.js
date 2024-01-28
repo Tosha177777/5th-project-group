@@ -6,7 +6,10 @@ const INITIAL_STATE = {
   token: null,
   user: {
     email: null,
-    name: null,
+    userName: null,
+    gender: '',
+    waterUser: null,
+    avatarURL: null,
   },
   isSignedIn: false,
   isLoading: false,

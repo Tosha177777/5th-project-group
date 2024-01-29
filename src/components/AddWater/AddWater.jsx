@@ -5,12 +5,14 @@ import {
   PageName,
   CloseBtn,
   PageText,
+  InputAndBtnWaterContainer,
   AmountWater,
   BtnPlusMinus,
   InputWaterFix,
   EnterTime,
   InputTimeWater,
   AmountWaterText,
+  FinallyContainer,
   FinallyWater,
   BtnSave,
 } from './AddWater.styled';
@@ -81,18 +83,24 @@ export const AddWater = ({ onSave }) => {
         <PageText>Correct entered data:</PageText>
         <ContainerModal>
           <AmountWater>Amount of water:</AmountWater>
-          <BtnPlusMinus name="minus" type="button" onClick={handleChangeWater}>
-            -
-          </BtnPlusMinus>
-          <InputWaterFix
-            type="number"
-            name="water"
-            value={amountWater}
-            onChange={handleChange}
-          />
-          <BtnPlusMinus name="plus" type="button" onClick={handleChangeWater}>
-            +
-          </BtnPlusMinus>
+          <InputAndBtnWaterContainer>
+            <BtnPlusMinus
+              name="minus"
+              type="button"
+              onClick={handleChangeWater}
+            >
+              -
+            </BtnPlusMinus>
+            <InputWaterFix
+              type="number"
+              name="water"
+              value={amountWater}
+              onChange={handleChange}
+            />
+            <BtnPlusMinus name="plus" type="button" onClick={handleChangeWater}>
+              +
+            </BtnPlusMinus>
+          </InputAndBtnWaterContainer>
         </ContainerModal>
 
         <ContainerModal>
@@ -117,11 +125,64 @@ export const AddWater = ({ onSave }) => {
           />
         </ContainerModal>
 
-        <div>
-          <FinallyWater>{amountWater}</FinallyWater>
+        <FinallyContainer>
+          <FinallyWater>{amountWater}ml</FinallyWater>
           <BtnSave type="submit">Save</BtnSave>
-        </div>
+        </FinallyContainer>
       </AddWaterForm>
     </div>
   );
 };
+
+// import React from 'react';
+// import { Formik, Field, Form } from 'formik';
+// import {
+//   ContainerModal,
+//   AddWaterForm,
+//   PageName,
+//   CloseBtn,
+//   PageText,
+//   InputAndBtnWaterContainer,
+//   AmountWater,
+//   BtnPlusMinus,
+//   InputWaterFix,
+//   EnterTime,
+//   InputTimeWater,
+//   AmountWaterText,
+//   FinallyWater,
+//   BtnSave,
+// } from './AddWater.styled';
+
+// export const AddWater = ({ onSave }) => {
+// const [waterCards, setWaterCards] = useState([]);
+//
+//   const getCurrentTime = () => {
+//     const now = new Date();
+//     const hours = now.getHours();
+//     const minutes = Math.ceil(now.getMinutes() / 5) * 5;
+//     return `${hours}:${minutes}`;
+//   };
+
+//   return (
+//     <Formik
+//       initialValues={{
+//         amountWater: 0,
+//         time: getCurrentTime(),
+//       }}
+//       onSubmit={(values, { resetForm }) => {
+//         const newWaterCard = {
+//           amount: values.amountWater,
+//           time: values.time,
+//         };
+
+//         setWaterCards((prevCards) => [...prevCards, newWaterCard]);
+
+//         onSave(values.amountWater, values.time);
+
+//         resetForm();
+//       }}
+//     >
+//
+//     </Formik>
+//   );
+// };

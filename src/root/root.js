@@ -2,7 +2,7 @@ const colors = {
   primaryColorBlack: '#2f2f2f',
   primaryColorWhite: '#ffffff',
   primaryColorBlue: '#407bff',
-  secondaryColor2: '#ecf2ff',
+  secondaryColor2WhiteBlue: '#ecf2ff',
   secondaryColor3: '#ef5050',
   secondaryColor4: '#9ebbff',
   secondaryColor5: '#ff9d43',

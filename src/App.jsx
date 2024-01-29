@@ -1,7 +1,9 @@
 import { Route, Routes } from 'react-router-dom';
 import { Suspense, lazy } from 'react';
 import { Header } from './components/Header/Header';
-import { AppWrapper } from './App.styled';
+import { AppContainer } from './App.styled';
+import { Loader } from './components/Loader/Loader';
+import RestrictedRoute from './components/RestrictedRoutes/RestrictedRoute';
 
 const WelcomePage = lazy(() => import('./pages/WelcomePage/WelcomePage'));
 const SignUpPage = lazy(() => import('./pages/SignUpPage/SignUpPage'));
@@ -11,26 +13,36 @@ const appRoutes = [
   { path: '/', element: <WelcomePage /> },
   {
     path: '/sign-up',
-    element: <SignUpPage />,
+    element: (
+      <RestrictedRoute>
+        <SignUpPage />
+      </RestrictedRoute>
+    ),
   },
   {
-    path: '/sign-in',
-    element: <SigninPage />,
+    path: '/signin',
+    element: (
+      <RestrictedRoute>
+        <SigninPage />
+      </RestrictedRoute>
+    ),
   },
 ];
 
 const App = () => {
   return (
-    <AppWrapper>
+    <>
       <Header />
-      <Suspense fallback={<div>Loader...</div>}>
-        <Routes>
-          {appRoutes.map(({ path, element }) => (
-            <Route key={path} path={path} element={element} />
-          ))}
-        </Routes>
-      </Suspense>
-    </AppWrapper>
+      <AppContainer>
+        <Suspense fallback={<Loader />}>
+          <Routes>
+            {appRoutes.map(({ path, element }) => (
+              <Route key={path} path={path} element={element} />
+            ))}
+          </Routes>
+        </Suspense>
+      </AppContainer>
+    </>
   );
 };
 export default App;

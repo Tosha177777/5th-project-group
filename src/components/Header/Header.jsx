@@ -1,34 +1,38 @@
 import {
+  HeaderEl,
   HeaderContainer,
   Navigation,
-  StyledLink,
-  IconWrapper,
+  StyledSignLink,
+  StyledLogoLink,
+  StyledLogoText,
 } from './Header.styled';
-import sprite from 'assets/sprite.svg';
+import { ReactComponent as Logo } from '../../svgs/header/logo.svg';
+import { ReactComponent as UnAuthUser } from '../../svgs/icons/user.svg';
+import { useSelector } from 'react-redux';
+import { selectAuthIsSignedIn } from '../../redux/authSelectors';
+import HeaderUser from './UserLogo';
 
 export const Header = () => {
+  const isAuth = useSelector(selectAuthIsSignedIn);
+
   return (
-    <HeaderContainer>
-      <Navigation>
-        <StyledLink to="/">
-          <IconWrapper>
-            <use href={`${sprite}#icon-logo`} />
-          </IconWrapper>
-          Welcome
-        </StyledLink>
-        <StyledLink to="/sign-in">
-          <IconWrapper>
-            <use href={`${sprite}#icon-logo`} />
-          </IconWrapper>
-          SignInPage
-        </StyledLink>
-        <StyledLink to="/sign-up">
-          <IconWrapper>
-            <use href={`${sprite}#icon-logo`} />
-          </IconWrapper>
-          SignUpPage
-        </StyledLink>
-      </Navigation>
-    </HeaderContainer>
+    <HeaderEl>
+      <HeaderContainer>
+        <Navigation>
+          <StyledLogoLink to="/">
+            <Logo />
+            <StyledLogoText>Tracker of water</StyledLogoText>
+          </StyledLogoLink>
+          {isAuth ? (
+            <HeaderUser />
+          ) : (
+            <StyledSignLink to="/signin">
+              Sign in
+              <UnAuthUser />
+            </StyledSignLink>
+          )}
+        </Navigation>
+      </HeaderContainer>
+    </HeaderEl>
   );
 };

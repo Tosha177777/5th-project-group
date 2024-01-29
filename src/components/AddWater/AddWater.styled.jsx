@@ -1,6 +1,14 @@
 import styled from 'styled-components';
 
-export const AddWaterModal = styled.div``;
+export const AddWaterModal = styled.div`
+  position: fixed;
+
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: #000000cc;
+`;
 
 export const ContainerModal = styled.div`
   margin-bottom: 24px;
@@ -9,7 +17,10 @@ export const ContainerModal = styled.div`
 export const AddWaterForm = styled.form`
   background: #ffffff;
 
-  position: relative;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 
   max-width: 280px;
   max-height: 648px;
@@ -167,13 +178,13 @@ export const InputTimeWater = styled.input`
   @media only screen and (min-width: 768px) {
     width: 544px;
     &::-webkit-calendar-picker-indicator {
-      width: 470px;
+      width: 468px;
     }
   }
 
   @media only screen and (min-width: 1440px) {
     &::-webkit-calendar-picker-indicator {
-      width: 470px;
+      width: 468px;
     }
   }
 `;

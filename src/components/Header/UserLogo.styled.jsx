@@ -1,8 +1,9 @@
+import Button from '@mui/material/Button';
 import styled from 'styled-components';
 
-import colors from '../../root.js/root';
+import colors from '../../root/root';
 
-export const UserInfoBtn = styled.button`
+export const UserInfoBtn = styled(Button)`
   display: flex;
   flex-direction: row;
   align-items: center;

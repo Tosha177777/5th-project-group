@@ -1,4 +1,5 @@
 import { useState } from 'react';
+// import { useFormik } from 'formik';
 import {
   ContainerModal,
   AddWaterForm,
@@ -17,10 +18,10 @@ import {
   BtnSave,
 } from './AddWater.styled';
 
-export const AddWater = ({ onSave }) => {
+export const AddWater = ({ onSave, waterCardsSave }) => {
   const [amountWater, setAmountWater] = useState(0);
   const [time, setTime] = useState(getCurrentTime());
-  const [waterCards, setWaterCards] = useState([]);
+  const [waterCards, setWaterCards] = useState(waterCardsSave || []);
 
   function getCurrentTime() {
     const now = new Date();
@@ -28,6 +29,25 @@ export const AddWater = ({ onSave }) => {
     const minutes = Math.ceil(now.getMinutes() / 5) * 5;
     return `${hours}:${minutes}`;
   }
+
+  // const formik = useFormik({
+  //   initialValues: {
+  //     amountWater: 0,
+  //     time: getCurrentTime(),
+  //   },
+  //   onSubmit: ({ amountWater, time }, { resetForm }) => {
+  //     const newWaterCard = {
+  //       amount: amountWater,
+  //       time: time,
+  //     };
+
+  //     setWaterCards((prevCards) => [...prevCards, newWaterCard]);
+
+  //     onSave(amountWater, time);
+
+  //     resetForm();
+  //   },
+  // });
 
   const saveData = (e) => {
     e.preventDefault();
@@ -41,7 +61,7 @@ export const AddWater = ({ onSave }) => {
 
     setAmountWater(0);
     setTime(getCurrentTime());
-    onSave(amountWater, time);
+    onSave(waterCards);
   };
 
   const handleChange = (e) => {
@@ -133,56 +153,3 @@ export const AddWater = ({ onSave }) => {
     </div>
   );
 };
-
-// import React from 'react';
-// import { Formik, Field, Form } from 'formik';
-// import {
-//   ContainerModal,
-//   AddWaterForm,
-//   PageName,
-//   CloseBtn,
-//   PageText,
-//   InputAndBtnWaterContainer,
-//   AmountWater,
-//   BtnPlusMinus,
-//   InputWaterFix,
-//   EnterTime,
-//   InputTimeWater,
-//   AmountWaterText,
-//   FinallyWater,
-//   BtnSave,
-// } from './AddWater.styled';
-
-// export const AddWater = ({ onSave }) => {
-// const [waterCards, setWaterCards] = useState([]);
-//
-//   const getCurrentTime = () => {
-//     const now = new Date();
-//     const hours = now.getHours();
-//     const minutes = Math.ceil(now.getMinutes() / 5) * 5;
-//     return `${hours}:${minutes}`;
-//   };
-
-//   return (
-//     <Formik
-//       initialValues={{
-//         amountWater: 0,
-//         time: getCurrentTime(),
-//       }}
-//       onSubmit={(values, { resetForm }) => {
-//         const newWaterCard = {
-//           amount: values.amountWater,
-//           time: values.time,
-//         };
-
-//         setWaterCards((prevCards) => [...prevCards, newWaterCard]);
-
-//         onSave(values.amountWater, values.time);
-
-//         resetForm();
-//       }}
-//     >
-//
-//     </Formik>
-//   );
-// };

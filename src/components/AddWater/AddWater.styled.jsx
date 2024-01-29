@@ -173,7 +173,7 @@ export const InputTimeWater = styled.input`
 
   @media only screen and (min-width: 1440px) {
     &::-webkit-calendar-picker-indicator {
-      width: 460px;
+      width: 470px;
     }
   }
 `;

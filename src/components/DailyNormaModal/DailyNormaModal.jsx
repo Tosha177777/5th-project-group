@@ -1,12 +1,15 @@
 import { useEffect, useState } from 'react';
 import {
   DailyNormaModalContent,
+  ExitBtn,
   FormulaCover,
   FormulaExplanation,
   ModalForm,
   ModalTitle,
   Overlay,
 } from './DailyNormaModal.styled';
+
+import { ReactComponent as Xcros } from '../../svgs/icons/xcros.svg';
 
 export function DailyNormaModal({ closeModal }) {
   const [weight, setWeight] = useState(0);
@@ -72,6 +75,10 @@ export function DailyNormaModal({ closeModal }) {
   return (
     <Overlay onClick={closeOnBackdrop}>
       <DailyNormaModalContent>
+        <ExitBtn>
+          <Xcros />
+        </ExitBtn>
+
         <ModalTitle>My daily norma</ModalTitle>
         <FormulaCover>
           <p className="formula-text">

@@ -14,12 +14,27 @@ export const Overlay = styled.div`
 `;
 
 export const DailyNormaModalContent = styled.div`
+  position: relative;
+
   display: block;
   width: 280px;
   height: 816px;
   padding: 24px 12px;
   border-radius: 10px;
   background-color: white;
+`;
+
+export const ExitBtn = styled.button`
+  position: absolute;
+  top: 28px;
+  left: 244px;
+
+  padding: 0;
+  margin: 0;
+  border: none;
+  background-color: inherit;
+
+  cursor: pointer;
 `;
 
 export const ModalTitle = styled.h1`
@@ -162,6 +177,7 @@ export const ModalForm = styled.form`
     background-color: var(--Primery-Color-Blue, #407bff);
     border: transparent;
     box-shadow: 0px 4px 8px 0px rgba(64, 123, 255, 0.34);
+    cursor: pointer;
   }
 `;
 

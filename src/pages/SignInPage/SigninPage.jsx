@@ -1,5 +1,4 @@
 import { Container } from './SignInPage.styled';
-import React from 'react';
 import  SignInForm  from '../../components/SignInForm/SignInForm';
 
 

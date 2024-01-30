@@ -1,7 +1,19 @@
-import { Title } from './HomePage.styled';
+import { Container, DailyContainer, ControllContainer } from './HomePage.styled';
+import MyComponent from './ProgresBar';
 
 const HomePage = () => {
-  return <Title>Home Page</Title>;
+  return (
+<Container>
+  <DailyContainer>
+
+   <MyComponent>Today</MyComponent>
+     
+  </DailyContainer>
+  <ControllContainer>
+    
+  </ControllContainer>
+</Container>);
+
 };
 
 export default HomePage;

@@ -125,27 +125,12 @@ export const MainButton = styled.button`
 
 export const CalendarIcon = styled(CalendarSvg)`
    margin-right: 8px;
-   @media only screen and (max-width: 767px) {
-    width: 32px;
-    height: 32px;
-    object-fit: contain;
-  }
 `;
 
 export const PresentationIcon = styled(PresentationSvg)`
    margin-right: 8px;
-   @media only screen and (max-width: 767px) {
-    width: 32px;
-    height: 32px;
-    object-fit: contain;
-  }
 `;
 
 export const ToolsIcon = styled(ToolsSvg)`
    margin-right: 8px;
-   @media only screen and (max-width: 767px) {
-    width: 32px;
-    height: 32px;
-    object-fit: contain;
-  }
 `;

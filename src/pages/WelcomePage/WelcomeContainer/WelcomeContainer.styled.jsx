@@ -6,7 +6,7 @@ import bg_mobile_1x from 'src/images/mobile/Background-Main-Page@1x.png';
 
 import bg_desk_2x from 'src/images/desktop/background-main-page@2x.png';
 import bg_tabl_2x from 'src/images/tablet/background-main-page@2x.png';
-import bg_mobile_2x from 'src//images/mobile/background-main-page@2x.png';
+import bg_mobile_2x from 'src/images/mobile/background-main-page@2x.png';
 
 import bg_main_elements_1x from 'src/images/desktop/background-element-main-page@1x.png';
 import bg_main_elements_2x from 'src/images/desktop/background-element-main-page@2x.png';

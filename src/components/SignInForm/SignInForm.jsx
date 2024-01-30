@@ -45,7 +45,7 @@ const SignInForm = () => {
             <ErrorMessage name="password" />
           </label>
           <button type="submit">Sign In</button>
-          <StyledSignUpLink to="/sign-up">Sign up</StyledSignUpLink>
+          <StyledSignUpLink to="/signup">Sign up</StyledSignUpLink>
         </Form>
       </FormContainer>
     </Formik>

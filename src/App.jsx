@@ -1,9 +1,6 @@
 import { Route, Routes } from 'react-router-dom';
 import { Suspense, lazy } from 'react';
 import { Header } from './components/Header/Header';
-import { AppContainer } from './App.styled';
-import { Loader } from './components/Loader/Loader';
-import RestrictedRoute from './components/RestrictedRoutes/RestrictedRoute';
 
 const WelcomePage = lazy(() => import('./pages/WelcomePage/WelcomePage'));
 const SignUpPage = lazy(() => import('./pages/SignUpPage/SignUpPage'));
@@ -20,12 +17,8 @@ const appRoutes = [
     ),
   },
   {
-    path: '/signin',
-    element: (
-      <RestrictedRoute>
-        <SigninPage />
-      </RestrictedRoute>
-    ),
+    path: '/sign-in',
+    element: <SigninPage />,
   },
 ];
 
@@ -33,15 +26,13 @@ const App = () => {
   return (
     <>
       <Header />
-      <AppContainer>
-        <Suspense fallback={<Loader />}>
-          <Routes>
-            {appRoutes.map(({ path, element }) => (
-              <Route key={path} path={path} element={element} />
-            ))}
-          </Routes>
-        </Suspense>
-      </AppContainer>
+      <Suspense fallback={<div>Loader...</div>}>
+        <Routes>
+          {appRoutes.map(({ path, element }) => (
+            <Route key={path} path={path} element={element} />
+          ))}
+        </Routes>
+      </Suspense>
     </>
   );
 };

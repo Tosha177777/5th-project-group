@@ -1,6 +1,7 @@
 import { useState } from 'react';
-// import { useFormik } from 'formik';
+import { useFormik } from 'formik'; // Import useFormik from formik library
 import {
+  AddWaterModal,
   ContainerModal,
   AddWaterForm,
   PageName,
@@ -18,80 +19,80 @@ import {
   BtnSave,
 } from './AddWater.styled';
 
-export const AddWater = ({ onSave, waterCardsSave }) => {
-  const [amountWater, setAmountWater] = useState(0);
-  const [time, setTime] = useState(getCurrentTime());
-  const [waterCards, setWaterCards] = useState(waterCardsSave || []);
+import { ReactComponent as Glass } from '../../svgs/icons/glass.svg';
 
-  function getCurrentTime() {
+export const AddWater = ({ onSave, waterCardsSave }) => {
+  const [isModalOpen, setIsModalOpen] = useState(true);
+
+  const getCurrentTime = () => {
     const now = new Date();
     const hours = now.getHours();
-    const minutes = Math.ceil(now.getMinutes() / 5) * 5;
+    const minutes = (now.getMinutes() < 10 ? '0' : '') + now.getMinutes();
     return `${hours}:${minutes}`;
-  }
-
-  // const formik = useFormik({
-  //   initialValues: {
-  //     amountWater: 0,
-  //     time: getCurrentTime(),
-  //   },
-  //   onSubmit: ({ amountWater, time }, { resetForm }) => {
-  //     const newWaterCard = {
-  //       amount: amountWater,
-  //       time: time,
-  //     };
-
-  //     setWaterCards((prevCards) => [...prevCards, newWaterCard]);
-
-  //     onSave(amountWater, time);
-
-  //     resetForm();
-  //   },
-  // });
-
-  const saveData = (e) => {
-    e.preventDefault();
-
-    const newWaterCard = {
-      amount: amountWater,
-      time: time,
-    };
-
-    setWaterCards((prevCards) => [...prevCards, newWaterCard]);
-
-    setAmountWater(0);
-    setTime(getCurrentTime());
-    onSave(waterCards);
   };
 
-  const handleChange = (e) => {
-    if (e.target.name === 'water') {
-      setAmountWater(e.target.value);
-    } else if (e.target.name === 'time') {
-      setTime(e.target.value);
+  const formik = useFormik({
+    initialValues: {
+      amountWater: 0,
+      time: getCurrentTime(),
+      waterCards: waterCardsSave || [],
+    },
+    onSubmit: ({ amountWater, time }, { resetForm }) => {
+      const newWaterCard = {
+        amount: amountWater,
+        time: time,
+      };
+
+      formik.setFieldValue('waterCards', [...waterCards, newWaterCard]);
+
+      onSave(amountWater, time);
+
+      resetForm();
+    },
+  });
+
+  const closeModal = () => {
+    setIsModalOpen(false);
+  };
+
+  const handleModalClick = (e) => {
+    if (e.target === e.currentTarget) {
+      closeModal();
     }
   };
 
-  const handleChangeWater = (e) => {
-    const step = 50;
-
-    if (e.target.name === 'plus') {
-      setAmountWater((prevAmount) => prevAmount + step);
-    } else if (e.target.name === 'minus') {
-      setAmountWater((prevAmount) => Math.max(0, prevAmount - step));
+  const handleKeyDown = (e) => {
+    if (e.key === 'Escape') {
+      closeModal();
     }
+  };
+
+  const { amountWater, time, waterCards } = formik.values;
+
+  const handleMinusClick = () => {
+    formik.setFieldValue('amountWater', Math.max(0, amountWater - 50));
+  };
+
+  const handlePlusClick = () => {
+    formik.setFieldValue('amountWater', amountWater + 50);
   };
 
   return (
-    <div>
-      <AddWaterForm onSubmit={saveData}>
+    <AddWaterModal
+      onClick={handleModalClick}
+      onKeyDown={handleKeyDown}
+      tabIndex="0"
+      style={{ display: isModalOpen ? 'block' : 'none' }}
+    >
+      <AddWaterForm onSubmit={formik.handleSubmit}>
         <PageName>Edit the entered amount of water</PageName>
-        <CloseBtn>X</CloseBtn>
+        <CloseBtn onClick={closeModal}>X</CloseBtn>
 
         {waterCards.length > 0 ? (
           <div>
             {waterCards.map((card, index) => (
               <div key={index}>
+                <Glass />
                 <p>{`${card.amount} ml, ${card.time}`}</p>
               </div>
             ))}
@@ -104,20 +105,16 @@ export const AddWater = ({ onSave, waterCardsSave }) => {
         <ContainerModal>
           <AmountWater>Amount of water:</AmountWater>
           <InputAndBtnWaterContainer>
-            <BtnPlusMinus
-              name="minus"
-              type="button"
-              onClick={handleChangeWater}
-            >
+            <BtnPlusMinus name="minus" type="button" onClick={handleMinusClick}>
               -
             </BtnPlusMinus>
             <InputWaterFix
               type="number"
-              name="water"
+              name="amountWater"
               value={amountWater}
-              onChange={handleChange}
+              onChange={formik.handleChange}
             />
-            <BtnPlusMinus name="plus" type="button" onClick={handleChangeWater}>
+            <BtnPlusMinus name="plus" type="button" onClick={handlePlusClick}>
               +
             </BtnPlusMinus>
           </InputAndBtnWaterContainer>
@@ -130,7 +127,7 @@ export const AddWater = ({ onSave, waterCardsSave }) => {
             name="time"
             value={time}
             step="300"
-            onChange={handleChange}
+            onChange={formik.handleChange}
           />
         </ContainerModal>
 
@@ -138,10 +135,10 @@ export const AddWater = ({ onSave, waterCardsSave }) => {
           <AmountWaterText>Enter the value of the water used:</AmountWaterText>
           <InputTimeWater
             type="number"
-            name="water"
+            name="amountWater"
             value={amountWater}
             min={0}
-            onChange={handleChange}
+            onChange={formik.handleChange}
           />
         </ContainerModal>
 
@@ -150,6 +147,6 @@ export const AddWater = ({ onSave, waterCardsSave }) => {
           <BtnSave type="submit">Save</BtnSave>
         </FinallyContainer>
       </AddWaterForm>
-    </div>
+    </AddWaterModal>
   );
 };

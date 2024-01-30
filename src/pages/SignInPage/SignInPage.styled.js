@@ -13,7 +13,7 @@ export const Container = styled.div`
   }
 
   .background-wrap {
-    background-image: url(./images/desktop/background-element-main-page@1x.png);
+    background-image: url(src/images/desktop/background-element-main-page@1x.png);
     width: 1440px;
 
     height: 582px;

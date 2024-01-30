@@ -1,15 +1,15 @@
 import styled from 'styled-components';
 
-import bg_desk_1x from '../../../../public/images/desktop/background-main-page@1x.png';
-import bg_tabl_1x from '../../../../public/images/tablet/background-main-page@1x.png';
-import bg_mobile_1x from '../../../../public/images/mobile/Background-Main-Page@1x.png';
+import bg_desk_1x from 'src/images/desktop/background-main-page@1x.png';
+import bg_tabl_1x from 'src/images/tablet/background-main-page@1x.png';
+import bg_mobile_1x from 'src/images/mobile/Background-Main-Page@1x.png';
 
-import bg_desk_2x from '../../../../public/images/desktop/background-main-page@2x.png';
-import bg_tabl_2x from '../../../../public/images/tablet/background-main-page@2x.png';
-import bg_mobile_2x from '../../../../public/images/mobile/background-main-page@2x.png';
+import bg_desk_2x from 'src/images/desktop/background-main-page@2x.png';
+import bg_tabl_2x from 'src/images/tablet/background-main-page@2x.png';
+import bg_mobile_2x from 'src//images/mobile/background-main-page@2x.png';
 
-import bg_main_elements_1x from '../../../../public/images/desktop/background-element-main-page@1x.png';
-import bg_main_elements_2x from '../../../../public/images/desktop/background-element-main-page@2x.png';
+import bg_main_elements_1x from 'src/images/desktop/background-element-main-page@1x.png';
+import bg_main_elements_2x from 'src/images/desktop/background-element-main-page@2x.png';
 
 export const WelcomeStyledContainer = styled.section`
   min-height: 100%;

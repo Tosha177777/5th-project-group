@@ -7,7 +7,7 @@ const SignInPage = () => {
       <div className="background-wrap"></div>
       <img
         className="img-bottle"
-        src="./images/desktop/bottle-for-sign-in@1x.png"
+        src="src/images/desktop/bottle-for-sign-in@1x.png"
         alt="Bottle of water"
       />
       <SignInForm />

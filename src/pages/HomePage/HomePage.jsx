@@ -1,18 +1,18 @@
-import { Container, DailyContainer, ControllContainer } from './HomePage.styled';
+import { HomeContainer, DailyContainer, ControllContainer } from './HomePage.styled';
 import MyComponent from './ProgresBar';
 
 const HomePage = () => {
   return (
-<Container>
+<HomeContainer>
   <DailyContainer>
 
    <MyComponent>Today</MyComponent>
      
   </DailyContainer>
   <ControllContainer>
-    
+
   </ControllContainer>
-</Container>);
+</HomeContainer>);
 
 };
 

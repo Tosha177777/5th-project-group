@@ -2,14 +2,11 @@ import { NavLink } from 'react-router-dom';
 import styled from 'styled-components';
 
 export const FormContainer = styled.div`
-  width: 384px;
+  width: 100%;
   margin: 0 auto;
   display: block;
-
-  position: absolute;
-  top: 162px;
-  right: 100px;
-  z-index: 1000;
+  margin-top: 24px;
+  margin-bottom: 66px;
 
   h1 {
     margin: 0;
@@ -19,11 +16,10 @@ export const FormContainer = styled.div`
     font-size: 26px;
     font-style: normal;
     font-weight: 500;
-    line-height: 32px;
+    line-height: 1.23;
   }
 
   label {
-    
     display: block;
     margin-bottom: 16px;
     color: #2f2f2f;
@@ -31,7 +27,7 @@ export const FormContainer = styled.div`
     font-size: 18px;
     font-style: normal;
     font-weight: 400;
-    line-height: 24px;
+    line-height: 1.33;
   }
 
   input {
@@ -42,7 +38,7 @@ export const FormContainer = styled.div`
     font-size: 16px;
     font-style: normal;
     font-weight: 400;
-    line-height: 20px;
+    line-height: 1.25;
     padding: 10px 12px;
     margin-top: 8px;
 
@@ -69,8 +65,23 @@ export const FormContainer = styled.div`
     font-size: 18px;
     font-style: normal;
     font-weight: 500;
-    line-height: 24px;
+    line-height: 1.33;
     margin-bottom: 16px;
+  }
+
+  @media only screen and (min-width: 768px) {
+    width: 336px;
+    margin-top: 40px;
+    margin-bottom: 0;
+    margin-left: 0;
+  }
+
+  @media only screen and (min-width: 1440px) {
+    width: 384px;
+    position: absolute;
+    top: 125px;
+    right: 165px;
+    z-index: 1000;
   }
 `;
 

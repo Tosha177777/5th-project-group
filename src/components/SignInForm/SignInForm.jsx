@@ -1,9 +1,9 @@
-import React from 'react';
+
 
 import { FormContainer, StyledSignUpLink } from './SignInForm.styled';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
-import styled from 'styled-components';
+
 
 const SignInSchema = Yup.object().shape({
   email: Yup.string().email('Please enter a valid email').required(),

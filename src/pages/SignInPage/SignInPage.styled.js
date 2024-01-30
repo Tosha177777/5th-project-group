@@ -1,13 +1,14 @@
 import styled from 'styled-components';
 
 export const Container = styled.div`
+
   position: relative;
   max-height: 680px;
   overflow: hidden;
 
-  .background-wrap {
-    background-image: url(./images/mobile/background-element-sign-in@1x.png);
 
+   .background-wrap {
+    background-image: url(./images/mobile/background-element-sign-in@1x.png);
     position: absolute;
     background-position: center;
     background-repeat: no-repeat;
@@ -21,12 +22,12 @@ export const Container = styled.div`
     width: 100%;
   }
 
+
   @media only screen and (min-width: 768px) {
     overflow: visible;
     position: relative;
     .background-wrap {
       background-image: url(./images/tablet/bottle-for-sign-in@1x.png);
-
       position: absolute;
       background-position: center;
       background-repeat: no-repeat;

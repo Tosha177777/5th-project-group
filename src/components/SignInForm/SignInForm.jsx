@@ -1,8 +1,10 @@
 
 
+
 import { FormContainer, StyledSignUpLink } from './SignInForm.styled';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
+
 
 
 const SignInSchema = Yup.object().shape({
@@ -13,10 +15,7 @@ const SignInSchema = Yup.object().shape({
     .required(),
 });
 
-
 const SignInForm = () => {
-  
-
   const initialValues = {
     email: '',
     password: '',
@@ -45,7 +44,7 @@ const SignInForm = () => {
             <ErrorMessage name="password" />
           </label>
           <button type="submit">Sign In</button>
-          <StyledSignUpLink to="/sign-up">Sign up</StyledSignUpLink>
+          <StyledSignUpLink to="/signup">Sign up</StyledSignUpLink>
         </Form>
       </FormContainer>
     </Formik>

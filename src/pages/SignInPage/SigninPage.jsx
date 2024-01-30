@@ -1,13 +1,16 @@
 import { Container } from './SignInPage.styled';
+
 // import React from 'react';
 import  SignInForm  from '../../components/SignInForm/SignInForm';
 
 
-const SignInPage = () => {
 
+
+const SignInPage = () => {
   return (
     <Container>
       <div className="background-wrap"></div>
+
       <SignInForm />
       
       <div>

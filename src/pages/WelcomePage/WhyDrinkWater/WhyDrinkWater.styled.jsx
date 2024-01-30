@@ -21,6 +21,7 @@ export const WhyDrinkWaterTitle = styled.h2`
   font-weight: 500;
   line-height: 1.1;
   color: var(--Primery-Color-Black, #2F2F2F);
+  margin-bottom: 12px
 `
 
 export const InfoList = styled.ul``;

@@ -24,6 +24,7 @@ export const BenefitsTitle = styled.h2`
   font-weight: 500;
   line-height: 1.1;
   color: var(--Primery-Color-Black, #2F2F2F);
+  margin-bottom: 12px;
 `;
 
 export const BenefitsList = styled.ul`
@@ -124,24 +125,27 @@ export const MainButton = styled.button`
 
 export const CalendarIcon = styled(CalendarSvg)`
    margin-right: 8px;
-   @media screen and (min-width: 768px) {
-    width: 40px;
-    height: 40px;
+   @media only screen and (max-width: 767px) {
+    width: 32px;
+    height: 32px;
+    object-fit: contain;
   }
 `;
 
 export const PresentationIcon = styled(PresentationSvg)`
    margin-right: 8px;
-   @media screen and (min-width: 768px) {
-    width: 40px;
-    height: 40px;
+   @media only screen and (max-width: 767px) {
+    width: 32px;
+    height: 32px;
+    object-fit: contain;
   }
 `;
 
 export const ToolsIcon = styled(ToolsSvg)`
    margin-right: 8px;
-   @media screen and (min-width: 768px) {
-    width: 40px;
-    height: 40px;
+   @media only screen and (max-width: 767px) {
+    width: 32px;
+    height: 32px;
+    object-fit: contain;
   }
 `;

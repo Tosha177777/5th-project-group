@@ -1,16 +1,16 @@
 import { Container } from './WelcomePage.styled';
-import  WelcomeContainer from './WelcomeContainer/WelcomeContainer';
+// import  WelcomeContainer from './WelcomeContainer/WelcomeContainer';
 import { WhyDrinkWater } from './WhyDrinkWater/WhyDrinkWater';
 import { WaterСonsumptionTracker } from './WaterСonsumptionTracker/WaterСonsumptionTracker';
 
 const WelcomePage = () => {
   return (
-    <WelcomeContainer>
+    // <WelcomeContainer>
       <Container>
        <WaterСonsumptionTracker/>
        <WhyDrinkWater/>
       </Container>
-    </WelcomeContainer>
+    // {/* </WelcomeContainer> */}
   );
 };
 

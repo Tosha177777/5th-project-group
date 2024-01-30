@@ -9,11 +9,11 @@ export const AppContainer = styled.div`
 
   @media (min-width: 768px) {
     padding: 0 32px;
-
     max-width: 768px;
   }
 
   @media (min-width: 1440px) {
-    max-width: 1280px;
+    max-width: 1440px;
+    padding: 0 112px;
   }
 `;

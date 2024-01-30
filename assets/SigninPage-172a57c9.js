@@ -1,4 +1,4 @@
-import{u as e,N as p,j as o}from"./index-e6bc0063.js";import{c as d,a as t,F as m,d as x,e as n,E as i}from"./formik.esm-c7a3ddc6.js";const f=e.div`
+import{u as e,N as p,j as o}from"./index-e978f7df.js";import{c as d,a as t,F as m,d as x,e as n,E as i}from"./formik.esm-925ffd1c.js";const c=e.div`
   display: flex;
 
   position: relative;
@@ -11,7 +11,7 @@ import{u as e,N as p,j as o}from"./index-e6bc0063.js";import{c as d,a as t,F as 
   }
 
   .background-wrap {
-    background-image: url(./images/desktop/Background-element-Main-Page@1x.png);
+    background-image: url(src/images/desktop/background-element-main-page@1x.png);
     width: 1440px;
 
     height: 582px;
@@ -25,7 +25,7 @@ width: 100%; */
     top: 49px;
     left: -100px;
   }
-`,c=e.div`
+`,f=e.div`
   width: 384px;
   margin: 0 auto;
   display: block;
@@ -103,4 +103,4 @@ width: 100%; */
   font-style: normal;
   font-weight: 400;
   line-height: 20px;
-`,b=d().shape({email:t().email("Please enter a valid email").required(),password:t().min(8,"Password must be 8 or more characters").max(30).required()}),h=()=>{const a={email:"",password:""},r=(s,{resetForm:l})=>{console.log(s),l()};return o.jsx(m,{initialValues:a,validationSchema:b,onSubmit:r,children:o.jsx(c,{children:o.jsxs(x,{autoComplete:"off",children:[o.jsx("h1",{children:"Sign In"}),o.jsxs("label",{className:"label",htmlFor:"email",children:["Enter your email",o.jsx(n,{name:"email",type:"email",placeholder:"E-mail"}),o.jsx(i,{name:"email"})]}),o.jsxs("label",{htmlFor:"password",children:["Enter your password",o.jsx(n,{name:"password",type:"password",placeholder:"Password"}),o.jsx(i,{name:"password"})]}),o.jsx("button",{type:"submit",children:"Sign In"}),o.jsx(g,{to:"/sign-up",children:"Sign up"})]})})})},y=()=>o.jsxs(f,{children:[o.jsx("div",{className:"background-wrap"}),o.jsx("img",{className:"img-bottle",src:"./images/desktop/Bottle-for-Sign-in@1x.png",alt:"Bottle of water"}),o.jsx(h,{})]});export{y as default};
+`,b=d().shape({email:t().email("Please enter a valid email").required(),password:t().min(8,"Password must be 8 or more characters").max(30).required()}),h=()=>{const a={email:"",password:""},r=(s,{resetForm:l})=>{console.log(s),l()};return o.jsx(m,{initialValues:a,validationSchema:b,onSubmit:r,children:o.jsx(f,{children:o.jsxs(x,{autoComplete:"off",children:[o.jsx("h1",{children:"Sign In"}),o.jsxs("label",{className:"label",htmlFor:"email",children:["Enter your email",o.jsx(n,{name:"email",type:"email",placeholder:"E-mail"}),o.jsx(i,{name:"email"})]}),o.jsxs("label",{htmlFor:"password",children:["Enter your password",o.jsx(n,{name:"password",type:"password",placeholder:"Password"}),o.jsx(i,{name:"password"})]}),o.jsx("button",{type:"submit",children:"Sign In"}),o.jsx(g,{to:"/signup",children:"Sign up"})]})})})},y=()=>o.jsxs(c,{children:[o.jsx("div",{className:"background-wrap"}),o.jsx("img",{className:"img-bottle",src:"src/images/desktop/bottle-for-sign-in@1x.png",alt:"Bottle of water"}),o.jsx(h,{})]});export{y as default};

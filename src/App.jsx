@@ -12,7 +12,7 @@ const SigninPage = lazy(() => import('./pages/SignInPage/SigninPage'));
 const appRoutes = [
   { path: '/', element: <WelcomePage /> },
   {
-    path: '/sign-up',
+    path: '/signup',
     element: (
       <RestrictedRoute>
         <SignUpPage />

@@ -1,9 +1,19 @@
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import styled from 'styled-components';
 
 export const HeaderEl = styled.header`
   display: flex;
   align-items: center;
+
+  margin: 8px 0 24px 0;
+
+  @media (min-width: 768px) {
+    margin-top: 16px;
+  }
+
+  @media (min-width: 1440px) {
+    margin: 12px 0 20px 0;
+  }
 `;
 
 export const HeaderContainer = styled.div`
@@ -15,6 +25,7 @@ export const HeaderContainer = styled.div`
   max-width: 320px;
   width: 100%;
   height: 48px;
+
   @media (min-width: 768px) {
     padding: 0 32px;
 
@@ -47,7 +58,7 @@ export const StyledLogoText = styled.p`
   width: 58px;
 `;
 
-export const StyledLogoLink = styled(Link)`
+export const StyledLogoLink = styled(NavLink)`
   display: flex;
   align-items: center;
   gap: 4px;
@@ -62,7 +73,7 @@ export const StyledLogoLink = styled(Link)`
   }
 `;
 
-export const StyledSignLink = styled(Link)`
+export const StyledSignLink = styled(NavLink)`
   display: flex;
   align-items: center;
   gap: 8px;

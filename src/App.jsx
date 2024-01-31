@@ -1,8 +1,9 @@
 import { Route, Routes } from 'react-router-dom';
 import { Suspense, lazy } from 'react';
 import { Header } from './components/Header/Header';
-import { AppContainer } from './App.styled';
 import { Loader } from './components/Loader/Loader';
+import RestrictedRoute from './components/RestrictedRoutes/RestrictedRoute';
+import { AppContainer } from './App.styled';
 
 const WelcomePage = lazy(() => import('./pages/WelcomePage/WelcomePage'));
 const SignUpPage = lazy(() => import('./pages/SignUpPage/SignUpPage'));
@@ -11,12 +12,20 @@ const SigninPage = lazy(() => import('./pages/SignInPage/SigninPage'));
 const appRoutes = [
   { path: '/', element: <WelcomePage /> },
   {
-    path: '/sign-up',
-    element: <SignUpPage />,
+    path: '/signup',
+    element: (
+      <RestrictedRoute>
+        <SignUpPage />
+      </RestrictedRoute>
+    ),
   },
   {
-    path: '/sign-in',
-    element: <SigninPage />,
+    path: '/signin',
+    element: (
+      <RestrictedRoute>
+        <SigninPage />
+      </RestrictedRoute>
+    ),
   },
 ];
 

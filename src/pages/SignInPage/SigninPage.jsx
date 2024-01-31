@@ -1,16 +1,5 @@
 import {  ContainerBagWrap } from './SignInPage.styled';
-
-
-
-import  SignInForm  from '../../components/SignInForm/SignInForm'
-
-
-
-
-
-
-
-
+import  SignInForm  from '/src/components/SignInForm/SignInForm'
 
 
 const SignInPage = () => {

@@ -22,6 +22,18 @@ export const DailyNormaModalContent = styled.div`
   padding: 24px 12px;
   border-radius: 10px;
   background-color: white;
+
+  @media (min-width: 768px) {
+    padding: 32px 24px;
+
+    width: 704px;
+    height: 696px;
+  }
+
+  @media (min-width: 1440px) {
+    width: 592px;
+    height: 712px;
+  }
 `;
 
 export const ExitBtn = styled.button`
@@ -35,6 +47,15 @@ export const ExitBtn = styled.button`
   background-color: inherit;
 
   cursor: pointer;
+
+  @media (min-width: 768px) {
+    top: 36px;
+    left: 656px;
+  }
+
+  @media (min-width: 1440px) {
+    left: 544px;
+  }
 `;
 
 export const ModalTitle = styled.h1`
@@ -48,6 +69,11 @@ export const ModalTitle = styled.h1`
 export const FormulaCover = styled.div`
   margin-bottom: 12px;
 
+  @media (min-width: 768px) {
+    display: flex;
+    gap: 24px;
+  }
+
   .formula-text {
     color: var(--Primery-Color-Black, #2f2f2f);
     font-size: 16px;
@@ -57,6 +83,12 @@ export const FormulaCover = styled.div`
 
   .formula-text:not(:last-child) {
     margin-bottom: 16px;
+  }
+
+  @media (min-width: 768px) {
+    .formula-text:not(:last-child) {
+      margin-bottom: 0;
+    }
   }
 
   .formula-acsent {
@@ -123,6 +155,19 @@ export const ModalForm = styled.form`
     font-weight: 400;
     line-height: 20px;
   }
+
+  @media (min-width: 768px) {
+    .form-input {
+      width: 656px;
+    }
+  }
+
+  @media (min-width: 1440px) {
+    .form-input {
+      width: 524px;
+    }
+  }
+
   .weight-lable {
     display: block;
     margin-bottom: 16px;
@@ -130,6 +175,10 @@ export const ModalForm = styled.form`
 
   .activeTime-title {
     margin-bottom: 8px;
+
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 20px;
   }
 
   .activeTime-lable {
@@ -149,6 +198,12 @@ export const ModalForm = styled.form`
     width: 190px;
   }
 
+  @media (min-width: 768px) {
+    .litersPerDay-text {
+      width: 328px;
+    }
+  }
+
   .calculated-litersPerDay {
     display: block;
     color: var(--Primery-Color-Blue, #407bff);
@@ -163,6 +218,7 @@ export const ModalForm = styled.form`
   }
 
   .submit-btn {
+    display: block;
     width: 256px;
     height: 36px;
     padding: 8px 30px;
@@ -178,6 +234,16 @@ export const ModalForm = styled.form`
     border: transparent;
     box-shadow: 0px 4px 8px 0px rgba(64, 123, 255, 0.34);
     cursor: pointer;
+  }
+
+  @media (min-width: 768px) {
+    .submit-btn {
+      padding: 10px 30px;
+      width: 160px;
+      height: 44px;
+
+      margin-left: auto;
+    }
   }
 `;
 

@@ -72,6 +72,20 @@ export function DailyNormaModal({ closeModal }) {
     setNumber('');
   };
 
+  const requiredWaterCalculation = (gender, weight, time) => {
+    if (gender === 'woman') {
+      const woman = weight * 0.03 + time * 0.4;
+      setRequiredWater(woman.toFixed(1));
+    } else {
+      const man = weight * 0.04 + time * 0.6;
+      setRequiredWater(man.toFixed(1));
+    }
+  };
+
+  useEffect(() => {
+    requiredWaterCalculation(gender, weight, activeTime);
+  }, [activeTime, weight, gender]);
+
   return (
     <Overlay onClick={closeOnBackdrop}>
       <DailyNormaModalContent>

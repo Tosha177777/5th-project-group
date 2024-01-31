@@ -8,6 +8,8 @@ import { AppContainer } from './App.styled';
 const WelcomePage = lazy(() => import('./pages/WelcomePage/WelcomePage'));
 const SignUpPage = lazy(() => import('./pages/SignUpPage/SignUpPage'));
 const SigninPage = lazy(() => import('./pages/SignInPage/SigninPage'));
+const HomePage = lazy(() => import('./pages/HomePage/HomePage'));
+
 
 const appRoutes = [
   { path: '/', element: <WelcomePage /> },
@@ -26,6 +28,10 @@ const appRoutes = [
         <SigninPage />
       </RestrictedRoute>
     ),
+  },
+  {
+    path: '/home-page',
+    element: <HomePage />,
   },
 ];
 

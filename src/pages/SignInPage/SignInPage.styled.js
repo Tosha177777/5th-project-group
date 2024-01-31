@@ -8,7 +8,7 @@ export const Container = styled.div`
 
 
    .background-wrap {
-    background-image: url(./images/mobile/background-element-sign-in@1x.png);
+    background-image: url(src/images/mobile/background-element-sign-in@1x.png);
     position: absolute;
     background-position: center;
     background-repeat: no-repeat;
@@ -27,7 +27,7 @@ export const Container = styled.div`
     overflow: visible;
     position: relative;
     .background-wrap {
-      background-image: url(./images/tablet/bottle-for-sign-in@1x.png);
+      background-image: url(src/images/tablet/bottle-for-sign-in@1x.png);
       position: absolute;
       background-position: center;
       background-repeat: no-repeat;
@@ -54,7 +54,7 @@ export const Container = styled.div`
     }
 
     .background-wrap {
-      background-image: url(./images/desktop/background-element-main-page@1x.png);
+      background-image: url(src/images/desktop/background-element-main-page@1x.png);
       max-width: 1440px;
 
       height: 582px;

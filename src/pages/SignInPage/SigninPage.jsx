@@ -17,39 +17,39 @@ const SignInPage = () => {
         <picture>
           {/* mobile */}
           <source
-            srcSet="../../images/mobile/bottle-sign-in@1x.png"
+            srcSet="src/images/mobile/bottle-sign-in@1x.png"
             type="image/png"
           />
           <source
-            srcSet="../../images/mobile/bottle-sign-in@2x.png"
+            srcSet="src/images/mobile/bottle-sign-in@2x.png"
             type="image/png"
           />
           {/* tablet */}
           <source
             media="min-width:768px"
-            srcSet="../../images/tablet/bottle-sign-in@1x.png"
+            srcSet="src/images/tablet/bottle-sign-in@1x.png"
             type="image/png"
           />
           <source
             media="min-width:768px"
-            srcSet="../../images/tablet/bottle-sign-in@2x.png"
+            srcSet="src/images/tablet/bottle-sign-in@2x.png"
             type="image/png"
           />
           {/* desktop */}
           <source
             media="min-width:1440px"
-            srcSet="../../images/desktop/bottle-sign-in@1x.png"
+            srcSet="src/images/desktop/bottle-sign-in@1x.png"
             type="image/png"
           />
           <source
             media="min-width:1440px"
-            srcSet="../../images/desktop/bottle-sign-in@2x.png"
+            srcSet="src/images/desktop/bottle-sign-in@2x.png"
             type="image/png"
           />
 
           <img
             className="img-bottle"
-            src="../../images/desktop/bottle-sign-in@1x.png"
+            src="src/images/desktop/bottle-sign-in@1x.png"
             alt="Bottle of water"
             loading="lazy"
           />

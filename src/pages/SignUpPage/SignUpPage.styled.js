@@ -35,42 +35,42 @@ export const StyledForm = styled.form`
     margin-bottom: 8px;
     font-size: 18px;
     line-height: 1.33;
-    color: #2f2f2f;
+    color: ${colors.primaryColorBlack};
   }
 
   input {
-    padding: 12px 10px;
+    padding: 11px 10px;
     width: 100%;
     font-size: 16px;
     line-height: 1.2;
     border-radius: 6px;
-    border-color: #d7e3ff;
-    color: #407bff;
+    border-color: ${colors.secondaryColor6};
+    color: ${colors.primaryColorBlue};
   }
 
   input::placeholder {
-    color: #9ebbff;
+    color: ${colors.secondaryColor4};
   }
 
   input:focus {
-    outline: #d7e3ff;
+    outline: ${colors.secondaryColor5};
     background-color: none;
   }
 
   input:invalid {
-    border-color: #ef5050;
+    border-color: ${colors.secondaryColor3};
   }
 
   p {
     margin-left: 4px;
     font-size: 14px;
-    color: #ef5050;
+    color: ${colors.secondaryColor3};
   }
 
   a {
     font-size: 16px;
     line-height: 1.25;
-    color: #407bff;
+    color: ${colors.primaryColorBlue};
   }
 `;
 export const StyledSubmitBtn = styled.button`
@@ -79,8 +79,8 @@ export const StyledSubmitBtn = styled.button`
   line-height: 1.25;
   border-radius: 10px;
   border: none;
-  background-color: #407bff;
-  color: #ffffff;
+  background-color: ${colors.primaryColorBlue};
+  color: ${colors.primaryColorWhite};
 
   @media (min-width: 768px) {
     font-size: 18px;
@@ -90,8 +90,7 @@ export const StyledSubmitBtn = styled.button`
 export const StyledToggleBtn = styled.button`
   position: absolute;
   right: 10px;
-  top: 54px;
-  transform: translateY(-50%);
+  top: 44px;
   background: none;
   border: none;
   cursor: pointer;
@@ -143,8 +142,8 @@ export const StyledBackgroundWrap = styled.div`
   @media (min-width: 1440px) {
     max-width: 1404px;
     width: 100%;
-    height: 680px;
-    top: -140px;
+    height: 100%;
+    top: -149px;
     left: 18px;
     background-image: url('src/images/desktop/bottle-for-sign-in@1x.png'),
       url('src/images/desktop/background-element-main-page@1x.png');

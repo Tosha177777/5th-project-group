@@ -1,9 +1,6 @@
-import React from 'react';
-
 import { FormContainer, StyledSignUpLink } from './SignInForm.styled';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
-import styled from 'styled-components';
 
 const SignInSchema = Yup.object().shape({
   email: Yup.string().email('Please enter a valid email').required(),
@@ -13,10 +10,7 @@ const SignInSchema = Yup.object().shape({
     .required(),
 });
 
-
 const SignInForm = () => {
-  
-
   const initialValues = {
     email: '',
     password: '',
@@ -45,7 +39,7 @@ const SignInForm = () => {
             <ErrorMessage name="password" />
           </label>
           <button type="submit">Sign In</button>
-          <StyledSignUpLink to="/sign-up">Sign up</StyledSignUpLink>
+          <StyledSignUpLink to="/signup">Sign up</StyledSignUpLink>
         </Form>
       </FormContainer>
     </Formik>

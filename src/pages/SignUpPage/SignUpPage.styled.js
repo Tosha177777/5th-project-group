@@ -62,7 +62,7 @@ export const StyledForm = styled.form`
   }
 
   p {
-    margin-left: 4px;
+    margin-left: 44px;
     font-size: 14px;
     color: ${colors.secondaryColor3};
   }

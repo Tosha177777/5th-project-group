@@ -1,11 +1,12 @@
 import styled from "styled-components";
+import colors from "../../../root/root";
 
 import { ReactComponent as CalendarSvg } from '../../../svgs/icons/calendar.svg';
 import { ReactComponent as PresentationSvg } from '../../../svgs/icons/presentation.svg';
 import { ReactComponent as ToolsSvg } from '../../../svgs/icons/tools.svg';
 
 export const MainTitle = styled.h1`
-  color: var(--Primery-Color-Black, #2F2F2F);
+  color: ${colors.primaryColorBlack};
   font-size: 36px;
   font-weight: 700;
   line-height: 1.16;
@@ -23,7 +24,7 @@ export const BenefitsTitle = styled.h2`
   font-size: 18px;
   font-weight: 500;
   line-height: 1.1;
-  color: var(--Primery-Color-Black, #2F2F2F);
+  color: ${colors.primaryColorBlack};
   margin-bottom: 12px;
 `;
 
@@ -31,6 +32,7 @@ export const BenefitsList = styled.ul`
   font-size: 16px;
   font-weight: 400;
   line-height: 1.25;
+  color: ${colors.primaryColorBlack};
 
   @media only screen and (min-width: 768px) and (max-width: 1439px) {
     display: flex;
@@ -57,7 +59,7 @@ export const BenefitsItem = styled.li`
 `
 
 export const Paragraph = styled.p`
-  color: var(--Primery-Color-Black, #2F2F2F);
+  color: ${colors.primaryColorBlack};
   font-size: 24px;
   font-weight: 400;
   line-height: 1.25;
@@ -90,14 +92,14 @@ export const MainButton = styled.button`
   height: 36px;
   margin-top: 24px;
 
-  color: #fff;
+  color: ${colors.primaryColorWhite};
   text-align: center;
   font-size: 16px;
   font-weight: 500;
   line-height: 1.25;
 
   border-radius: 10px;
-  background-color: var(--Primery-Color-Blue, #407BFF);
+  background-color: ${colors.primaryColorBlue};
   box-shadow: 0px 4px 8px 0px rgba(64, 123, 255, 0.34);
   outline: none;
   border: none;

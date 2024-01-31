@@ -1,7 +1,7 @@
 import Button from '@mui/material/Button';
 import styled from 'styled-components';
 
-import colors from '../../root/root';
+import colors from '/src/root/root';
 
 export const UserInfoBtn = styled(Button)`
   display: flex;
@@ -22,9 +22,10 @@ export const UserPhoto = styled.span`
   display: flex;
   justify-content: center;
   border-radius: 50%;
+  overflow: hidden;
 
   width: 28px;
   height: 28px;
 
-  margin-right: 6px;
+  margin-right: 4px;
 `;

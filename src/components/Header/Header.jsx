@@ -6,10 +6,10 @@ import {
   StyledLogoLink,
   StyledLogoText,
 } from './Header.styled';
-import { ReactComponent as Logo } from '../../svgs/header/logo.svg';
-import { ReactComponent as UnAuthUser } from '../../svgs/icons/user.svg';
+import { ReactComponent as Logo } from '/src/svgs/header/logo.svg';
+import { ReactComponent as UnAuthUser } from '/src/svgs/icons/user.svg';
 import { useSelector } from 'react-redux';
-import { selectAuthIsSignedIn } from '../../redux/authSelectors';
+import { selectAuthIsSignedIn } from '/src/redux/authSelectors';
 import HeaderUser from './UserLogo';
 
 export const Header = () => {

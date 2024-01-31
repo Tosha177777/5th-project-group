@@ -1,18 +1,21 @@
 
 
 
-import { FormContainer, StyledSignUpLink } from './SignInForm.styled';
-import { Formik, Form, Field, ErrorMessage } from 'formik';
+import { Form, FormTitle, StyledSignUpLink } from './SignInForm.styled';
+import { Formik, Field, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
-
+import { useDispatch } from 'react-redux';
+import {  loginThunk } from '../../redux/authOperations';
 
 
 const SignInSchema = Yup.object().shape({
-  email: Yup.string().email('Please enter a valid email').required(),
+  email: Yup.string()
+    .email('Please enter a valid email')
+    .required('E-mail is required'),
   password: Yup.string()
     .min(8, 'Password must be 8 or more characters')
     .max(30)
-    .required(),
+    .required('Password is required'),
 });
 
 const SignInForm = () => {
@@ -20,19 +23,24 @@ const SignInForm = () => {
     email: '',
     password: '',
   };
-  const handleSubmit = (values, { resetForm }) => {
-    console.log(values);
+  const dispatch = useDispatch(); 
+  const handleSubmit = ({ email, password }, { resetForm }) => {
+    console.log({ email, password });
+    const userValues = { email, password };
+    
+    dispatch(loginThunk(userValues));
     resetForm();
   };
+  
   return (
     <Formik
       initialValues={initialValues}
       validationSchema={SignInSchema}
       onSubmit={handleSubmit}
     >
-      <FormContainer>
+      {/* <FormContainer> */}
         <Form autoComplete="off">
-          <h1>Sign In</h1>
+          <FormTitle>Sign In</FormTitle>
           <label className="label" htmlFor="email">
             Enter your email
             <Field name="email" type="email" placeholder="E-mail" />
@@ -46,7 +54,7 @@ const SignInForm = () => {
           <button type="submit">Sign In</button>
           <StyledSignUpLink to="/signup">Sign up</StyledSignUpLink>
         </Form>
-      </FormContainer>
+      {/* </FormContainer> */}
     </Formik>
   );
 };

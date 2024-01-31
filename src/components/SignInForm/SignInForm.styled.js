@@ -1,7 +1,11 @@
 import { NavLink } from 'react-router-dom';
 import styled from 'styled-components';
 
-export const FormContainer = styled.div`
+export const FormTitle = styled.h1`
+
+
+`
+export const Form = styled.div`
   width: 100%;
   margin: 0 auto;
   display: block;
@@ -12,11 +16,12 @@ export const FormContainer = styled.div`
     margin: 0;
     margin-bottom: 16px;
     color: #2f2f2f;
-    font-family: Roboto;
+    
     font-size: 26px;
-    font-style: normal;
+    
     font-weight: 500;
     line-height: 1.23;
+    
   }
 
   label {

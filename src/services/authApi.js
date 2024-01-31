@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 const instance = axios.create({
-  baseURL: `some URL`,
+  baseURL: `https://water-tracker-o2xv.onrender.com/auth`,
 });
 
 export const setToken = (token) => {
@@ -9,19 +9,19 @@ export const setToken = (token) => {
 };
 
 export const requestRegister = async (formData) => {
-  const { data } = await instance.post('endpoint', formData);
+  const { data } = await instance.post('/signup', formData);
   setToken(data.token);
   return data;
 };
 
 export const requestLogin = async (formData) => {
-  const { data } = await instance.post('endpoint', formData);
+  const { data } = await instance.post('/signin', formData);
   setToken(data.token);
   return data;
 };
 
 export const requestLogout = async () => {
-  const { data } = await instance.post('endpoint');
+  const { data } = await instance.post('/signout');
   return data;
 };
 

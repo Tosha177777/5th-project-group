@@ -1,15 +1,16 @@
-import { Container } from './SignInPage.styled';
+import {  ContainerBagWrap } from './SignInPage.styled';
+
 
 // import React from 'react';
-import  SignInForm  from '../../components/SignInForm/SignInForm';
-
-
+import  SignInForm  from '../../components/SignInForm/SignInForm'
 
 
 const SignInPage = () => {
   return (
-    <Container>
-      <div className="background-wrap"></div>
+    <>
+    <ContainerBagWrap></ContainerBagWrap>
+    {/* <Container> */}
+      
 
       <SignInForm />
       
@@ -55,7 +56,8 @@ const SignInPage = () => {
           />
         </picture>
       </div>
-    </Container>
+      {/* </Container> */}
+      </>
   );
 };
 

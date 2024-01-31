@@ -246,5 +246,3 @@ export const ModalForm = styled.form`
     }
   }
 `;
-
-export const dasdasd = styled.h1``;

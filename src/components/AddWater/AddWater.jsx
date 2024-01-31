@@ -6,9 +6,14 @@ import {
   AddWaterForm,
   PageName,
   CloseBtn,
+  WaterCardsDiv,
+  WaterCards,
+  TimeCards,
   PageText,
   InputAndBtnWaterContainer,
   AmountWater,
+  MinusSvg,
+  PlusSvg,
   BtnPlusMinus,
   InputWaterFix,
   EnterTime,
@@ -20,6 +25,7 @@ import {
 } from './AddWater.styled';
 
 import { ReactComponent as Glass } from '../../svgs/icons/glass.svg';
+import { ReactComponent as Cross } from '../../svgs/icons/cross.svg';
 
 export const AddWater = ({ onSave, waterCardsSave }) => {
   const [isModalOpen, setIsModalOpen] = useState(true);
@@ -29,6 +35,23 @@ export const AddWater = ({ onSave, waterCardsSave }) => {
     const hours = now.getHours();
     const minutes = (now.getMinutes() < 10 ? '0' : '') + now.getMinutes();
     return `${hours}:${minutes}`;
+  };
+
+  // const getCurrentTime = () => {
+  //   const now = new Date();
+  //   let hours = now.getHours();
+  //   const minutes = (now.getMinutes() < 10 ? '0' : '') + now.getMinutes();
+  //   const period = hours >= 12 ? 'PM' : 'AM';
+  //   hours = hours % 12 || 12; // 0 часов становится 12 часов
+  //   return `${hours}:${minutes} ${period}`;
+  // };
+
+  const convertTo12HourFormat = (time24) => {
+    const [hours, minutes] = time24.split(':');
+    const hour = parseInt(hours, 10);
+    const period = hour >= 12 ? 'PM' : 'AM';
+    const hour12 = hour % 12 || 12;
+    return `${hour12}:${minutes} ${period}`;
   };
 
   const formik = useFormik({
@@ -86,17 +109,20 @@ export const AddWater = ({ onSave, waterCardsSave }) => {
     >
       <AddWaterForm onSubmit={formik.handleSubmit}>
         <PageName>Edit the entered amount of water</PageName>
-        <CloseBtn onClick={closeModal}>X</CloseBtn>
+        <CloseBtn onClick={closeModal}>
+          <Cross />
+        </CloseBtn>
 
         {waterCards.length > 0 ? (
-          <div>
+          <WaterCardsDiv>
             {waterCards.map((card, index) => (
-              <div key={index}>
+              <WaterCards key={index}>
                 <Glass />
-                <p>{`${card.amount} ml, ${card.time}`}</p>
-              </div>
+                <p>{`${card.amount} ml`}</p>
+                <TimeCards>{convertTo12HourFormat(card.time)}</TimeCards>
+              </WaterCards>
             ))}
-          </div>
+          </WaterCardsDiv>
         ) : (
           <p>No notes yet</p>
         )}
@@ -106,16 +132,17 @@ export const AddWater = ({ onSave, waterCardsSave }) => {
           <AmountWater>Amount of water:</AmountWater>
           <InputAndBtnWaterContainer>
             <BtnPlusMinus name="minus" type="button" onClick={handleMinusClick}>
-              -
+              <MinusSvg />
             </BtnPlusMinus>
             <InputWaterFix
               type="number"
               name="amountWater"
               value={amountWater}
               onChange={formik.handleChange}
+              readOnly
             />
             <BtnPlusMinus name="plus" type="button" onClick={handlePlusClick}>
-              +
+              <PlusSvg />
             </BtnPlusMinus>
           </InputAndBtnWaterContainer>
         </ContainerModal>

@@ -1,5 +1,5 @@
 import ProgressBar from 'progressbar.js';
-import { FormContainer } from './ProgressBar.styled';
+import { Btn, FormContainer } from './ProgressBar.styled';
 
 
 const MyComponent = () => { new ProgressBar.Line(FormContainer, {
@@ -31,10 +31,10 @@ const MyComponent = () => { new ProgressBar.Line(FormContainer, {
     }
   });
 MyComponent.animate(1);
-  const 
+
 return (
   <MyComponent>
-    <Btn type="button" onClick=></Btn>
+    <Btn type="button"></Btn>
   </MyComponent>
 )
 }

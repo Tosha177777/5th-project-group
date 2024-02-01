@@ -1,16 +1,14 @@
-import {  ContainerBagWrap } from './SignInPage.styled';
-import  SignInForm  from '/src/components/SignInForm/SignInForm'
-
+import { ContainerBagWrap } from './SignInPage.styled';
+import SignInForm from '/src/components/SignInForm/SignInForm';
 
 const SignInPage = () => {
   return (
     <>
-    <ContainerBagWrap></ContainerBagWrap>
-    {/* <Container> */}
-      
+      <ContainerBagWrap></ContainerBagWrap>
+      {/* <Container> */}
 
       <SignInForm />
-      
+
       <div>
         <picture>
           {/* mobile */}
@@ -54,7 +52,7 @@ const SignInPage = () => {
         </picture>
       </div>
       {/* </Container> */}
-      </>
+    </>
   );
 };
 

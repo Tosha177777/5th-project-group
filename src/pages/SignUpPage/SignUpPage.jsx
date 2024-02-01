@@ -12,8 +12,7 @@ const SignUpPage = () => {
       <StyledBackgroundWrap></StyledBackgroundWrap>
       <SignUpForm />
       {authError && <StyledErrorMessage>Oops! Something goes wrong... Try again.</StyledErrorMessage> }
-      </>
-    
+      </>    
   );
 };
 

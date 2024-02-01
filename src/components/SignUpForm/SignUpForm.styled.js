@@ -62,6 +62,11 @@ export const StyledForm = styled(Form)`
     border-color: ${colors.secondaryColor3};
   }
 
+  input::-ms-reveal,
+  input::-ms-clear {
+    display: none;
+  }
+
   p {
     margin-left: 4px;
     font-size: 14px;

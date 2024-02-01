@@ -1,7 +1,12 @@
 import Popover from '@mui/material/Popover';
 import PopupState, { bindTrigger, bindPopover } from 'material-ui-popup-state';
 
-import { UserInfoBtn, UserName, UserPhoto } from './UserLogo.styled';
+import {
+  FirstLetter,
+  UserInfoBtn,
+  UserName,
+  UserPhoto,
+} from './UserLogo.styled';
 import { useSelector } from 'react-redux';
 import { selectAuthUserData } from '/src/redux/authSelectors';
 import { ReactComponent as Chevron } from '/src/svgs/icons/chevron.svg';
@@ -35,9 +40,9 @@ const HeaderUser = () => {
                   <img src={user.avatarURL} alt="" />
                 ) : (
                   (userName || userEmail) && (
-                    <span>
+                    <FirstLetter>
                       {(userName || userEmail).charAt(0).toUpperCase()}
-                    </span>
+                    </FirstLetter>
                   )
                 )}
               </UserPhoto>

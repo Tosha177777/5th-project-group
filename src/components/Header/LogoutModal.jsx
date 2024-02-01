@@ -11,7 +11,7 @@ import {
   TextWithBtn,
   Title,
   XCrosBtn,
-} from './Logout.styled';
+} from './LogoutModal.styled';
 import { ReactComponent as Xcros } from '/src/svgs/icons/xcros.svg';
 import { logoutThunk } from '/src/redux/authOperations.js';
 
@@ -45,7 +45,7 @@ const LogoutModal = ({ onClose }) => {
     <Overlay onClick={handleClick}>
       <Modal>
         <TextWithBtn>
-          <Title>Logout</Title>
+          <Title>Log out</Title>
           <XCrosBtn type="button">
             <Xcros onClick={handleClick} />
           </XCrosBtn>

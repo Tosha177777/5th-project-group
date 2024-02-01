@@ -9,9 +9,8 @@ export const Loader = () => {
         strokeColor={colors.secondaryColor4}
         strokeWidth="5"
         animationDuration="0.75"
-        width="80px"
-        marginLeft="auto"
-        marginRight="auto"
+        width="120"
+        marginLeft="300px"
         visible={true}
       />
     </StyledLoader>

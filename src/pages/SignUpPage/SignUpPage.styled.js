@@ -161,3 +161,20 @@ export const StyledBackgroundWrap = styled.div`
     }
   }
 `;
+
+export const StyledErrorMessage = styled.h3`
+  margin-top: 20px;
+  width: 280px;
+  font-size: 18px;
+  text-align: center;
+  color: ${colors.secondaryColor3};
+  @media (min-width: 768px) {
+    width: 320px;
+    margin-right: auto;
+    font-size: 20px;
+  }
+  @media (min-width: 1440px) {
+    margin-left: auto;
+    margin-right: 133px;
+  }
+`;

@@ -5,6 +5,9 @@ import colors from '/src/root/root.js';
 export const StyledPopover = styled.div`
   display: flex;
   flex-direction: column;
+  padding: 16px;
+
+  gap: 16px;
 `;
 
 export const LogoutBtn = styled.button`

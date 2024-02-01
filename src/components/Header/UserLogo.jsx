@@ -1,6 +1,5 @@
 import Popover from '@mui/material/Popover';
 import PopupState, { bindTrigger, bindPopover } from 'material-ui-popup-state';
-import { Typography } from '@mui/material';
 
 import { UserInfoBtn, UserName, UserPhoto } from './UserLogo.styled';
 import { useSelector } from 'react-redux';
@@ -63,9 +62,7 @@ const HeaderUser = () => {
                 },
               }}
             >
-              <Typography sx={{ p: 2 }}>
-                <PopUp />
-              </Typography>
+              <PopUp />
             </Popover>
           </div>
         )}

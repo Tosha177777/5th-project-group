@@ -20,6 +20,7 @@ export const StyledForm = styled(Form)`
   }
   h1 {
     font-size: 26px;
+    font-weight: 500;
     line-height: 1.23;
     color: ${colors.primaryColorBlack};
   }

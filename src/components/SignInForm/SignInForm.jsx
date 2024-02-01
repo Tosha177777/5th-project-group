@@ -1,4 +1,4 @@
-import { Form, FormTitle, StyledSignUpLink } from './SignInForm.styled';
+import { StyledForm, FormTitle, StyledSignUpLink } from './SignInForm.styled';
 import { Formik, Field, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
 import { useDispatch } from 'react-redux';
@@ -36,7 +36,7 @@ const SignInForm = () => {
       onSubmit={handleSubmit}
     >
       {/* <FormContainer> */}
-      <Form autoComplete="off">
+      <StyledForm autoComplete="off">
         <FormTitle>Sign In</FormTitle>
         <label className="label" htmlFor="email">
           Enter your email
@@ -50,7 +50,7 @@ const SignInForm = () => {
         </label>
         <button type="submit">Sign In</button>
         <StyledSignUpLink to="/signup">Sign up</StyledSignUpLink>
-      </Form>
+      </StyledForm>
       {/* </FormContainer> */}
     </Formik>
   );

@@ -12,7 +12,7 @@ const SignUpPage = () => {
       <SignUpForm />
       {authError && (
         <StyledErrorMessage>
-          Oops! Something goes wrong... Try again.
+          {authError}
         </StyledErrorMessage>
       )}
     </>

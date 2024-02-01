@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { useFormik } from 'formik'; // Import useFormik from formik library
+import { useFormik } from 'formik';
 import {
   AddWaterModal,
   ContainerModal,
@@ -27,7 +27,7 @@ import {
 import { ReactComponent as Glass } from '../../svgs/icons/glass.svg';
 import { ReactComponent as Cross } from '../../svgs/icons/cross.svg';
 
-export const AddWater = ({ onSave, waterCardsSave }) => {
+export const EditWater = ({ onSave, waterCardsSave }) => {
   const [isModalOpen, setIsModalOpen] = useState(true);
 
   const getCurrentTime = () => {
@@ -61,12 +61,12 @@ export const AddWater = ({ onSave, waterCardsSave }) => {
       waterCards: waterCardsSave || [],
     },
     onSubmit: ({ amountWater, time }, { resetForm }) => {
-      const newWaterCard = {
+      const UpdateWaterCard = {
         amount: amountWater,
         time: time,
       };
 
-      formik.setFieldValue('waterCards', [...waterCards, newWaterCard]);
+      formik.setFieldValue('waterCards', [UpdateWaterCard]);
 
       onSave(amountWater, time);
 

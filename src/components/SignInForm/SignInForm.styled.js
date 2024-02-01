@@ -1,11 +1,11 @@
 import { NavLink } from 'react-router-dom';
+import { Form } from 'formik';
 import styled from 'styled-components';
 
 export const FormTitle = styled.h1`
 
-
 `
-export const Form = styled.div`
+export const StyledForm = styled(Form)`
   width: 100%;
   margin: 0 auto;
   display: block;

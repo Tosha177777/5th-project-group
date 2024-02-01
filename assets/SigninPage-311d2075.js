@@ -1,4 +1,4 @@
-import{u as i,N as m,b as g,j as e,l as c}from"./index-77c40c32.js";import{c as x,a as o,d as b,e as a,E as s}from"./formik.esm-b5b17f35.js";const h=i.div`
+import{u as i,N as m,b as g,j as e,l as c}from"./index-df2cb0f7.js";import{F as x,c as b,a as o,d as h,e as a,E as s}from"./formik.esm-a4c357ee.js";const u=i.div`
 
     background-image: url(src/images/mobile/background-element-sign-in@1x.png);
     position: absolute;
@@ -70,10 +70,9 @@ import{u as i,N as m,b as g,j as e,l as c}from"./index-77c40c32.js";import{c as 
 
     
   }
-`;const u=i.h1`
+`;const f=i.h1`
 
-
-`,f=i.div`
+`,w=i(x)`
   width: 100%;
   margin: 0 auto;
   display: block;
@@ -156,11 +155,11 @@ import{u as i,N as m,b as g,j as e,l as c}from"./index-77c40c32.js";import{c as 
     right: 165px;
     z-index: 1000;
   }
-`,w=i(m)`
+`,y=i(m)`
   color: #407bff;
   font-family: Roboto;
   font-size: 16px;
   font-style: normal;
   font-weight: 400;
   line-height: 20px;
-`,y=x().shape({email:o().email("Please enter a valid email").required("E-mail is required"),password:o().min(8,"Password must be 8 or more characters").max(30).required("Password is required")}),j=()=>{const r=g(),l={email:"",password:""},p=({email:t,password:n},{resetForm:d})=>{console.log({email:t,password:n}),r(c({email:t,password:n})),d()};return e.jsx(b,{initialValues:l,validationSchema:y,onSubmit:p,children:e.jsxs(f,{autoComplete:"off",children:[e.jsx(u,{children:"Sign In"}),e.jsxs("label",{className:"label",htmlFor:"email",children:["Enter your email",e.jsx(a,{name:"email",type:"email",placeholder:"E-mail"}),e.jsx(s,{name:"email"})]}),e.jsxs("label",{htmlFor:"password",children:["Enter your password",e.jsx(a,{name:"password",type:"password",placeholder:"Password"}),e.jsx(s,{name:"password"})]}),e.jsx("button",{type:"submit",children:"Sign In"}),e.jsx(w,{to:"/signup",children:"Sign up"})]})})},z=()=>e.jsxs(e.Fragment,{children:[e.jsx(h,{}),e.jsx(j,{}),e.jsx("div",{children:e.jsxs("picture",{children:[e.jsx("source",{srcSet:"src/images/mobile/bottle-sign-in@1x.png",type:"image/png"}),e.jsx("source",{srcSet:"src/images/mobile/bottle-sign-in@2x.png",type:"image/png"}),e.jsx("source",{media:"min-width:768px",srcSet:"src/images/tablet/bottle-sign-in@1x.png",type:"image/png"}),e.jsx("source",{media:"min-width:768px",srcSet:"src/images/tablet/bottle-sign-in@2x.png",type:"image/png"}),e.jsx("source",{media:"min-width:1440px",srcSet:"src/images/desktop/bottle-sign-in@1x.png",type:"image/png"}),e.jsx("source",{media:"min-width:1440px",srcSet:"src/images/desktop/bottle-sign-in@2x.png",type:"image/png"}),e.jsx("img",{className:"img-bottle",src:"src/images/desktop/bottle-sign-in@1x.png",alt:"Bottle of water",loading:"lazy"})]})})]});export{z as default};
+`,j=b().shape({email:o().email("Please enter a valid email").required("E-mail is required"),password:o().min(8,"Password must be 8 or more characters").max(30).required("Password is required")}),k=()=>{const r=g(),l={email:"",password:""},p=({email:t,password:n},{resetForm:d})=>{console.log({email:t,password:n}),r(c({email:t,password:n})),d()};return e.jsx(h,{initialValues:l,validationSchema:j,onSubmit:p,children:e.jsxs(w,{autoComplete:"off",children:[e.jsx(f,{children:"Sign In"}),e.jsxs("label",{className:"label",htmlFor:"email",children:["Enter your email",e.jsx(a,{name:"email",type:"email",placeholder:"E-mail"}),e.jsx(s,{name:"email"})]}),e.jsxs("label",{htmlFor:"password",children:["Enter your password",e.jsx(a,{name:"password",type:"password",placeholder:"Password"}),e.jsx(s,{name:"password"})]}),e.jsx("button",{type:"submit",children:"Sign In"}),e.jsx(y,{to:"/signup",children:"Sign up"})]})})},F=()=>e.jsxs(e.Fragment,{children:[e.jsx(u,{}),e.jsx(k,{}),e.jsx("div",{children:e.jsxs("picture",{children:[e.jsx("source",{srcSet:"src/images/mobile/bottle-sign-in@1x.png",type:"image/png"}),e.jsx("source",{srcSet:"src/images/mobile/bottle-sign-in@2x.png",type:"image/png"}),e.jsx("source",{media:"min-width:768px",srcSet:"src/images/tablet/bottle-sign-in@1x.png",type:"image/png"}),e.jsx("source",{media:"min-width:768px",srcSet:"src/images/tablet/bottle-sign-in@2x.png",type:"image/png"}),e.jsx("source",{media:"min-width:1440px",srcSet:"src/images/desktop/bottle-sign-in@1x.png",type:"image/png"}),e.jsx("source",{media:"min-width:1440px",srcSet:"src/images/desktop/bottle-sign-in@2x.png",type:"image/png"}),e.jsx("img",{className:"img-bottle",src:"src/images/desktop/bottle-sign-in@1x.png",alt:"Bottle of water",loading:"lazy"})]})})]});export{F as default};

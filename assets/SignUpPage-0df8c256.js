@@ -1,4 +1,4 @@
-import{n as r,c as o,r as t,b as k,j as e,L as y,d as j,e as C,f as $,s as v}from"./index-77c40c32.js";import{F as S,c as z,a,b as E,d as B,e as s,E as p}from"./formik.esm-b5b17f35.js";const P=r(S)`
+import{n as r,c as o,r as t,b as k,j as e,L as y,d as j,e as C,f as $,s as v}from"./index-df2cb0f7.js";import{F as S,c as z,a,b as E,d as B,e as s,E as p}from"./formik.esm-a4c357ee.js";const P=r(S)`
   display: flex;
   flex-direction: column;
   gap: 16px;
@@ -16,6 +16,7 @@ import{n as r,c as o,r as t,b as k,j as e,L as y,d as j,e as C,f as $,s as v}fro
   }
   h1 {
     font-size: 26px;
+    font-weight: 500;
     line-height: 1.23;
     color: ${o.primaryColorBlack};
   }
@@ -255,4 +256,4 @@ import{n as r,c as o,r as t,b as k,j as e,L as y,d as j,e as C,f as $,s as v}fro
     margin-left: auto;
     margin-right: 133px;
   }
-`,T=()=>{const i=$(v);return e.jsxs(e.Fragment,{children:[e.jsx(M,{}),e.jsx(F,{}),i&&e.jsx(q,{children:"Oops! Something goes wrong... Try again."})]})};export{T as default};
+`,T=()=>{const i=$(v);return e.jsxs(e.Fragment,{children:[e.jsx(M,{}),e.jsx(F,{}),i&&e.jsx(q,{children:i})]})};export{T as default};

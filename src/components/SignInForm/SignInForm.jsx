@@ -1,5 +1,5 @@
-import { FormTitle, StyledSignUpLink } from './SignInForm.styled';
-import { Formik, Field, ErrorMessage, Form } from 'formik';
+import { Form, FormTitle, StyledSignUpLink } from './SignInForm.styled';
+import { Formik, Field, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
 import { useDispatch } from 'react-redux';
 import { loginThunk } from '../../redux/authOperations';
@@ -35,7 +35,7 @@ const SignInForm = () => {
       onSubmit={handleSubmit}
     >
       {/* <FormContainer> */}
-      <Form autoComplete="on">
+      <Form autoComplete="off">
         <FormTitle>Sign In</FormTitle>
         <label className="label" htmlFor="email">
           Enter your email

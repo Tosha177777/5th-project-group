@@ -15,11 +15,12 @@ const SignInSchema = Yup.object().shape({
 });
 
 const SignInForm = () => {
+  const dispatch = useDispatch();
   const initialValues = {
     email: '',
     password: '',
   };
-  const dispatch = useDispatch();
+
   const handleSubmit = ({ email, password }, { resetForm }) => {
     console.log({ email, password });
     const userValues = { email, password };

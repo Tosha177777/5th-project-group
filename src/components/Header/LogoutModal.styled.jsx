@@ -21,7 +21,7 @@ export const Modal = styled.div`
   flex-direction: column;
   gap: 24px;
 
-  background-color: white;
+  background-color: ${colors.primaryColorWhite};
 
   max-width: 280px;
   width: 100%;
@@ -30,6 +30,12 @@ export const Modal = styled.div`
   padding: 32px 24px;
 
   border-radius: 10px;
+
+  @media (min-width: 768px) {
+    max-width: 592px;
+
+    height: 208px;
+  }
 `;
 
 export const TextWithBtn = styled.div`
@@ -40,6 +46,15 @@ export const TextWithBtn = styled.div`
   justify-content: space-between;
 `;
 
+export const Title = styled.h2`
+  font-size: 26px;
+  font-weight: 500;
+  line-height: 32px;
+  letter-spacing: 0%;
+  text-align: left;
+  color: ${colors.primeryColorBlack};
+`;
+
 export const XCrosBtn = styled.button`
   display: flex;
   background-color: inherit;
@@ -48,15 +63,6 @@ export const XCrosBtn = styled.button`
   padding: 0;
 
   align-items: center;
-`;
-
-export const Title = styled.h2`
-  font-size: 26px;
-  font-weight: 500;
-  line-height: 32px;
-  letter-spacing: 0%;
-  text-align: left;
-  color: ${colors.primeryColorBlack};
 `;
 
 export const Text = styled.p`
@@ -72,6 +78,19 @@ export const BtnBox = styled.div`
   flex-direction: column;
 
   gap: 24px;
+
+  @media (min-width: 768px) {
+    flex-direction: row-reverse;
+
+    margin-left: auto;
+  }
+
+  @media (min-width: 1440px) {
+    flex-direction: row-reverse;
+
+    margin-left: 0;
+    margin-right: auto;
+  }
 `;
 
 export const LogoutBtn = styled.button`
@@ -88,6 +107,13 @@ export const LogoutBtn = styled.button`
   line-height: 20px;
   letter-spacing: 0%;
   color: ${colors.primaryColorWhite};
+
+  @media (min-width: 768px) {
+    width: 160px;
+
+    font-size: 18px;
+    line-height: 24px;
+  }
 `;
 
 export const CancelBtn = styled.button`
@@ -104,4 +130,11 @@ export const CancelBtn = styled.button`
   line-height: 20px;
   letter-spacing: 0%;
   color: ${colors.primaryColorBlue};
+
+  @media (min-width: 768px) {
+    width: 160px;
+
+    font-size: 18px;
+    line-height: 24px;
+  }
 `;

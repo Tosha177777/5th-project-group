@@ -21,11 +21,20 @@ export const UserName = styled.span`
 export const UserPhoto = styled.span`
   display: flex;
   justify-content: center;
+  align-items: center;
   border-radius: 50%;
   overflow: hidden;
+
+  background-color: transparent;
 
   width: 28px;
   height: 28px;
 
   margin-right: 4px;
+`;
+
+export const FirstLetter = styled.span`
+  font-size: 26px;
+  font-weight: 500;
+  color: ${colors.primaryColorBlack};
 `;

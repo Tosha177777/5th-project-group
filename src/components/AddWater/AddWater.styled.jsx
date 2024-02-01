@@ -1,4 +1,6 @@
 import styled from 'styled-components';
+import { ReactComponent as Minus } from '../../svgs/icons/minus.svg';
+import { ReactComponent as Plus } from '../../svgs/icons/plus.svg';
 
 export const AddWaterModal = styled.div`
   position: fixed;
@@ -8,6 +10,8 @@ export const AddWaterModal = styled.div`
   width: 100%;
   height: 100%;
   background: #000000cc;
+
+  z-index: 10000;
 `;
 
 export const ContainerModal = styled.div`
@@ -60,10 +64,52 @@ export const PageName = styled.h2`
 `;
 
 export const CloseBtn = styled.svg`
-  width: 12px;
-  height: 12px;
+  width: 24px;
+  height: 24px;
 
   position: absolute;
+  top: 24px;
+  right: 12px;
+
+  @media only screen and (min-width: 768px) {
+    top: 36px;
+    right: 24px;
+  }
+
+  &:hover {
+    cursor: pointer;
+  }
+`;
+
+export const WaterCardsDiv = styled.div`
+  margin-bottom: 24px;
+`;
+
+export const WaterCards = styled.div`
+  width: 256px;
+  height: 52px;
+
+  display: flex;
+
+  text-align: center;
+  align-items: center;
+
+  gap: 12px;
+
+  padding: 8px 24px 8px 24px;
+
+  background: #ecf2ff;
+
+  border-radius: 10px;
+`;
+
+export const TimeCards = styled.p`
+  color: #2f2f2f;
+
+  font-family: Roboto;
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 24px;
 `;
 
 export const PageText = styled.p`
@@ -95,12 +141,30 @@ export const AmountWater = styled.p`
   margin-bottom: 12px;
 `;
 
+export const MinusSvg = styled(Minus)`
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+  fill: #407bff;
+`;
+export const PlusSvg = styled(Plus)`
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+  fill: #407bff;
+`;
+
 export const BtnPlusMinus = styled.button`
   width: 44px;
   height: 44px;
   padding: 10px;
 
   background-color: #ffffff;
+  position: relative;
 
   border-radius: 30px;
   border: 1px solid #9ebbff;

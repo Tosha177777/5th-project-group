@@ -2,7 +2,7 @@ import { Form, FormTitle, StyledSignUpLink } from './SignInForm.styled';
 import { Formik, Field, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
 import { useDispatch } from 'react-redux';
-import { loginThunk } from '/src/redux/authOperations';
+import { loginThunk } from '../../redux/authOperations';
 
 const SignInSchema = Yup.object().shape({
   email: Yup.string()

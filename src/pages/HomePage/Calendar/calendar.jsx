@@ -1,4 +1,5 @@
 import React from "react";
+import classNames from "classnames";
 import * as calcul from "./calcul";
 import { Calendar } from "./calendar.styled";
 
@@ -58,7 +59,7 @@ export default  class Calendar extends React.Component {
 
     render() {
         const {years, monthNames, weekDayNames} = this.props;
-
+        const {currentDate, selectedDate} = this.state;
         const monthData = calcul.getMonthData(this.year, this.month);
 
         return(
@@ -68,7 +69,7 @@ export default  class Calendar extends React.Component {
 
                 <select 
                     ref={element => this.monthSelect = element}
-                    defaultValue={this.month}
+                    value={this.month}
                     className="select" 
                     onChange={this.handleSelectChange}
                 >
@@ -79,7 +80,7 @@ export default  class Calendar extends React.Component {
 
                 <select 
                     ref={element => this.yearSelect = element}
-                    defaultValue={this.year}
+                    value={this.year}
                     className="select" 
                     onChange={this.handleSelectChange}
                 >
@@ -104,7 +105,10 @@ export default  class Calendar extends React.Component {
                                 {week.map((date, index) => date ?
                                     <td 
                                         key={index} 
-                                        className="day"
+                                        className={classNames('day', {
+                                            'today' : calendar.areEqual(date, currentDate),
+                                            'selected' : calendar.areEqual(date, selectedDate)
+                                        })}
                                         onClock={() => this.handleDayClick(date)}
                                         >{date.geDate()}</td>
                                     :

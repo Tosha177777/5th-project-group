@@ -3,7 +3,12 @@ import { HomeContainer, DailyContainer, ControllContainer } from './HomePage.sty
 import MyComponent from './ProgresBar';
 
 const HomePage = () => {
+  state = {
+    daye: null  
+  };
+  handleDateChange = date => this.setState({ date });
 
+  const { date } = this.state;
   return (
 <HomeContainer>
   <DailyContainer>
@@ -12,7 +17,10 @@ const HomePage = () => {
      
   </DailyContainer>
   <ControllContainer>
-     <Calendar></Calendar>
+    {date && <p>Selected date: {date.toLocaleDateString()}</p> }
+     <Calendar
+     onChange={this.handleDateChange} 
+     />
   </ControllContainer>
 </HomeContainer>);
 

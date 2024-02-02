@@ -1,5 +1,5 @@
 import { Container } from './WelcomePage.styled';
-import  WelcomeContainer from './WelcomeContainer/WelcomeContainer';
+import WelcomeContainer from './WelcomeContainer/WelcomeContainer';
 import { WhyDrinkWater } from './WhyDrinkWater/WhyDrinkWater';
 import { WaterСonsumptionTracker } from './WaterСonsumptionTracker/WaterСonsumptionTracker';
 
@@ -7,8 +7,8 @@ const WelcomePage = () => {
   return (
     <WelcomeContainer>
       <Container>
-       <WaterСonsumptionTracker/>
-       <WhyDrinkWater/>
+        <WaterСonsumptionTracker />
+        <WhyDrinkWater />
       </Container>
     </WelcomeContainer>
   );

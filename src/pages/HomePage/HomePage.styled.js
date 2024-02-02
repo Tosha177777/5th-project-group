@@ -85,6 +85,9 @@ export const ControllContainer = styled.div`
    front-size: 26px;
    color: #2F2F2F;
   }
+`;
 
+export const DemoItem = styled.div`
 
 `;
+

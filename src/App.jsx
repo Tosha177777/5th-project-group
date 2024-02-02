@@ -31,7 +31,10 @@ const appRoutes = [
   },
   {
     path: '/home-page',
-    element: <HomePage />,
+    element: (
+      <RestrictedRoute>
+        <HomePage />
+      </RestrictedRoute>),
   },
 ];
 

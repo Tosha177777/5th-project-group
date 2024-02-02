@@ -15,6 +15,7 @@
     "@emotion/react": "^11.11.3",
     "@emotion/styled": "^11.11.0",
     "@mui/material": "^5.15.6",
+    "@mui/x-date-pickers-pro": "^6.19.2",
     "@owlui/progressbar": "^0.0.44",
     "@reduxjs/toolkit": "^2.1.0",
     "@vitejs/plugin-react-swc": "^3.3.2",

@@ -1,15 +1,15 @@
 import ProgressBar from 'progressbar.js';
 import { Btn, FormContainer } from './ProgressBar.styled';
 
-
-const MyComponent = () => { new ProgressBar.Line(FormContainer, {
+const MyComponent = () => {
+  new ProgressBar.Line(FormContainer, {
     strokeWidth: 4,
     easing: 'easeInOut',
     duration: 1400,
     color: '#FFEA82',
     trailColor: '#eee',
     trailWidth: 1,
-    svgStyle: {width: '100%', height: '100%'},
+    svgStyle: { width: '100%', height: '100%' },
     text: {
       style: {
         // Text color.
@@ -20,23 +20,23 @@ const MyComponent = () => { new ProgressBar.Line(FormContainer, {
         top: '30px',
         padding: 0,
         margin: 0,
-        transform: null
+        transform: null,
       },
-      autoStyleContainer: false
+      autoStyleContainer: false,
     },
-    from: {color: '#FFEA82'},
-    to: {color: '#ED6A5A'},
+    from: { color: '#FFEA82' },
+    to: { color: '#ED6A5A' },
     step: (state, MyComponent) => {
-        MyComponent.setText(Math.round(MyComponent.value() * 100) + ' %');
-    }
+      MyComponent.setText(Math.round(MyComponent.value() * 100) + ' %');
+    },
   });
-MyComponent.animate(1);
+  MyComponent.animate(1);
 
-return (
-  <MyComponent>
-    <Btn type="button"></Btn>
-  </MyComponent>
-)
-}
+  return (
+    <MyComponent>
+      <Btn type="button"></Btn>
+    </MyComponent>
+  );
+};
 
 export default MyComponent;

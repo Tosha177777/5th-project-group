@@ -3,6 +3,7 @@ import PopupState, { bindTrigger, bindPopover } from 'material-ui-popup-state';
 
 import {
   FirstLetter,
+  Photo,
   UserInfoBtn,
   UserName,
   UserPhoto,
@@ -37,7 +38,7 @@ const HeaderUser = () => {
               </UserName>
               <UserPhoto>
                 {user.avatarURL ? (
-                  <img src={user.avatarURL} alt="" />
+                  <Photo src={user.avatarURL} alt="" />
                 ) : (
                   (userName || userEmail) && (
                     <FirstLetter>

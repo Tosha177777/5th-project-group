@@ -48,7 +48,7 @@ export const Title = styled.h2`
   line-height: 32px;
   letter-spacing: 0%;
   text-align: left;
-  color: ${colors.primeryColorBlack};
+  color: ${colors.primaryColorBlack};
 
   margin-bottom: 24px;
 `;
@@ -105,4 +105,23 @@ export const FirstLetter = styled.span`
   font-size: 26px;
   font-weight: 500;
   color: ${colors.primaryColorBlack};
+`;
+
+export const Input = styled.input`
+  /* color: ${colors.primaryColorBlue}; */
+  display: none;
+`;
+
+export const Label = styled.label`
+  display: flex;
+  align-items: center;
+  gap: 8px;
+
+  margin-left: 8px;
+
+  cursor: pointer;
+`;
+
+export const StyledSpan = styled.span`
+  color: ${colors.primaryColorBlue};
 `;

@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 export const FormContainer = styled.div`
     margin: 20px;
-    width: 400px;
+    width: 100px;
     height: 8px;
     position: relative;
 

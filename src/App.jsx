@@ -31,10 +31,10 @@ const appRoutes = [
   },
   {
     path: '/home-page',
-    element: (
-      <RestrictedRoute>
+    element: 
+    
         <HomePage />
-      </RestrictedRoute>),
+      
   },
 ];
 

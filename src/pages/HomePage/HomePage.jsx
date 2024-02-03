@@ -1,28 +1,37 @@
-import { Calendar } from './Calendar/calendar';
+import Calendar from 'react-calendar';
 import { HomeContainer, DailyContainer, ControllContainer } from './HomePage.styled';
-import MyComponent from './ProgresBar';
+import { useState } from 'react';
+
+// import MyComponent from './ProgresBar';
 
 const HomePage = () => {
-  state = {
-    daye: null  
-  };
-  handleDateChange = date => this.setState({ date });
+  // const state = {
+  //   date: null  
+  // };
+  // const handleDateChange = date => this.setState({ date });
 
-  const { date } = this.state;
+  // const { date } = this.state;
+ 
+  const [calendarValue, onChangeCalendar] = useState(new Date()); 
   return (
-<HomeContainer>
-  <DailyContainer>
-
-   <MyComponent>Today</MyComponent>
+    <>
+<HomeContainer></HomeContainer>
+<p>My daily norma</p>
+  <span>1.5 L edit</span>
+   <DailyContainer>
+{/* 
+    <MyComponent>Today</MyComponent> */}
      
-  </DailyContainer>
+  </DailyContainer> 
   <ControllContainer>
-    {date && <p>Selected date: {date.toLocaleDateString()}</p> }
-     <Calendar
-     onChange={this.handleDateChange} 
-     />
+    <div>Today</div>
+    <div>
+      <Calendar onChange={onChangeCalendar} value={calendarValue} />
+    </div>
+
   </ControllContainer>
-</HomeContainer>);
+  </>
+);
 
 };
 

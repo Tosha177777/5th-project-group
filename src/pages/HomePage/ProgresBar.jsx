@@ -34,7 +34,7 @@ MyComponent.animate(1);
 
 return (
   <MyComponent>
-    <Btn type="button"></Btn>
+    <Btn type="button">Add water</Btn>
   </MyComponent>
 )
 }

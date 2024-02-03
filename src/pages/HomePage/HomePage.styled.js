@@ -70,7 +70,8 @@ export const DailyContainer = styled.div`
     front-size: 18px;
     color: #2F2F2F;
   }
-`;
+  
+ `;
 export const ControllContainer = styled.div`
   display: flex;
   width: 592px;
@@ -89,5 +90,4 @@ export const ControllContainer = styled.div`
   }
 
 `;
-
 

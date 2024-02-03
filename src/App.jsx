@@ -30,14 +30,8 @@ const appRoutes = [
   },
   {
     path: '/home-page',
-<<<<<<< HEAD
     element: 
-    
         <HomePage />
-      
-=======
-    element: <HomePage />,
->>>>>>> bb2e24364ed54dd974bedc023f7835f2d2824fe9
   },
 ];
 

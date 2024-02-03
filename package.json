@@ -17,6 +17,7 @@
     "@mui/material": "^5.15.6",
     "@mui/x-date-pickers-pro": "^6.19.2",
     "@owlui/progressbar": "^0.0.44",
+    "@ramonak/react-progress-bar": "^5.2.0",
     "@reduxjs/toolkit": "^2.1.0",
     "@syncfusion/ej2-react-calendars": "^24.2.3",
     "@vitejs/plugin-react-swc": "^3.3.2",

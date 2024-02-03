@@ -12,8 +12,8 @@ import {
 import storage from 'redux-persist/lib/storage';
 
 import { authReducer } from './authReducer';
+// import { userReducer } from './userInfoReducer';
 import { waterRateReducer } from './waterReducer';
-
 const authConfig = {
   key: 'auth',
   version: 1,

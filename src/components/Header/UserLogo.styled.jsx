@@ -38,3 +38,11 @@ export const FirstLetter = styled.span`
   font-weight: 500;
   color: ${colors.primaryColorBlack};
 `;
+
+export const Photo = styled.img`
+  width: 24px;
+  height: 24px;
+
+  border-radius: 50%;
+  overflow: hidden;
+`;

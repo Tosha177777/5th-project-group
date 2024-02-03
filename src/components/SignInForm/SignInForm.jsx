@@ -1,8 +1,17 @@
-import { StyledForm, FormTitle, StyledSignUpLink } from './SignInForm.styled';
-import { Formik, Field, ErrorMessage } from 'formik';
-import * as Yup from 'yup';
+
+import { useState } from 'react';
+import { Link } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
+import * as Yup from 'yup';
+import { Formik, Field, ErrorMessage } from 'formik';
 import { loginThunk } from '../../redux/authOperations';
+import {
+  StyledForm,
+  StyledSubmitBtn,
+  StyledToggleBtn,
+} from './SignInForm.styled';
+import { ReactComponent as Eye } from '../../svgs/icons/eye.svg';
+import { ReactComponent as SlashedEye } from '../../svgs/icons/slashed-eye.svg';
 
 const SignInSchema = Yup.object().shape({
   email: Yup.string()
@@ -15,6 +24,8 @@ const SignInSchema = Yup.object().shape({
 });
 
 const SignInForm = () => {
+  const [isPasswordVisible, setPasswordVisibility] = useState(false);
+  
   const dispatch = useDispatch();
   const initialValues = {
     email: '',
@@ -35,23 +46,34 @@ const SignInForm = () => {
       validationSchema={SignInSchema}
       onSubmit={handleSubmit}
     >
-      {/* <FormContainer> */}
+      
       <StyledForm autoComplete="off">
-        <FormTitle>Sign In</FormTitle>
-        <label className="label" htmlFor="email">
-          Enter your email
+        <h1>Sign In</h1>
+        <label>
+          <span>Enter your email</span>
           <Field name="email" type="email" placeholder="E-mail" />
-          <ErrorMessage name="email" />
+          <ErrorMessage name="email" component="p" />
         </label>
-        <label htmlFor="password">
-          Enter your password
-          <Field name="password" type="password" placeholder="Password" />
-          <ErrorMessage name="password" />
+        <label>
+          <span>Enter your password</span>
+          <Field
+            name="password"
+            type={isPasswordVisible ? 'text' : 'password'}
+            placeholder="Password"
+            pattern=".{8,}"
+          />
+          <StyledToggleBtn
+            type="button"
+            onClick={() => setPasswordVisibility(!isPasswordVisible)}
+          >
+            {isPasswordVisible ? <Eye /> : <SlashedEye />}
+          </StyledToggleBtn>
+          <ErrorMessage name="password" component="p" />
         </label>
-        <button type="submit">Sign In</button>
-        <StyledSignUpLink to="/signup">Sign up</StyledSignUpLink>
+        <StyledSubmitBtn type="submit">Sign In</StyledSubmitBtn>
+        <Link to="/signup">Sign up</Link>
       </StyledForm>
-      {/* </FormContainer> */}
+      
     </Formik>
   );
 };

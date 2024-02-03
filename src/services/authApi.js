@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 const instance = axios.create({
-  baseURL: `https://water-tracker-o2xv.onrender.com`,
+  baseURL: `https://water-tracker-o2xv.onrender.com/`,
 });
 
 export const setToken = (token) => {
@@ -9,28 +9,30 @@ export const setToken = (token) => {
 };
 
 export const requestRegister = async (formData) => {
-  const { data } = await instance.post('/auth/signup', formData);
+  const { data } = await instance.post('auth/signup', formData);
   setToken(data.token);
   return data;
 };
 
 export const requestLogin = async (formData) => {
-  const { data } = await instance.post('/auth/signin', formData);
+  const { data } = await instance.post('auth/signin', formData);
   setToken(data.token);
   return data;
 };
 
 export const requestLogout = async () => {
-  const { data } = await instance.post('/auth/signout');
+  const { data } = await instance.post('auth/signout');
+  setToken(data.token);
   return data;
 };
 
-// export const requestRefreshUser = async () => {
-//   const { data } = await instance.get('endpoint');
-//   return data;
-// };
+export const requestRefreshUser = async () => {
+  const { data } = await instance.get('users/current');
+  setToken(data.token);
+  return data;
+};
 
 export const reqestChangeWaterRate = async (water) => {
-  const { data } = await instance.patch('/water-rate', water);
+  const { data } = await instance.patch('water-rate', water);
   return data;
 };

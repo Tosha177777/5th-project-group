@@ -1,20 +1,21 @@
-import { Container } from './SignInPage.styled';
-import React from 'react';
-import  SignInForm  from '../../components/SignInForm/SignInForm';
 
-
+import { useSelector } from 'react-redux';
+import SignInForm from '/src/components/SignInForm/SignInForm';
+import { selectAuthError } from '/src/redux/authSelectors';
+import { StyledBackgroundWrap, StyledErrorMessage } from './SignInPage.styled';
 const SignInPage = () => {
-
+   const authError = useSelector(selectAuthError);
   return (
-    <Container>
-      <div className="background-wrap"></div>
-      <img
-        className="img-bottle"
-        src="./images/desktop/Bottle-for-Sign-in@1x.png"
-        alt="Bottle of water"
-      />
+     <>
+      <StyledBackgroundWrap></StyledBackgroundWrap>
       <SignInForm />
-    </Container>
+      {authError && (
+        <StyledErrorMessage>
+          {authError}
+        </StyledErrorMessage>
+      )}
+    </>
+    
   );
 };
 

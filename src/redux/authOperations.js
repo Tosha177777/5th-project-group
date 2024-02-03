@@ -4,7 +4,9 @@ import { createAsyncThunk } from '@reduxjs/toolkit';
 import {
   requestLogin,
   requestLogout,
+  requestRefreshUser,
   requestRegister,
+  setToken,
 } from '../services/authApi.js';
 
 export const registerThunk = createAsyncThunk(
@@ -34,12 +36,38 @@ export const loginThunk = createAsyncThunk(
 export const logoutThunk = createAsyncThunk(
   'auth/logout',
   async (_, thunkAPI) => {
+    const state = thunkAPI.getState();
+    const token = state.auth.token;
     try {
+      setToken(token);
       await requestLogout();
       return;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);
     }
+  }
+);
+
+export const refreshThunk = createAsyncThunk(
+  'users/current',
+  async (_, thunkAPI) => {
+    const state = thunkAPI.getState();
+    const token = state.auth.token;
+    try {
+      setToken(token);
+      const responseRefresh = await requestRefreshUser();
+      return responseRefresh;
+    } catch (error) {
+      return thunkAPI.rejectWithValue(error.message);
+    }
+  },
+  {
+    condition: (_, thunkAPI) => {
+      const state = thunkAPI.getState();
+      const token = state.auth.token;
+      if (!token) return false;
+      return true;
+    },
   }
 );
 

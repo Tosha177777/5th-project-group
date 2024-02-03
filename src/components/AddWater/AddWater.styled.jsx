@@ -318,3 +318,8 @@ export const BtnSave = styled.button`
     min-width: 160px;
   }
 `;
+
+export const ErrorMsg = styled.div`
+  color: red;
+  margin-bottom: 12px;
+`;

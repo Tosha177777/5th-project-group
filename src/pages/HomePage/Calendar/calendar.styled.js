@@ -1,59 +1,55 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
-export const Calendar = styled.div`
-   display: flex;
-   juistify-content: center;
-   margin-bottom: 8px;
+export const StyledCalendar = styled.div`
+  display: flex;
+  justify-content: center;
+  margin-bottom: 8px;
 
-   button,
-   select {
-    margin: 0 4px; 
-   }
+  button,
+  select {
+    margin: 0 4px;
+  }
 
-   day.selected {
+  day.selected {
     border: 2px solid dodgerblue;
-   }
+  }
 
-   day.today {
+  day.today {
     background-color: dodgerblue;
     color: white;
-   }
+  }
 
-   day.today:hover {
+  day.today:hover {
     background-color: #0081ff;
-   }
+  }
 
-   day.today,selected {
+  day.today,
+  selected {
     border: 2px solid lightgray;
-   }
-
+  }
 `;
 
+export const Tab = styled.table`
+  table-layout: fixed;
+  border-collapse: separate;
+  border-spacing: 0;
+  margin: auto;
+`;
 
- export const Tab = styled.table`
-   table-layout: fixed;
-   border-collapse: separate;
-   border-spacing: 0;
-   margin: auto;
- `;
+export const Th = styled.thead`
+  vertical-align: middle;
+  text-align: center;
+  height: 36px;
+`;
 
- export const Th = styled.thead`
-   verticasl-align: middle;
-   text-align: center;
-   height: 36px;
+export const Day = styled.td`
+  padding: 4px 8px;
+  vertical-align: middle;
+  text-align: center;
+  border: 2px solid transparent;
 
- `;
-
- export const Day = styled.td`
-   padding: 4px 8px;
-   vertical-align: middle;
-   text-align: center;
-   border: 2px solid transparent;
-
-   &:hover {
+  &:hover {
     background-color: #eaeaea;
     cursor: pointer;
-   }
-
-   d
- `;
+  }
+`;

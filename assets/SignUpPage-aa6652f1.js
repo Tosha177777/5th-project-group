@@ -1,4 +1,4 @@
-import{n as r,c as o,r as t,b as k,j as e,L as y,d as j,e as C,f as $,s as v}from"./index-df2cb0f7.js";import{F as S,c as z,a,b as E,d as B,e as s,E as p}from"./formik.esm-a4c357ee.js";const P=r(S)`
+import{n as i,c as o,r as l,b as y,j as e,L as k,d as j,e as $,f as C,s as S}from"./index-d778f93c.js";import{F as v,c as z,a as n,b as B,d as E,e as a,E as s,S as d,f as c}from"./slashed-eye-0ddda801.js";const P=i(v)`
   display: flex;
   flex-direction: column;
   gap: 16px;
@@ -68,7 +68,7 @@ import{n as r,c as o,r as t,b as k,j as e,L as y,d as j,e as C,f as $,s as v}fro
   a:hover {
     color: ${o.secondaryColor5};
   }
-`,L=r.button`
+`,V=i.button`
   padding: 8px 30px;
   font-size: 16px;
   line-height: 1.25;
@@ -79,7 +79,7 @@ import{n as r,c as o,r as t,b as k,j as e,L as y,d as j,e as C,f as $,s as v}fro
   @media (min-width: 768px) {
     font-size: 18px;
   }
-`,d=r.button`
+`,m=i.button`
   position: absolute;
   right: 10px;
   top: 44px;
@@ -87,7 +87,7 @@ import{n as r,c as o,r as t,b as k,j as e,L as y,d as j,e as C,f as $,s as v}fro
   border: none;
   cursor: pointer;
   stroke: ${o.primaryColorBlue};
-`,c=i=>t.createElement("svg",{width:24,height:24,fill:"none",xmlns:"http://www.w3.org/2000/svg",...i},t.createElement("path",{d:"M2.036 12.322a1.012 1.012 0 0 1 0-.639C3.423 7.51 7.36 4.5 12 4.5c4.638 0 8.573 3.007 9.963 7.178.07.207.07.431 0 .639C20.577 16.49 16.64 19.5 12 19.5c-4.638 0-8.574-3.007-9.964-7.178Z",strokeLinecap:"round",strokeLinejoin:"round"}),t.createElement("path",{d:"M15 12a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z",strokeLinecap:"round",strokeLinejoin:"round"})),m=i=>t.createElement("svg",{width:24,height:24,fill:"none",xmlns:"http://www.w3.org/2000/svg",...i},t.createElement("path",{d:"M3.98 8.223A10.477 10.477 0 0 0 1.934 12c1.292 4.338 5.31 7.5 10.066 7.5.993 0 1.953-.138 2.863-.395M6.228 6.228A10.45 10.45 0 0 1 12 4.5c4.756 0 8.773 3.162 10.065 7.498a10.523 10.523 0 0 1-4.293 5.774M6.228 6.228 3 3m3.228 3.228 3.65 3.65m7.894 7.894L21 21m-3.228-3.228-3.65-3.65A3 3 0 1 0 9.88 9.879m4.242 4.242L9.881 9.88",strokeLinecap:"round",strokeLinejoin:"round"})),V=z().shape({email:a().email("Please enter a valid email").required("E-mail is required"),password:a().min(8,"Password must be 8 or more characters").max(64).required("Password is required"),repeatPassword:a().oneOf([E("password"),null],"The passwords do not match").required("Repeat password field is required")}),F=()=>{const[i,x]=t.useState(!1),[n,g]=t.useState(!1),l=k(),u={email:"",password:"",repeatPassword:""},h=({email:b,password:w},{resetForm:f})=>{event.preventDefault(),l(j({email:b,password:w})),l(C()),f()};return e.jsx(B,{initialValues:u,validationSchema:V,onSubmit:h,children:e.jsxs(P,{children:[e.jsx("h1",{children:"Sign Up"}),e.jsxs("label",{children:[e.jsx("span",{children:"Enter your email"}),e.jsx(s,{name:"email",type:"email",placeholder:"E-mail"}),e.jsx(p,{name:"email",component:"p"})]}),e.jsxs("label",{children:[e.jsx("span",{children:"Enter your password"}),e.jsx(s,{name:"password",type:i?"text":"password",placeholder:"Password",pattern:".{8,}"}),e.jsx(d,{type:"button",onClick:()=>x(!i),children:i?e.jsx(c,{}):e.jsx(m,{})}),e.jsx(p,{name:"password",component:"p"})]}),e.jsxs("label",{children:[e.jsx("span",{children:"Repeat password"}),e.jsx(s,{name:"repeatPassword",type:n?"text":"password",placeholder:"Repeat password",pattern:".{8,}"}),e.jsx(d,{type:"button",onClick:()=>g(!n),children:n?e.jsx(c,{}):e.jsx(m,{})}),e.jsx(p,{name:"repeatPassword",component:"p"})]}),e.jsx(L,{type:"submit",children:"Sign Up"}),e.jsx(y,{to:"/signin",children:"Sign in"})]})})};r.form`
+`,F=z().shape({email:n().email("Please enter a valid email").required("E-mail is required"),password:n().min(8,"Password must be 8 or more characters").max(64).required("Password is required"),repeatPassword:n().oneOf([B("password"),null],"The passwords do not match").required("Repeat password field is required")}),q=()=>{const[r,x]=l.useState(!1),[t,g]=l.useState(!1),p=y(),u={email:"",password:"",repeatPassword:""},h=({email:b,password:w},{resetForm:f})=>{event.preventDefault(),p(j({email:b,password:w})),p($()),f()};return e.jsx(E,{initialValues:u,validationSchema:F,onSubmit:h,children:e.jsxs(P,{children:[e.jsx("h1",{children:"Sign Up"}),e.jsxs("label",{children:[e.jsx("span",{children:"Enter your email"}),e.jsx(a,{name:"email",type:"email",placeholder:"E-mail"}),e.jsx(s,{name:"email",component:"p"})]}),e.jsxs("label",{children:[e.jsx("span",{children:"Enter your password"}),e.jsx(a,{name:"password",type:r?"text":"password",placeholder:"Password",pattern:".{8,}"}),e.jsx(m,{type:"button",onClick:()=>x(!r),children:r?e.jsx(d,{}):e.jsx(c,{})}),e.jsx(s,{name:"password",component:"p"})]}),e.jsxs("label",{children:[e.jsx("span",{children:"Repeat password"}),e.jsx(a,{name:"repeatPassword",type:t?"text":"password",placeholder:"Repeat password",pattern:".{8,}"}),e.jsx(m,{type:"button",onClick:()=>g(!t),children:t?e.jsx(d,{}):e.jsx(c,{})}),e.jsx(s,{name:"repeatPassword",component:"p"})]}),e.jsx(V,{type:"submit",children:"Sign Up"}),e.jsx(k,{to:"/signin",children:"Sign in"})]})})};i.form`
   display: flex;
   flex-direction: column;
   gap: 16px;
@@ -148,7 +148,7 @@ import{n as r,c as o,r as t,b as k,j as e,L as y,d as j,e as C,f as $,s as v}fro
   }
 
   p {
-    margin-left: 4px;
+    margin-left: 44px;
     font-size: 14px;
     color: ${o.secondaryColor3};
   }
@@ -158,7 +158,7 @@ import{n as r,c as o,r as t,b as k,j as e,L as y,d as j,e as C,f as $,s as v}fro
     line-height: 1.25;
     color: ${o.primaryColorBlue};
   }
-`;r.button`
+`;i.button`
   padding: 8px 30px;
   font-size: 16px;
   line-height: 1.25;
@@ -170,7 +170,7 @@ import{n as r,c as o,r as t,b as k,j as e,L as y,d as j,e as C,f as $,s as v}fro
   @media (min-width: 768px) {
     font-size: 18px;
   }
-`;r.button`
+`;i.button`
   position: absolute;
   right: 10px;
   top: 44px;
@@ -178,7 +178,7 @@ import{n as r,c as o,r as t,b as k,j as e,L as y,d as j,e as C,f as $,s as v}fro
   border: none;
   cursor: pointer;
   stroke: ${o.primaryColorBlue};
-`;const M=r.div`
+`;const R=i.div`
   max-width: 320px;
   width: 100%;
   height: 570px;
@@ -241,7 +241,7 @@ import{n as r,c as o,r as t,b as k,j as e,L as y,d as j,e as C,f as $,s as v}fro
         url('src/images/desktop/background-element-main-page@2x.png');
     }
   }
-`,q=r.h3`
+`,U=i.h3`
   margin-top: 20px;
   width: 280px;
   font-size: 18px;
@@ -256,4 +256,4 @@ import{n as r,c as o,r as t,b as k,j as e,L as y,d as j,e as C,f as $,s as v}fro
     margin-left: auto;
     margin-right: 133px;
   }
-`,T=()=>{const i=$(v);return e.jsxs(e.Fragment,{children:[e.jsx(M,{}),e.jsx(F,{}),i&&e.jsx(q,{children:i})]})};export{T as default};
+`,D=()=>{const r=C(S);return e.jsxs(e.Fragment,{children:[e.jsx(R,{}),e.jsx(q,{}),r&&e.jsx(U,{children:r})]})};export{D as default};

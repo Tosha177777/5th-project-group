@@ -10,7 +10,6 @@ const SignUpPage = lazy(() => import('./pages/SignUpPage/SignUpPage'));
 const SigninPage = lazy(() => import('./pages/SignInPage/SigninPage'));
 const HomePage = lazy(() => import('./pages/HomePage/HomePage'));
 
-
 const appRoutes = [
   { path: '/', element: <WelcomePage /> },
   {
@@ -31,10 +30,14 @@ const appRoutes = [
   },
   {
     path: '/home-page',
+<<<<<<< HEAD
     element: 
     
         <HomePage />
       
+=======
+    element: <HomePage />,
+>>>>>>> bb2e24364ed54dd974bedc023f7835f2d2824fe9
   },
 ];
 

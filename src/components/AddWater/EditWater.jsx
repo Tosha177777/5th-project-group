@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { useFormik } from 'formik';
+import * as Yup from 'yup';
 import {
   AddWaterModal,
   ContainerModal,
@@ -37,15 +38,6 @@ export const EditWater = ({ onSave, waterCardsSave }) => {
     return `${hours}:${minutes}`;
   };
 
-  // const getCurrentTime = () => {
-  //   const now = new Date();
-  //   let hours = now.getHours();
-  //   const minutes = (now.getMinutes() < 10 ? '0' : '') + now.getMinutes();
-  //   const period = hours >= 12 ? 'PM' : 'AM';
-  //   hours = hours % 12 || 12; // 0 часов становится 12 часов
-  //   return `${hours}:${minutes} ${period}`;
-  // };
-
   const convertTo12HourFormat = (time24) => {
     const [hours, minutes] = time24.split(':');
     const hour = parseInt(hours, 10);
@@ -58,19 +50,24 @@ export const EditWater = ({ onSave, waterCardsSave }) => {
     initialValues: {
       amountWater: 0,
       time: getCurrentTime(),
-      waterCards: waterCardsSave || [],
+      waterCards: [waterCardsSave],
     },
-    onSubmit: ({ amountWater, time }, { resetForm }) => {
+    validationSchema: Yup.object({
+      amountWater: Yup.number()
+        .min(1, 'You should drink at least some water')
+        .max(3000, 'It is unlikely you drank so much water')
+        .required('Amount of water is required'),
+      time: Yup.string().required('Recording time is required'),
+    }),
+    onSubmit: async ({ amountWater, time }) => {
       const UpdateWaterCard = {
-        amount: amountWater,
+        amountWater: amountWater,
         time: time,
       };
 
-      formik.setFieldValue('waterCards', [UpdateWaterCard]);
+      await formik.setFieldValue('waterCards', [UpdateWaterCard]);
 
-      onSave(amountWater, time);
-
-      resetForm();
+      onSave({ amountWater, time });
     },
   });
 
@@ -113,16 +110,14 @@ export const EditWater = ({ onSave, waterCardsSave }) => {
           <Cross />
         </CloseBtn>
 
-        {waterCards.length > 0 ? (
+        {waterCards.length > 0 && (
           <WaterCardsDiv>
             <WaterCards>
               <Glass />
-              <p>{`${waterCards[0].amount} ml`}</p>
+              <p>{`${waterCards[0].amountWater} ml`}</p>
               <TimeCards>{convertTo12HourFormat(waterCards[0].time)}</TimeCards>
             </WaterCards>
           </WaterCardsDiv>
-        ) : (
-          <p>No notes yet</p>
         )}
 
         <PageText>Correct entered data:</PageText>

@@ -228,7 +228,7 @@ export const InputTimeWater = styled.input`
   line-height: 20px;
 
   &::-webkit-calendar-picker-indicator {
-    width: 180px;
+    width: 176px;
     height: 44px;
     opacity: 0;
   }
@@ -242,13 +242,7 @@ export const InputTimeWater = styled.input`
   @media only screen and (min-width: 768px) {
     width: 544px;
     &::-webkit-calendar-picker-indicator {
-      width: 468px;
-    }
-  }
-
-  @media only screen and (min-width: 1440px) {
-    &::-webkit-calendar-picker-indicator {
-      width: 468px;
+      width: 464px;
     }
   }
 `;

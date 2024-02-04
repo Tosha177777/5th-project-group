@@ -68,6 +68,7 @@ export function DailyNormaModal({ closeModal }) {
     };
     if (waterResult > 0) {
       dispatch(changeWaterRate(water));
+      closeModal();
     }
   };
 

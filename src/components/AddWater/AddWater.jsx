@@ -1,5 +1,6 @@
 import { useState } from 'react';
-import { useFormik } from 'formik'; // Import useFormik from formik library
+import { useFormik } from 'formik';
+import * as Yup from 'yup';
 import {
   AddWaterModal,
   ContainerModal,
@@ -22,6 +23,7 @@ import {
   FinallyContainer,
   FinallyWater,
   BtnSave,
+  ErrorMsg,
 } from './AddWater.styled';
 
 import { ReactComponent as Glass } from '../../svgs/icons/glass.svg';
@@ -37,15 +39,6 @@ export const AddWater = ({ onSave, waterCardsSave }) => {
     return `${hours}:${minutes}`;
   };
 
-  // const getCurrentTime = () => {
-  //   const now = new Date();
-  //   let hours = now.getHours();
-  //   const minutes = (now.getMinutes() < 10 ? '0' : '') + now.getMinutes();
-  //   const period = hours >= 12 ? 'PM' : 'AM';
-  //   hours = hours % 12 || 12; // 0 часов становится 12 часов
-  //   return `${hours}:${minutes} ${period}`;
-  // };
-
   const convertTo12HourFormat = (time24) => {
     const [hours, minutes] = time24.split(':');
     const hour = parseInt(hours, 10);
@@ -60,6 +53,13 @@ export const AddWater = ({ onSave, waterCardsSave }) => {
       time: getCurrentTime(),
       waterCards: waterCardsSave || [],
     },
+    validationSchema: Yup.object({
+      amountWater: Yup.number()
+        .min(1, 'You should drink at least some water')
+        .max(3000, 'It is unlikely you drank so much water')
+        .required('Amount of water is required'),
+      time: Yup.string().required('Recording time is required'),
+    }),
     onSubmit: ({ amountWater, time }, { resetForm }) => {
       const newWaterCard = {
         amount: amountWater,
@@ -166,6 +166,9 @@ export const AddWater = ({ onSave, waterCardsSave }) => {
             onChange={formik.handleChange}
           />
         </ContainerModal>
+        {formik.touched.amountWater && formik.errors.amountWater ? (
+          <ErrorMsg>{formik.errors.amountWater}</ErrorMsg>
+        ) : null}
 
         <FinallyContainer>
           <FinallyWater>{amountWater}ml</FinallyWater>

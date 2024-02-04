@@ -1,4 +1,4 @@
-import{u as e,c as o,F as g,b as u,d as a,r as h,f as b,j as i,g as f,h as l,E as s,L as y,m as k,l as w,s as C}from"./index-203294a3.js";import{S as $,a as j}from"./slashed-eye-6672bf10.js";const S=e(g)`
+import{n as i,F as y,c as o,b as k,d as n,e as j,r as l,f as $,j as e,g as C,h as a,E as s,L as S,i as v,k as z,l as B,s as E}from"./index-e94e813d.js";import{S as d,a as c}from"./slashed-eye-9ca99ca5.js";const P=i(y)`
   display: flex;
   flex-direction: column;
   gap: 16px;
@@ -68,7 +68,7 @@ import{u as e,c as o,F as g,b as u,d as a,r as h,f as b,j as i,g as f,h as l,E a
   a:hover {
     color: ${o.secondaryColor5};
   }
-`,z=e.button`
+`,V=i.button`
   padding: 8px 30px;
   font-size: 16px;
   line-height: 1.25;
@@ -79,7 +79,7 @@ import{u as e,c as o,F as g,b as u,d as a,r as h,f as b,j as i,g as f,h as l,E a
   @media (min-width: 768px) {
     font-size: 18px;
   }
-`,v=e.button`
+`,m=i.button`
   position: absolute;
   right: 10px;
   top: 44px;
@@ -87,7 +87,7 @@ import{u as e,c as o,F as g,b as u,d as a,r as h,f as b,j as i,g as f,h as l,E a
   border: none;
   cursor: pointer;
   stroke: ${o.primaryColorBlue};
-`,B=u().shape({email:a().email("Please enter a valid email").required("E-mail is required"),password:a().min(8,"Password must be 8 or more characters").max(30).required("Password is required")}),E=()=>{const[r,p]=h.useState(!1),d=b(),c={email:"",password:""},m=({email:n,password:t},{resetForm:x})=>{console.log({email:n,password:t}),d(k({email:n,password:t})),x()};return i.jsx(f,{initialValues:c,validationSchema:B,onSubmit:m,children:i.jsxs(S,{autoComplete:"off",children:[i.jsx("h1",{children:"Sign In"}),i.jsxs("label",{children:[i.jsx("span",{children:"Enter your email"}),i.jsx(l,{name:"email",type:"email",placeholder:"E-mail"}),i.jsx(s,{name:"email",component:"p"})]}),i.jsxs("label",{children:[i.jsx("span",{children:"Enter your password"}),i.jsx(l,{name:"password",type:r?"text":"password",placeholder:"Password",pattern:".{8,}"}),i.jsx(v,{type:"button",onClick:()=>p(!r),children:r?i.jsx($,{}):i.jsx(j,{})}),i.jsx(s,{name:"password",component:"p"})]}),i.jsx(z,{type:"submit",children:"Sign In"}),i.jsx(y,{to:"/signup",children:"Sign up"})]})})};e.form`
+`,F=k().shape({email:n().email("Please enter a valid email").required("E-mail is required"),password:n().min(8,"Password must be 8 or more characters").max(64).required("Password is required"),repeatPassword:n().oneOf([j("password"),null],"The passwords do not match").required("Repeat password field is required")}),q=()=>{const[r,x]=l.useState(!1),[t,g]=l.useState(!1),p=$(),u={email:"",password:"",repeatPassword:""},h=({email:b,password:w},{resetForm:f})=>{event.preventDefault(),p(v({email:b,password:w})),p(z()),f()};return e.jsx(C,{initialValues:u,validationSchema:F,onSubmit:h,children:e.jsxs(P,{children:[e.jsx("h1",{children:"Sign Up"}),e.jsxs("label",{children:[e.jsx("span",{children:"Enter your email"}),e.jsx(a,{name:"email",type:"email",placeholder:"E-mail"}),e.jsx(s,{name:"email",component:"p"})]}),e.jsxs("label",{children:[e.jsx("span",{children:"Enter your password"}),e.jsx(a,{name:"password",type:r?"text":"password",placeholder:"Password",pattern:".{8,}"}),e.jsx(m,{type:"button",onClick:()=>x(!r),children:r?e.jsx(d,{}):e.jsx(c,{})}),e.jsx(s,{name:"password",component:"p"})]}),e.jsxs("label",{children:[e.jsx("span",{children:"Repeat password"}),e.jsx(a,{name:"repeatPassword",type:t?"text":"password",placeholder:"Repeat password",pattern:".{8,}"}),e.jsx(m,{type:"button",onClick:()=>g(!t),children:t?e.jsx(d,{}):e.jsx(c,{})}),e.jsx(s,{name:"repeatPassword",component:"p"})]}),e.jsx(V,{type:"submit",children:"Sign Up"}),e.jsx(S,{to:"/signin",children:"Sign in"})]})})};i.form`
   display: flex;
   flex-direction: column;
   gap: 16px;
@@ -148,7 +148,7 @@ import{u as e,c as o,F as g,b as u,d as a,r as h,f as b,j as i,g as f,h as l,E a
   }
 
   p {
-    margin-left: 4px;
+    margin-left: 44px;
     font-size: 14px;
     color: ${o.secondaryColor3};
   }
@@ -158,7 +158,7 @@ import{u as e,c as o,F as g,b as u,d as a,r as h,f as b,j as i,g as f,h as l,E a
     line-height: 1.25;
     color: ${o.primaryColorBlue};
   }
-`;e.button`
+`;i.button`
   padding: 8px 30px;
   font-size: 16px;
   line-height: 1.25;
@@ -170,7 +170,7 @@ import{u as e,c as o,F as g,b as u,d as a,r as h,f as b,j as i,g as f,h as l,E a
   @media (min-width: 768px) {
     font-size: 18px;
   }
-`;e.button`
+`;i.button`
   position: absolute;
   right: 10px;
   top: 44px;
@@ -178,7 +178,7 @@ import{u as e,c as o,F as g,b as u,d as a,r as h,f as b,j as i,g as f,h as l,E a
   border: none;
   cursor: pointer;
   stroke: ${o.primaryColorBlue};
-`;const F=e.div`
+`;const R=i.div`
   max-width: 320px;
   width: 100%;
   height: 570px;
@@ -241,7 +241,7 @@ import{u as e,c as o,F as g,b as u,d as a,r as h,f as b,j as i,g as f,h as l,E a
         url('src/images/desktop/background-element-main-page@2x.png');
     }
   }
-`,P=e.h3`
+`,U=i.h3`
   margin-top: 20px;
   width: 280px;
   font-size: 18px;
@@ -256,4 +256,4 @@ import{u as e,c as o,F as g,b as u,d as a,r as h,f as b,j as i,g as f,h as l,E a
     margin-left: auto;
     margin-right: 133px;
   }
-`,W=()=>{const r=w(C);return i.jsxs(i.Fragment,{children:[i.jsx(F,{}),i.jsx(E,{}),r&&i.jsx(P,{children:r})]})};export{W as default};
+`,D=()=>{const r=B(E);return e.jsxs(e.Fragment,{children:[e.jsx(R,{}),e.jsx(q,{}),r&&e.jsx(U,{children:r})]})};export{D as default};

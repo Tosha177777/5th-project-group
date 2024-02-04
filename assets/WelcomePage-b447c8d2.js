@@ -1,4 +1,4 @@
-import{u as e,j as A,c as n,r as o,a as s}from"./index-203294a3.js";const d=e.div`
+import{u as e,j as A,c as n,r as o,a as s}from"./index-e94e813d.js";const d=e.div`
   @media screen and (max-width: 767px) {
     padding-bottom: 40px;
   }
@@ -25,11 +25,15 @@ import{u as e,j as A,c as n,r as o,a as s}from"./index-203294a3.js";const d=e.di
   @media screen and (max-width: 767px) and (-webkit-min-device-pixel-ratio: 2),
     (max-width: 767px) and (min-resolution: 192dpi) {
     background-image: url(${l});
+    width: 320px;
+    padding: 0px 20px;
   }
 
   @media screen and (min-width: 768px) and (max-width: 1439px) {
     min-height: calc(100vh - 143px);
     background-image: url(${h});
+    width: 768px;
+    padding: 0px 32px;
   }
 
   @media screen and (min-width: 768px) and (-webkit-min-device-pixel-ratio: 2),
@@ -120,7 +124,7 @@ color: ${n.primaryColorBlack};
     align-items: center;
     justify-content: space-between;
   }
-`,r=e.li`
+`,a=e.li`
   display: flex;
   align-items: center;
 
@@ -202,4 +206,4 @@ color: ${n.primaryColorBlack};
    margin-right: 8px;
 `,V=e(f)`
    margin-right: 8px;
-`,y=()=>{const t=s();function a(){t("/signup")}return A.jsxs(Y,{children:[A.jsx(F,{children:"Water consumption tracker"}),A.jsx(I,{children:"Record daily water intake and track"}),A.jsx(L,{children:"Tracker Benefits"}),A.jsxs(Q,{children:[A.jsxs(r,{children:[A.jsx(X,{}),"Habit drive"]}),A.jsxs(r,{children:[A.jsx(E,{}),"View statistics"]}),A.jsxs(r,{children:[A.jsx(V,{}),"Personal rate setting"]})]}),A.jsx(M,{type:"button",onClick:a,children:"Try tracker"})]})},W=()=>A.jsx(b,{children:A.jsxs(d,{children:[A.jsx(y,{}),A.jsx(j,{})]})});export{W as default};
+`,y=()=>{const t=s();function r(){t("/signup")}return A.jsxs(Y,{children:[A.jsx(F,{children:"Water consumption tracker"}),A.jsx(I,{children:"Record daily water intake and track"}),A.jsx(L,{children:"Tracker Benefits"}),A.jsxs(Q,{children:[A.jsxs(a,{children:[A.jsx(X,{}),"Habit drive"]}),A.jsxs(a,{children:[A.jsx(E,{}),"View statistics"]}),A.jsxs(a,{children:[A.jsx(V,{}),"Personal rate setting"]})]}),A.jsx(M,{type:"button",onClick:r,children:"Try tracker"})]})},W=()=>A.jsx(b,{children:A.jsxs(d,{children:[A.jsx(y,{}),A.jsx(j,{})]})});export{W as default};

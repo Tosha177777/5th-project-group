@@ -26,11 +26,15 @@ export const WelcomeStyledContainer = styled.section`
   @media screen and (max-width: 767px) and (-webkit-min-device-pixel-ratio: 2),
     (max-width: 767px) and (min-resolution: 192dpi) {
     background-image: url(${bg_mobile_2x});
+    width: 320px;
+    padding: 0px 20px;
   }
 
   @media screen and (min-width: 768px) and (max-width: 1439px) {
     min-height: calc(100vh - 143px);
     background-image: url(${bg_tabl_1x});
+    width: 768px;
+    padding: 0px 32px;
   }
 
   @media screen and (min-width: 768px) and (-webkit-min-device-pixel-ratio: 2),

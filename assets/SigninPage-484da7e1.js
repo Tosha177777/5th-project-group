@@ -1,4 +1,4 @@
-import{u as e,c as o,r as g,b as u,j as i,L as h,l as b,f,s as y}from"./index-6cc8fed4.js";import{F as k,c as w,a,d as C,e as l,E as s,S as $,f as j}from"./slashed-eye-97f4e572.js";const S=e(k)`
+import{u as e,c as o,F as g,b as u,d as a,r as h,f as b,j as i,g as f,h as l,E as s,L as y,m as k,l as w,s as C}from"./index-203294a3.js";import{S as $,a as j}from"./slashed-eye-6672bf10.js";const S=e(g)`
   display: flex;
   flex-direction: column;
   gap: 16px;
@@ -87,7 +87,7 @@ import{u as e,c as o,r as g,b as u,j as i,L as h,l as b,f,s as y}from"./index-6c
   border: none;
   cursor: pointer;
   stroke: ${o.primaryColorBlue};
-`,B=w().shape({email:a().email("Please enter a valid email").required("E-mail is required"),password:a().min(8,"Password must be 8 or more characters").max(30).required("Password is required")}),E=()=>{const[r,p]=g.useState(!1),d=u(),c={email:"",password:""},m=({email:n,password:t},{resetForm:x})=>{console.log({email:n,password:t}),d(b({email:n,password:t})),x()};return i.jsx(C,{initialValues:c,validationSchema:B,onSubmit:m,children:i.jsxs(S,{autoComplete:"off",children:[i.jsx("h1",{children:"Sign In"}),i.jsxs("label",{children:[i.jsx("span",{children:"Enter your email"}),i.jsx(l,{name:"email",type:"email",placeholder:"E-mail"}),i.jsx(s,{name:"email",component:"p"})]}),i.jsxs("label",{children:[i.jsx("span",{children:"Enter your password"}),i.jsx(l,{name:"password",type:r?"text":"password",placeholder:"Password",pattern:".{8,}"}),i.jsx(v,{type:"button",onClick:()=>p(!r),children:r?i.jsx($,{}):i.jsx(j,{})}),i.jsx(s,{name:"password",component:"p"})]}),i.jsx(z,{type:"submit",children:"Sign In"}),i.jsx(h,{to:"/signup",children:"Sign up"})]})})};e.form`
+`,B=u().shape({email:a().email("Please enter a valid email").required("E-mail is required"),password:a().min(8,"Password must be 8 or more characters").max(30).required("Password is required")}),E=()=>{const[r,p]=h.useState(!1),d=b(),c={email:"",password:""},m=({email:n,password:t},{resetForm:x})=>{console.log({email:n,password:t}),d(k({email:n,password:t})),x()};return i.jsx(f,{initialValues:c,validationSchema:B,onSubmit:m,children:i.jsxs(S,{autoComplete:"off",children:[i.jsx("h1",{children:"Sign In"}),i.jsxs("label",{children:[i.jsx("span",{children:"Enter your email"}),i.jsx(l,{name:"email",type:"email",placeholder:"E-mail"}),i.jsx(s,{name:"email",component:"p"})]}),i.jsxs("label",{children:[i.jsx("span",{children:"Enter your password"}),i.jsx(l,{name:"password",type:r?"text":"password",placeholder:"Password",pattern:".{8,}"}),i.jsx(v,{type:"button",onClick:()=>p(!r),children:r?i.jsx($,{}):i.jsx(j,{})}),i.jsx(s,{name:"password",component:"p"})]}),i.jsx(z,{type:"submit",children:"Sign In"}),i.jsx(y,{to:"/signup",children:"Sign up"})]})})};e.form`
   display: flex;
   flex-direction: column;
   gap: 16px;
@@ -256,4 +256,4 @@ import{u as e,c as o,r as g,b as u,j as i,L as h,l as b,f,s as y}from"./index-6c
     margin-left: auto;
     margin-right: 133px;
   }
-`,W=()=>{const r=f(y);return i.jsxs(i.Fragment,{children:[i.jsx(F,{}),i.jsx(E,{}),r&&i.jsx(P,{children:r})]})};export{W as default};
+`,W=()=>{const r=w(C);return i.jsxs(i.Fragment,{children:[i.jsx(F,{}),i.jsx(E,{}),r&&i.jsx(P,{children:r})]})};export{W as default};

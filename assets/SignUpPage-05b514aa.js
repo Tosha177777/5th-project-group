@@ -1,4 +1,4 @@
-import{n as i,c as o,r as l,b as y,j as e,L as k,d as j,e as $,f as C,s as S}from"./index-6cc8fed4.js";import{F as v,c as z,a as n,b as B,d as E,e as a,E as s,S as d,f as c}from"./slashed-eye-97f4e572.js";const P=i(v)`
+import{n as i,F as y,c as o,b as k,d as n,e as j,r as l,f as $,j as e,g as C,h as a,E as s,L as S,i as v,k as z,l as B,s as E}from"./index-203294a3.js";import{S as d,a as c}from"./slashed-eye-6672bf10.js";const P=i(y)`
   display: flex;
   flex-direction: column;
   gap: 16px;
@@ -87,7 +87,7 @@ import{n as i,c as o,r as l,b as y,j as e,L as k,d as j,e as $,f as C,s as S}fro
   border: none;
   cursor: pointer;
   stroke: ${o.primaryColorBlue};
-`,F=z().shape({email:n().email("Please enter a valid email").required("E-mail is required"),password:n().min(8,"Password must be 8 or more characters").max(64).required("Password is required"),repeatPassword:n().oneOf([B("password"),null],"The passwords do not match").required("Repeat password field is required")}),q=()=>{const[r,x]=l.useState(!1),[t,g]=l.useState(!1),p=y(),u={email:"",password:"",repeatPassword:""},h=({email:b,password:w},{resetForm:f})=>{event.preventDefault(),p(j({email:b,password:w})),p($()),f()};return e.jsx(E,{initialValues:u,validationSchema:F,onSubmit:h,children:e.jsxs(P,{children:[e.jsx("h1",{children:"Sign Up"}),e.jsxs("label",{children:[e.jsx("span",{children:"Enter your email"}),e.jsx(a,{name:"email",type:"email",placeholder:"E-mail"}),e.jsx(s,{name:"email",component:"p"})]}),e.jsxs("label",{children:[e.jsx("span",{children:"Enter your password"}),e.jsx(a,{name:"password",type:r?"text":"password",placeholder:"Password",pattern:".{8,}"}),e.jsx(m,{type:"button",onClick:()=>x(!r),children:r?e.jsx(d,{}):e.jsx(c,{})}),e.jsx(s,{name:"password",component:"p"})]}),e.jsxs("label",{children:[e.jsx("span",{children:"Repeat password"}),e.jsx(a,{name:"repeatPassword",type:t?"text":"password",placeholder:"Repeat password",pattern:".{8,}"}),e.jsx(m,{type:"button",onClick:()=>g(!t),children:t?e.jsx(d,{}):e.jsx(c,{})}),e.jsx(s,{name:"repeatPassword",component:"p"})]}),e.jsx(V,{type:"submit",children:"Sign Up"}),e.jsx(k,{to:"/signin",children:"Sign in"})]})})};i.form`
+`,F=k().shape({email:n().email("Please enter a valid email").required("E-mail is required"),password:n().min(8,"Password must be 8 or more characters").max(64).required("Password is required"),repeatPassword:n().oneOf([j("password"),null],"The passwords do not match").required("Repeat password field is required")}),q=()=>{const[r,x]=l.useState(!1),[t,g]=l.useState(!1),p=$(),u={email:"",password:"",repeatPassword:""},h=({email:b,password:w},{resetForm:f})=>{event.preventDefault(),p(v({email:b,password:w})),p(z()),f()};return e.jsx(C,{initialValues:u,validationSchema:F,onSubmit:h,children:e.jsxs(P,{children:[e.jsx("h1",{children:"Sign Up"}),e.jsxs("label",{children:[e.jsx("span",{children:"Enter your email"}),e.jsx(a,{name:"email",type:"email",placeholder:"E-mail"}),e.jsx(s,{name:"email",component:"p"})]}),e.jsxs("label",{children:[e.jsx("span",{children:"Enter your password"}),e.jsx(a,{name:"password",type:r?"text":"password",placeholder:"Password",pattern:".{8,}"}),e.jsx(m,{type:"button",onClick:()=>x(!r),children:r?e.jsx(d,{}):e.jsx(c,{})}),e.jsx(s,{name:"password",component:"p"})]}),e.jsxs("label",{children:[e.jsx("span",{children:"Repeat password"}),e.jsx(a,{name:"repeatPassword",type:t?"text":"password",placeholder:"Repeat password",pattern:".{8,}"}),e.jsx(m,{type:"button",onClick:()=>g(!t),children:t?e.jsx(d,{}):e.jsx(c,{})}),e.jsx(s,{name:"repeatPassword",component:"p"})]}),e.jsx(V,{type:"submit",children:"Sign Up"}),e.jsx(S,{to:"/signin",children:"Sign in"})]})})};i.form`
   display: flex;
   flex-direction: column;
   gap: 16px;
@@ -256,4 +256,4 @@ import{n as i,c as o,r as l,b as y,j as e,L as k,d as j,e as $,f as C,s as S}fro
     margin-left: auto;
     margin-right: 133px;
   }
-`,D=()=>{const r=C(S);return e.jsxs(e.Fragment,{children:[e.jsx(R,{}),e.jsx(q,{}),r&&e.jsx(U,{children:r})]})};export{D as default};
+`,D=()=>{const r=B(E);return e.jsxs(e.Fragment,{children:[e.jsx(R,{}),e.jsx(q,{}),r&&e.jsx(U,{children:r})]})};export{D as default};

@@ -19,6 +19,7 @@ import {
 import { useDispatch, useSelector } from 'react-redux';
 import { selectAuthUserData } from '/src/redux/authSelectors';
 import { userPhotoThunk } from '../../redux/userInfoOperations';
+import SettingsModalForm from './SettingsModalForm/SettingsModalForm';
 
 const SettingsModal = ({ onClose }) => {
   const dispatch = useDispatch();
@@ -34,8 +35,6 @@ const SettingsModal = ({ onClose }) => {
     const file = event.target.files[0];
 
     if (file) {
-      console.log('file: ', file);
-
       setSelectedFile(URL.createObjectURL(file));
       dispatch(userPhotoThunk(file));
     }
@@ -91,6 +90,8 @@ const SettingsModal = ({ onClose }) => {
             <StyledSpan>Upload photo</StyledSpan>
           </Label>
         </PhotoUploadBox>
+
+        <SettingsModalForm />
       </Modal>
     </Overlay>
   );

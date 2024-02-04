@@ -10,15 +10,13 @@ export const setToken = (token) => {
 
 export const requestPhotoUpdate = async (fileImg) => {
   const formData = new FormData();
-  formData.append('file', fileImg);
-  console.log('formData: ', formData);
+  formData.append('picture', fileImg);
 
   const { data } = await instance.patch('users/avatar', formData, {
     headers: {
       'Content-Type': 'multipart/form-data',
-      Avatar: formData,
     },
   });
   setToken(data.token);
-  return data;
+  return data.avatarURL;
 };

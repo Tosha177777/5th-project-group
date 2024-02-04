@@ -1,6 +1,7 @@
 import styled from '@emotion/styled';
 
 export const HomeContainer = styled.div`
+
   position: absolute;
   max-width: 320px;
   width: 100%;
@@ -60,20 +61,27 @@ export const HomeContainer = styled.div`
 } 
 `;
 export const DailyContainer = styled.div`
-  display: flex;
-  width: 738px;
+
+  width: 390px;
   height: 548px;
   top: 82px;
   left: 38.67px;
+  padding:400px 0 ;
 
-  h2 {
+  button {
+    display: flex;
+    margin-top: 8px;
+  }
+
+  p {
     front-size: 18px;
-    color: #2F2F2F;
+    color: #407BFF;
+    padding: 
   }
   
  `;
 export const ControllContainer = styled.div`
-  display: flex;
+
   width: 592px;
   height: 680px;
   top: 80px;
@@ -84,9 +92,14 @@ export const ControllContainer = styled.div`
 
 
   div { 
-    
-   front-size: 26px;
+   
+   font-size: 26px;
    color: #2F2F2F;
+  }
+  
+  h2 {
+
+    color: #2F2F2F;
   }
 
 `;

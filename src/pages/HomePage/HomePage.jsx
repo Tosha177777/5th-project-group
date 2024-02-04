@@ -8,22 +8,27 @@ const HomePage = () => {
   const [calendarValue, onChangeCalendar] = useState(new Date());
   return (
     <>
-<HomeContainer></HomeContainer>
-<p>My daily norma</p>
-  <span>1.5 L edit</span>
-   <DailyContainer>
-     <ProgressBar completed={100}  />
-     
-   </DailyContainer> 
-   <ControllContainer>
-    <div>Today</div>
+      <HomeContainer></HomeContainer>
+       <p>My daily norma</p>
+       <span>1.5 L edit</span>
+      <DailyContainer>
+       <p>Today</p>
+      <ProgressBar completed={100}  />
+      <button type="button">
+        Add Water
+      </button>     
+      </DailyContainer> 
+      <ControllContainer>
+       <div>
+        <p>Today</p>
+        </div>
 
-    <div>
-      <Calendar onChange={onChangeCalendar} value={calendarValue} />
-    </div>
+      <div>
+        <Calendar onChange={onChangeCalendar} value={calendarValue} />
+      </div>
 
-  </ControllContainer>
-  </>
+      </ControllContainer>
+    </>
   );
 };
 

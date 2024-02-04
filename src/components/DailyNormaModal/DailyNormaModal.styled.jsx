@@ -116,6 +116,8 @@ export const FormulaExplanation = styled.p`
 `;
 
 export const ModalForm = styled.form`
+  color: var(--Primery-Color-Black, #2f2f2f);
+
   .sub-title {
     margin-bottom: 16px;
 

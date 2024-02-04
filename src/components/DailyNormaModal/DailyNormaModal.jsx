@@ -10,14 +10,16 @@ import {
 } from './DailyNormaModal.styled';
 
 import { ReactComponent as Xcros } from '../../svgs/icons/xcros.svg';
+import { useDispatch } from 'react-redux';
+import { changeWaterRate } from '../../redux/waterReducer';
 
 export function DailyNormaModal({ closeModal }) {
+  const dispatch = useDispatch();
   const [weight, setWeight] = useState(0);
   const [activeTime, setActiveTime] = useState(0);
   const [gender, setGender] = useState('woman');
   const [requiredWater, setRequiredWater] = useState(0);
-  const [waterToDrink, setWaterToDrink] = useState(0);
-
+  const [waterResult, setWaterResult] = useState(0);
   useEffect(() => {
     window.addEventListener('keydown', hendleKeyDown);
 
@@ -48,7 +50,7 @@ export function DailyNormaModal({ closeModal }) {
         setActiveTime(value);
         break;
       case 'waterToDrink':
-        setWaterToDrink(value);
+        setWaterResult(value);
         break;
       case 'gender':
         setGender(value);
@@ -59,17 +61,14 @@ export function DailyNormaModal({ closeModal }) {
     }
   };
 
-  const onSubmit = (event) => {
+  const onSubmit = async (event) => {
     event.preventDefault();
-
-    const contactData = {
-      name: name,
-      number: number,
+    const water = {
+      waterRate: waterResult,
     };
-
-    addContact(contactData);
-    setName('');
-    setNumber('');
+    if (waterResult > 0) {
+      dispatch(changeWaterRate(water));
+    }
   };
 
   const requiredWaterCalculation = (gender, weight, time) => {
@@ -173,7 +172,7 @@ export function DailyNormaModal({ closeModal }) {
             <input
               type="number"
               name="waterToDrink"
-              value={waterToDrink}
+              value={waterResult}
               onChange={onInputChange}
               className="form-input"
               required

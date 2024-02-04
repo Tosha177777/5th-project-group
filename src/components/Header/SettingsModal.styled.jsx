@@ -21,9 +21,8 @@ export const Modal = styled.div`
 
   max-width: 280px;
   width: 100%;
-  height: 852px;
 
-  padding: 32px 24px;
+  padding: 32px 12px;
 
   border-radius: 10px;
 
@@ -108,7 +107,6 @@ export const FirstLetter = styled.span`
 `;
 
 export const Input = styled.input`
-  /* color: ${colors.primaryColorBlue}; */
   display: none;
 `;
 
@@ -124,4 +122,9 @@ export const Label = styled.label`
 
 export const StyledSpan = styled.span`
   color: ${colors.primaryColorBlue};
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 18px;
+  letter-spacing: 0%;
+  text-align: left;
 `;

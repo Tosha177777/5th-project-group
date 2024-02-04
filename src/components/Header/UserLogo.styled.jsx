@@ -16,6 +16,11 @@ export const UserName = styled.span`
   line-height: 20px;
 
   margin-right: 8px;
+
+  @media (min-width: 768px) {
+    font-size: 18px;
+    line-height: 24px;
+  }
 `;
 
 export const UserPhoto = styled.span`

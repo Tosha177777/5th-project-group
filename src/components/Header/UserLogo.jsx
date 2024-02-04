@@ -12,11 +12,15 @@ import { useSelector } from 'react-redux';
 import { selectAuthUserData } from '/src/redux/authSelectors';
 import { ReactComponent as Chevron } from '/src/svgs/icons/chevron.svg';
 import PopUp from './PopUp';
+import { useEffect } from 'react';
 
 const HeaderUser = () => {
   const user = useSelector(selectAuthUserData);
   const userEmail = user.email;
   const userName = user.name;
+  const userPhoto = user.avatarURL;
+
+  useEffect(() => {}, [userPhoto]);
 
   return (
     <>
@@ -30,6 +34,7 @@ const HeaderUser = () => {
                 backgroundColor: 'inherit',
                 border: 'none',
                 boxShadow: 'none',
+                paddingRight: 0,
               }}
               {...bindTrigger(popupState)}
             >
@@ -37,8 +42,8 @@ const HeaderUser = () => {
                 {userName ? userName : userEmail.split('@')[0]}
               </UserName>
               <UserPhoto>
-                {user.avatarURL ? (
-                  <Photo src={user.avatarURL} alt="" />
+                {userPhoto ? (
+                  <Photo key={userPhoto} src={userPhoto} alt="" />
                 ) : (
                   (userName || userEmail) && (
                     <FirstLetter>

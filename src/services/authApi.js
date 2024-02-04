@@ -31,3 +31,8 @@ export const requestRefreshUser = async () => {
   setToken(data.token);
   return data;
 };
+
+export const reqestChangeWaterRate = async (water) => {
+  const { data } = await instance.patch('water-rate', water);
+  return data;
+};

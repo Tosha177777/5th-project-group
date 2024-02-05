@@ -16,3 +16,18 @@ export const userPhotoThunk = createAsyncThunk(
     }
   }
 );
+
+export const userInfoThunk = createAsyncThunk(
+  'users',
+  async (formData, thunkAPI) => {
+    const state = thunkAPI.getState();
+    const token = state.auth.token;
+    try {
+      setToken(token);
+      const response = await requestInfoUpdate(formData);
+      return response;
+    } catch (error) {
+      return thunkAPI.rejectWithValue(error.message);
+    }
+  }
+);

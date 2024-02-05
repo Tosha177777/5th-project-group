@@ -33,6 +33,7 @@
     "react-redux": "^9.1.0",
     "react-router": "^6.21.3",
     "react-router-dom": "^6.15.0",
+    "react-toastify": "^6.0.9",
     "react-svg": "^16.1.33",
     "redux-persist": "^6.0.0",
     "styled-components": "^6.0.7",

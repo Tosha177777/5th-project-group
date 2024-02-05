@@ -13,3 +13,9 @@ export const requestPhotoUpdate = async (fileImg) => {
   setToken(data.token);
   return data.avatarURL;
 };
+
+export const requestInfoUpdate = async (formData) => {
+  const { data } = await instance.patch('users', formData);
+  setToken(data.token);
+  return data.user;
+};

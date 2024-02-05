@@ -9,7 +9,7 @@ import {
 } from './waterOperations';
 
 const INITIAL_STATE = {
-  waterToDrink: 1500,
+  waterToDrink: 2000,
   todayWaterConsumption: [],
   monthWaterCOnsumption: [],
   isLoading: false,

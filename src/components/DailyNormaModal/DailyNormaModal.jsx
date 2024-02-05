@@ -66,7 +66,7 @@ export function DailyNormaModal({ closeModal }) {
   const onSubmit = async (event) => {
     event.preventDefault();
     const water = {
-      waterRate: waterResult,
+      waterRate: waterResult * 1000,
     };
     if (waterResult > 0) {
       dispatch(changeWaterRate(water));
@@ -180,6 +180,7 @@ export function DailyNormaModal({ closeModal }) {
             <input
               type="number"
               min={0}
+              max={15}
               name="waterToDrink"
               value={waterResult}
               onChange={onInputChange}

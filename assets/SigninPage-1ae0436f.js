@@ -1,4 +1,4 @@
-import{n as i,F as y,c as o,b as k,d as n,e as j,r as l,f as $,j as e,g as C,h as a,E as s,L as S,i as v,k as z,l as B,s as E}from"./index-871568d4.js";import{S as d,a as c}from"./slashed-eye-b738acf8.js";const P=i(y)`
+import{u as e,c as o,F as u,E as h,b,d as a,r as f,f as y,j as i,g as k,h as l,L as w,m as C,l as $,s as S}from"./index-b7f10371.js";import{S as j,a as z}from"./slashed-eye-c6a3be93.js";const v=e(u)`
   display: flex;
   flex-direction: column;
   gap: 16px;
@@ -23,41 +23,33 @@ import{n as i,F as y,c as o,b as k,d as n,e as j,r as l,f as $,j as e,g as C,h a
   label {
     position: relative;
   }
-  span {
-    display: block;
-    margin-bottom: 8px;
-    font-size: 18px;
-    line-height: 1.33;
-    color: ${o.primaryColorBlack};
-  }
+ 
   input {
-    padding: 11px 10px;
+    padding: 12px 10px;
     width: 100%;
     font-size: 16px;
     line-height: 1.2;
     border-radius: 6px;
-    border-color: ${o.secondaryColor6};
+    border: 0;
+    outline: 1px solid ${o.secondaryColor6};
     color: ${o.primaryColorBlue};
   }
   input::placeholder {
     color: ${o.secondaryColor4};
   }
   input:focus {
-    outline: ${o.secondaryColor5};
-    background-color: none;
+    outline-color: ${o.secondaryColor6};
+  
   }
   input:invalid {
-    border-color: ${o.secondaryColor3};
+    color: ${o.secondaryColor3};
+    border: 1px solid ${o.secondaryColor3};
   }
   input::-ms-reveal,
   input::-ms-clear {
     display: none;
   }
-  p {
-    margin-left: 4px;
-    font-size: 14px;
-    color: ${o.secondaryColor3};
-  }
+  
   a {
     width: fit-content;
     font-size: 16px;
@@ -68,7 +60,7 @@ import{n as i,F as y,c as o,b as k,d as n,e as j,r as l,f as $,j as e,g as C,h a
   a:hover {
     color: ${o.secondaryColor5};
   }
-`,V=i.button`
+`,B=e.button`
   padding: 8px 30px;
   font-size: 16px;
   line-height: 1.25;
@@ -79,7 +71,13 @@ import{n as i,F as y,c as o,b as k,d as n,e as j,r as l,f as $,j as e,g as C,h a
   @media (min-width: 768px) {
     font-size: 18px;
   }
-`,m=i.button`
+`,s=e.span`
+    display: block;
+    margin-bottom: 8px;
+    font-size: 18px;
+    line-height: 1.33;
+    color: ${o.primaryColorBlack};
+ `,E=e.button`
   position: absolute;
   right: 10px;
   top: 44px;
@@ -87,7 +85,11 @@ import{n as i,F as y,c as o,b as k,d as n,e as j,r as l,f as $,j as e,g as C,h a
   border: none;
   cursor: pointer;
   stroke: ${o.primaryColorBlue};
-`,F=k().shape({email:n().email("Please enter a valid email").required("E-mail is required"),password:n().min(8,"Password must be 8 or more characters").max(64).required("Password is required"),repeatPassword:n().oneOf([j("password"),null],"The passwords do not match").required("Repeat password field is required")}),q=()=>{const[r,x]=l.useState(!1),[t,g]=l.useState(!1),p=$(),u={email:"",password:"",repeatPassword:""},h=({email:b,password:w},{resetForm:f})=>{event.preventDefault(),p(v({email:b,password:w})),p(z()),f()};return e.jsx(C,{initialValues:u,validationSchema:F,onSubmit:h,children:e.jsxs(P,{children:[e.jsx("h1",{children:"Sign Up"}),e.jsxs("label",{children:[e.jsx("span",{children:"Enter your email"}),e.jsx(a,{name:"email",type:"email",placeholder:"E-mail"}),e.jsx(s,{name:"email",component:"p"})]}),e.jsxs("label",{children:[e.jsx("span",{children:"Enter your password"}),e.jsx(a,{name:"password",type:r?"text":"password",placeholder:"Password",pattern:".{8,}"}),e.jsx(m,{type:"button",onClick:()=>x(!r),children:r?e.jsx(d,{}):e.jsx(c,{})}),e.jsx(s,{name:"password",component:"p"})]}),e.jsxs("label",{children:[e.jsx("span",{children:"Repeat password"}),e.jsx(a,{name:"repeatPassword",type:t?"text":"password",placeholder:"Repeat password",pattern:".{8,}"}),e.jsx(m,{type:"button",onClick:()=>g(!t),children:t?e.jsx(d,{}):e.jsx(c,{})}),e.jsx(s,{name:"repeatPassword",component:"p"})]}),e.jsx(V,{type:"submit",children:"Sign Up"}),e.jsx(S,{to:"/signin",children:"Sign in"})]})})};i.form`
+`,p=e(h)`
+    margin-left: 4px;
+    font-size: 14px;
+    color: ${o.secondaryColor3};
+  `,F=b().shape({email:a().email("Please enter a valid email").required("E-mail is required"),password:a().min(8,"Password must be 8 or more characters").max(30).required("Password is required")}),P=()=>{const[r,d]=f.useState(!1),c=y(),m={email:"",password:""},x=({email:n,password:t},{resetForm:g})=>{console.log({email:n,password:t}),c(C({email:n,password:t})),g()};return i.jsx(k,{initialValues:m,validationSchema:F,onSubmit:x,children:i.jsxs(v,{autoComplete:"off",children:[i.jsx("h1",{children:"Sign In"}),i.jsxs("label",{children:[i.jsx(s,{children:"Enter your email"}),i.jsx(l,{name:"email",type:"email",placeholder:"E-mail"}),i.jsx(p,{name:"email",component:"span"})]}),i.jsxs("label",{children:[i.jsx(s,{children:"Enter your password"}),i.jsx(l,{name:"password",type:r?"text":"password",placeholder:"Password",pattern:".{8,}"}),i.jsx(E,{type:"button",onClick:()=>d(!r),children:r?i.jsx(j,{}):i.jsx(z,{})}),i.jsx(p,{name:"password",component:"span"})]}),i.jsx(B,{type:"submit",children:"Sign In"}),i.jsx(w,{to:"/signup",children:"Sign up"})]})})};e.form`
   display: flex;
   flex-direction: column;
   gap: 16px;
@@ -148,7 +150,7 @@ import{n as i,F as y,c as o,b as k,d as n,e as j,r as l,f as $,j as e,g as C,h a
   }
 
   p {
-    margin-left: 44px;
+    margin-left: 4px;
     font-size: 14px;
     color: ${o.secondaryColor3};
   }
@@ -158,7 +160,7 @@ import{n as i,F as y,c as o,b as k,d as n,e as j,r as l,f as $,j as e,g as C,h a
     line-height: 1.25;
     color: ${o.primaryColorBlue};
   }
-`;i.button`
+`;e.button`
   padding: 8px 30px;
   font-size: 16px;
   line-height: 1.25;
@@ -170,7 +172,7 @@ import{n as i,F as y,c as o,b as k,d as n,e as j,r as l,f as $,j as e,g as C,h a
   @media (min-width: 768px) {
     font-size: 18px;
   }
-`;i.button`
+`;e.button`
   position: absolute;
   right: 10px;
   top: 44px;
@@ -178,7 +180,7 @@ import{n as i,F as y,c as o,b as k,d as n,e as j,r as l,f as $,j as e,g as C,h a
   border: none;
   cursor: pointer;
   stroke: ${o.primaryColorBlue};
-`;const R=i.div`
+`;const I=e.div`
   max-width: 320px;
   width: 100%;
   height: 570px;
@@ -241,7 +243,7 @@ import{n as i,F as y,c as o,b as k,d as n,e as j,r as l,f as $,j as e,g as C,h a
         url('src/images/desktop/background-element-main-page@2x.png');
     }
   }
-`,U=i.h3`
+`,V=e.h3`
   margin-top: 20px;
   width: 280px;
   font-size: 18px;
@@ -256,4 +258,4 @@ import{n as i,F as y,c as o,b as k,d as n,e as j,r as l,f as $,j as e,g as C,h a
     margin-left: auto;
     margin-right: 133px;
   }
-`,D=()=>{const r=B(E);return e.jsxs(e.Fragment,{children:[e.jsx(R,{}),e.jsx(q,{}),r&&e.jsx(U,{children:r})]})};export{D as default};
+`,M=()=>{const r=$(S);return i.jsxs(i.Fragment,{children:[i.jsx(I,{}),i.jsx(P,{}),r&&i.jsx(V,{children:r})]})};export{M as default};

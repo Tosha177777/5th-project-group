@@ -1,53 +1,84 @@
-import { createAsyncThunk, createSlice, isAnyOf } from '@reduxjs/toolkit';
-import { reqestChangeWaterRate } from '../services/authApi';
-
-export const changeWaterRate = createAsyncThunk(
-  'water/waterRate',
-  async (water, thunkAPI) => {
-    try {
-      const waterRate = await reqestChangeWaterRate(water);
-      return waterRate;
-    } catch (error) {
-      thunkAPI.rejectWithValue(error.message);
-    }
-  }
-);
+import { createSlice, isAnyOf } from '@reduxjs/toolkit';
+import {
+  todayWaterThunk,
+  monthWaterThunk,
+  addWaterThunk,
+  deleteWaterThunk,
+  updateWaterThunk,
+  updateWaterRateThunk
+} from './waterOperations';
 
 const INITIAL_STATE = {
-  waterToDrink: 0,
+  waterToDrink: 1500,
+  todayWaterConsumption: [],
+  monthWaterCOnsumption: [],
+  isLoading: false,
   error: null,
 };
+
 const waterRateSlice = createSlice({
-  name: 'waterRate',
+  name: 'water',
   initialState: INITIAL_STATE,
-  reducers: {
-    handlWeight(state, action) {
-      state.weight = action.payload;
-    },
-    handlActiveTime(state, action) {
-      state.activeTime = action.payload;
-    },
-    handlGender(state, action) {
-      state.gender = action.payload;
-    },
-    handlRequiredWater(state, action) {
-      state.requiredWater = action.payload;
-    },
-  },
   extraReducers: (builder) =>
     builder
-
-      .addCase(changeWaterRate.fulfilled, (state, action) => {
+      .addCase(todayWaterThunk.fulfilled, (state, action) => {
+        state.isLoading = false;
+        state.error = null;
+        state.today = action.payload;
+      })
+      .addCase(monthWaterThunk.fulfilled, (state, action) => {
+        state.isLoading = false;
+        state.error = null;
+        state.today = action.payload;
+      })
+      .addCase(addWaterThunk.fulfilled, (state, action) => {
+        state.isLoading = false;
+        state.error = null;
+        state.today = action.payload;
+      })
+      .addCase(deleteWaterThunk.fulfilled, (state, action) => {
+        state.isLoading = false;
+        state.error = null;
+        state.today = action.payload;
+      })
+      .addCase(updateWaterThunk.fulfilled, (state, action) => {
+        state.isLoading = false;
+        state.error = null;
+        state.today = action.payload;
+      })
+      .addCase(updateWaterRateThunk.fulfilled, (state, action) => {
+        state.isLoading = false;
+        state.error = null;
         state.waterToDrink = action.payload;
       })
-      .addMatcher(isAnyOf(changeWaterRate.pending), (state) => {
-        state.error = null;
-      })
-      .addMatcher(isAnyOf(changeWaterRate.rejected), (state, action) => {
-        state.error = action.payload;
-      }),
+      .addMatcher(
+        isAnyOf(
+          updateWaterRateThunk.pending,
+          todayWaterThunk.pending,
+          monthWaterThunk.pending,
+          addWaterThunk.pending,
+          deleteWaterThunk.pending,
+          updateWaterThunk.pending
+        ),
+        (state) => {
+          state.isLoading = true;
+          state.error = null;
+        }
+      )
+      .addMatcher(
+        isAnyOf(
+          updateWaterRateThunk.rejected,
+          todayWaterThunk.rejected,
+          monthWaterThunk.rejected,
+          addWaterThunk.rejected,
+          deleteWaterThunk.rejected,
+          updateWaterThunk.rejected
+        ),
+        (state, action) => {
+          state.isLoading = false;
+          state.error = action.payload;
+        }
+      ),
 });
 
-export const { handlWeight, handlActiveTime, handlGender, handlRequiredWater } =
-  waterRateSlice.actions;
-export const waterRateReducer = waterRateSlice.reducer;
+export const waterReducer = waterRateSlice.reducer;

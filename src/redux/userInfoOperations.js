@@ -1,9 +1,6 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
-import {
-  requestInfoUpdate,
-  requestPhotoUpdate,
-  setToken,
-} from '../services/userApi';
+import { requestPhotoUpdate } from '../services/userApi';
+import { setToken } from '../services/authApi';
 
 export const userPhotoThunk = createAsyncThunk(
   'users/avatar',

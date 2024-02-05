@@ -1,15 +1,13 @@
 import { useState } from 'react';
 import { useFormik } from 'formik';
 import * as Yup from 'yup';
+import { v4 as uuidv4 } from 'uuid';
 import {
   AddWaterModal,
   ContainerModal,
   AddWaterForm,
   PageName,
   CloseBtn,
-  WaterCardsDiv,
-  WaterCards,
-  TimeCards,
   PageText,
   InputAndBtnWaterContainer,
   AmountWater,
@@ -26,10 +24,9 @@ import {
   ErrorMsg,
 } from './AddWater.styled';
 
-import { ReactComponent as Glass } from '../../svgs/icons/glass.svg';
 import { ReactComponent as Cross } from '../../svgs/icons/cross.svg';
 
-export const AddWater = ({ onSave, waterCardsSave }) => {
+export const AddWater = ({ onSave }) => {
   const [isModalOpen, setIsModalOpen] = useState(true);
 
   const getCurrentTime = () => {
@@ -39,19 +36,11 @@ export const AddWater = ({ onSave, waterCardsSave }) => {
     return `${hours}:${minutes}`;
   };
 
-  const convertTo12HourFormat = (time24) => {
-    const [hours, minutes] = time24.split(':');
-    const hour = parseInt(hours, 10);
-    const period = hour >= 12 ? 'PM' : 'AM';
-    const hour12 = hour % 12 || 12;
-    return `${hour12}:${minutes} ${period}`;
-  };
-
   const formik = useFormik({
     initialValues: {
       amountWater: 0,
       time: getCurrentTime(),
-      waterCards: waterCardsSave || [],
+      firstWater: false,
     },
     validationSchema: Yup.object({
       amountWater: Yup.number()
@@ -60,17 +49,9 @@ export const AddWater = ({ onSave, waterCardsSave }) => {
         .required('Amount of water is required'),
       time: Yup.string().required('Recording time is required'),
     }),
-    onSubmit: ({ amountWater, time }, { resetForm }) => {
-      const newWaterCard = {
-        amount: amountWater,
-        time: time,
-      };
-
-      formik.setFieldValue('waterCards', [...waterCards, newWaterCard]);
-
-      onSave(amountWater, time);
-
-      resetForm();
+    onSubmit: ({ amountWater, time }) => {
+      const id = uuidv4();
+      onSave({ id, amountWater, time });
     },
   });
 
@@ -90,7 +71,7 @@ export const AddWater = ({ onSave, waterCardsSave }) => {
     }
   };
 
-  const { amountWater, time, waterCards } = formik.values;
+  const { amountWater, time, firstWater } = formik.values;
 
   const handleMinusClick = () => {
     formik.setFieldValue('amountWater', Math.max(0, amountWater - 50));
@@ -113,17 +94,7 @@ export const AddWater = ({ onSave, waterCardsSave }) => {
           <Cross />
         </CloseBtn>
 
-        {waterCards.length > 0 ? (
-          <WaterCardsDiv>
-            <WaterCards>
-              <Glass />
-              <p>{`${waterCards[0].amount} ml`}</p>
-              <TimeCards>{convertTo12HourFormat(waterCards[0].time)}</TimeCards>
-            </WaterCards>
-          </WaterCardsDiv>
-        ) : (
-          <p>No notes yet</p>
-        )}
+        {firstWater && <p>No notes yet</p>}
 
         <PageText>Correct entered data:</PageText>
         <ContainerModal>
@@ -136,7 +107,6 @@ export const AddWater = ({ onSave, waterCardsSave }) => {
               type="number"
               name="amountWater"
               value={amountWater}
-              onChange={formik.handleChange}
               readOnly
             />
             <BtnPlusMinus name="plus" type="button" onClick={handlePlusClick}>

@@ -14,7 +14,6 @@ const INITIAL_STATE = {
     email: null,
     userName: null,
     gender: '',
-    waterUser: null,
     avatarURL: null,
   },
   isSignedIn: false,

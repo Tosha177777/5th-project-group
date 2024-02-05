@@ -22,7 +22,7 @@ const ProgressBar = () => {
   const todayData = useSelector(selectTodayWater);
 
   const drunkenWater = useMemo(() => {
-    if (!todayData.length) {
+    if (todayData) {
       todayData.reduce((prevValue, record) => {
         return prevValue + record.waterVolume;
       }, 0);

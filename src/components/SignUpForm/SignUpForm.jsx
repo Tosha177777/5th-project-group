@@ -2,9 +2,12 @@ import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import * as yup from 'yup';
-import { Formik, Field, ErrorMessage } from 'formik';
+import { Formik, Field} from 'formik';
 import { clearAuthError, registerThunk } from '../../redux/authOperations';
+import colors from '../../root/root';
 import {
+  StyledError,
+  StyledFieldName,
   StyledForm,
   StyledSubmitBtn,
   StyledToggleBtn,
@@ -57,12 +60,12 @@ const SignUpForm = () => {
       <StyledForm>
         <h1>Sign Up</h1>
         <label>
-          <span>Enter your email</span>
+          <StyledFieldName>Enter your email</StyledFieldName>
           <Field name="email" type="email" placeholder="E-mail" />
-          <ErrorMessage name="email" component="p" />
+          <StyledError name="email" component="span"/>
         </label>
         <label>
-          <span>Enter your password</span>
+          <StyledFieldName>Enter your password</StyledFieldName>
           <Field
             name="password"
             type={isPasswordVisible ? 'text' : 'password'}
@@ -75,10 +78,10 @@ const SignUpForm = () => {
           >
             {isPasswordVisible ? <Eye /> : <SlashedEye />}
           </StyledToggleBtn>
-          <ErrorMessage name="password" component="p" />
+          <StyledError name="password" component="span"/>
         </label>
         <label>
-          <span>Repeat password</span>
+          <StyledFieldName>Repeat password</StyledFieldName>
           <Field
             name="repeatPassword"
             type={isRepeatPasswordVisible ? 'text' : 'password'}
@@ -93,7 +96,7 @@ const SignUpForm = () => {
           >
             {isRepeatPasswordVisible ? <Eye /> : <SlashedEye />}
           </StyledToggleBtn>
-          <ErrorMessage name="repeatPassword" component="p" />
+          <StyledError name="repeatPassword" component="span"/>
         </label>
         <StyledSubmitBtn type="submit">Sign Up</StyledSubmitBtn>
         <Link to="/signin">Sign in</Link>

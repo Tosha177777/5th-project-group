@@ -39,8 +39,11 @@ color: ${colors.primaryColorBlue};
 
 export const StyledLine = styled.div`
 position: relative;
+top: 0;
 margin-left: auto;
 margin-right: auto;
+margin-bottom: 3px;
+margin-top: 3px;
 width: 256px;
 height: 8px;
 background-color:${colors.secondaryColor6};
@@ -77,6 +80,7 @@ border-radius: 50%;
 
 export const StyledNumberWrap = styled.div`
 position: relative;
+top: 0;
 display: flex;
 justify-content: space-between;
 
@@ -90,7 +94,7 @@ line-height: 1.33;
 p::before {
   content: '';
   position: relative;
-  top: 4px;
+  top: 1px;
   left: 60%;
   width: 0;
   margin-bottom: 4px;
@@ -104,7 +108,6 @@ export const StyledPercentage = styled.span`
 display: block;
 position: absolute;
 top: 8px;
-// left: 70%;
 font-size: 16px;
 line-height: 1.25;
 `

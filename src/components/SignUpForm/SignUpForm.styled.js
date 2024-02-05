@@ -1,5 +1,5 @@
 import styled from '@emotion/styled';
-import { Form } from 'formik';
+import { Form, ErrorMessage } from 'formik';
 import colors from '../../root/root';
 
 export const StyledForm = styled(Form)`
@@ -27,41 +27,32 @@ export const StyledForm = styled(Form)`
   label {
     position: relative;
   }
-  span {
-    display: block;
-    margin-bottom: 8px;
-    font-size: 18px;
-    line-height: 1.33;
-    color: ${colors.primaryColorBlack};
-  }
+  
   input {
-    padding: 11px 10px;
+    padding: 12px 10px;
     width: 100%;
     font-size: 16px;
     line-height: 1.2;
     border-radius: 6px;
-    border-color: ${colors.secondaryColor6};
+    border: 0;
+    outline: 1px solid ${colors.secondaryColor6};
     color: ${colors.primaryColorBlue};
   }
   input::placeholder {
     color: ${colors.secondaryColor4};
   }
   input:focus {
-    outline: ${colors.secondaryColor5};
-    background-color: none;
+    outline-color: ${colors.secondaryColor6};
   }
   input:invalid {
-    border-color: ${colors.secondaryColor3};
+    color: ${colors.secondaryColor3};
+    border: 1px solid ${colors.secondaryColor3};
   }
   input::-ms-reveal,
   input::-ms-clear {
     display: none;
   }
-  p {
-    margin-left: 4px;
-    font-size: 14px;
-    color: ${colors.secondaryColor3};
-  }
+
   a {
     width: fit-content;
     font-size: 16px;
@@ -84,7 +75,14 @@ export const StyledSubmitBtn = styled.button`
   @media (min-width: 768px) {
     font-size: 18px;
   }
-`;
+`
+export const StyledFieldName = styled.span`
+    display: block;
+    margin-bottom: 8px;
+    font-size: 18px;
+    line-height: 1.33;
+    color: ${colors.primaryColorBlack};
+ ` 
 
 export const StyledToggleBtn = styled.button`
   position: absolute;
@@ -94,4 +92,10 @@ export const StyledToggleBtn = styled.button`
   border: none;
   cursor: pointer;
   stroke: ${colors.primaryColorBlue};
+`
+
+export const StyledError = styled(ErrorMessage)`
+  margin-left: 4px;
+  font-size: 14px;
+  color: ${colors.secondaryColor3};
 `;

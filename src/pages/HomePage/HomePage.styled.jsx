@@ -5,11 +5,13 @@ export const HomeContainer = styled.div`
   max-width: 320px;
   width: 100%;
   height: 570px;
-  top: 26px;
-  z-index: 10px;
-  background-image: url('src/images/mobile/Bottle-home-screen@1x.png'), url('src/images/mobile/background-element-home-screen@1x.png');
+  top: 28px;
+  left: 0;
+  z-index: -10;
+  background-image: url('src/images/mobile/bottle-home-screen@1x.png'),
+   url('src/images/mobile/background-element-home-screen@1x.png');
   background-size: 280px, cover;
-  background-position: top 106px left 20px, top 0 left 0;
+  background-position: top 56px left 20px, top 0 left 0;
   background-repeat: no-repeat;
   
    
@@ -17,43 +19,48 @@ export const HomeContainer = styled.div`
     (-webkit-min-device-pixel-ratio: 2),
     (min-resolution: 192dpi),
     (min-resolution: 2dppx) {
-    background-image: url('src/images/mobile/Bottle-home-screen@2x.png'),
-      url('src/images/mobile/background-element-home-screen@2x.png');
+    background-image: url('src/images/mobile/bottle-home-screen@2x.png'),
+    url('src/images/mobile/background-element-home-screen@2x.png');
   }
   @media (min-width: 768px) {
     max-width: 768px;
     width: 100%;
     height: 680px;
-    top: -16px;
+    top: 0;
     left: 0;
-    background-image: url('src/images/tablet/Bottle-Home-Screen@1x.png'), url('src/images/tablet/Background-element-Home-Screen@1x.png');
+    background-image: url('src/images/tablet/bottle-home-screen@1x.png'),
+     url('src/images/tablet/background-element-home-screen@1x.png');
     background-size: 518px, cover;
-    background-position: top 0 left 25px, top 0 left 0;
+    background-position: top 0 left 125px, top 0 left 0;
     @media (min-device-pixel-ratio: 2),
       (-webkit-min-device-pixel-ratio: 2),
       (min-resolution: 192dpi),
       (min-resolution: 2dppx) {
-      background-image: url('src/images/tablet/Bottle-Home-Screen@2x.png'), url('src/images/tablet/Background-element-Home-Screen@2x.png');
+      background-image: url('src/images/tablet/bottle-home-screen@2x.png'),
+       url('src/images/tablet/background-element-home-screen@2x.png');
     
   }
   @media (min-width: 1440px) {
     max-width: 1404px;
     width: 100%;
-    height: 650px;
-    top: 20px;
-    left: 300px;
-    background-image: url('src/images/desktop/bottle-home-screen@1x.png');
-    background-size: 738px;
+    height: 100%;
+    top: 0;
+    left: 9px;
+    background-image: url('src/images/desktop/bottle-home-screen@1x.png'),
+    url('src/images/desktop/background-element-main-page@1x.png');
+    background-size: 738px, 1404px;
+    background-position: top 0 left 30px, top 38px left 0;
   
      
     @media (min-device-pixel-ratio: 2),
            (min-resolution: 192dpi) {
-      background-image: url('src/images/desktop/bottle-home-screen@2x.png');
+      background-image: url('src/images/desktop/bottle-home-screen@2x.png'), 
+      url('src/images/desktop/background-element-main-page@2x.png');
   }
 } 
 `;
 
-export const Container =styled.div`
+export const Container = styled.div`
   margin: 0 auto;
   padding: 0px 20px;
 
@@ -76,50 +83,41 @@ export const Container =styled.div`
     max-width: 1404px;
     width: 100%;
     height: 650px;
-    top: -10px;
-    left: 18px;
-    background-image: url('src/images/desktop/background-element-main-page@1x.png');
-    background-size: cover;
-    background-position:  top 16px left 100px;
+   
   }
 
-  @media (-webkit-min-device-pixel-ratio: 2),
-   (min-resolution: 2dppx) {
-  background-image: url('src/images/desktop/background-element-main-page@2x.png');
 `;
 
 export const DailyContainer = styled.div`
   padding: 24px 0 0px 0;
 
-@media only screen and (min-width: 768px){
-  max-width: 768px;
-  padding: 40px 0 0px 0;
-
-}
-@media only screen and (min-width: 1440px){
-   min-width: 650px;
-   padding: 52px 0 0 0;
-}
+  @media only screen and (min-width: 768px) {
+    max-width: 768px;
+    padding: 40px 0 0px 0;
+  }
+  @media only screen and (min-width: 1440px) {
+    min-width: 650px;
+    padding: 52px 0 0 0;
+  }
   p {
     front-size: 18px;
-    color: #407BFF;
+    color: #407bff;
     padding: 30px;
   }
-  
- `;
+`;
 export const ControllContainer = styled.div`
   padding: 40px 0px;
 
-  @media only screen and (min-width: 768px){
+  @media only screen and (min-width: 768px) {
     padding: 44px 0px;
   }
-  
-  @media only screen and (min-width: 1440px){
+
+  @media only screen and (min-width: 1440px) {
     padding: 20px 0px 40px 0;
   }
 `;
 
-export const ProgressWrapper=styled.div`
+export const ProgressWrapper = styled.div`
   box-sizing: border-box;
   max-width: 100%;
   background: var(--Secondary-color-2, #ecf2ff);
@@ -132,14 +130,13 @@ export const ProgressWrapper=styled.div`
   justify-content: space-between;
   gap: 10px;
 
-@media only screen and (min-width: 768px){
-  padding: 32px 24px;
-  height: 688px;
-}
+  @media only screen and (min-width: 768px) {
+    padding: 32px 24px;
+    height: 688px;
+  }
 
-@media only screen and (min-width: 1440px) {
-  max-width: 592px;
-  max-height: 680px;
-}
-
+  @media only screen and (min-width: 1440px) {
+    max-width: 592px;
+    max-height: 680px;
+  }
 `;

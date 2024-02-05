@@ -32,7 +32,3 @@ export const requestRefreshUser = async () => {
   return data;
 };
 
-export const reqestChangeWaterRate = async (water) => {
-  const { data } = await instance.patch('water-rate', water);
-  return data;
-};

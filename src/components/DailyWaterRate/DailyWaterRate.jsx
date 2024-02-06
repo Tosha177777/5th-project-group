@@ -1,15 +1,22 @@
-import { useSelector } from 'react-redux';
-import { selectWaterToDrink } from '../../redux/waterSelectors';
+import { useDispatch, useSelector } from 'react-redux';
+import { refreshThunk } from '/src/redux/authOperations';
 import { StyledInfoWrap, StyledText, StyledWrap } from './DailyWaterRate.styled';
+import { useEffect } from 'react';
+import { selectAuthUserData } from '../../redux/authSelectors';
 
 const DailyWaterRate = () => {
-  const userNorma = useSelector(selectWaterToDrink);
+  const userData = useSelector(selectAuthUserData);
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(refreshThunk());
+  }, [dispatch]);
   
   return (
     <StyledWrap>
       <StyledText>My daily norma</StyledText>
       <StyledInfoWrap>
-        <p>{userNorma/1000} L</p>
+        <p>{userData.waterRate/1000} L</p>
         <button>Edit</button>
       </StyledInfoWrap>
     </StyledWrap>

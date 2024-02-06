@@ -26,7 +26,6 @@ import { selectAuthUserData } from '/src/redux/authSelectors';
 import { userInfoThunk } from '/src/redux/userInfoOperations';
 import { ReactComponent as Eye } from '/src/svgs/icons/eye.svg';
 import { ReactComponent as SlashedEye } from '/src/svgs/icons/slashed-eye.svg';
-import { selectAuthError } from '/src/redux/authSelectors';
 
 const SignInSchema = yup.object().shape({
   gender: yup.string(),
@@ -42,18 +41,16 @@ const SignInSchema = yup.object().shape({
     .max(30),
   resetPassword: yup
     .string()
-    .oneOf([yup.ref('newPassword'), null], 'The passwords do not match')
-    .required('Repeat password field is required'),
+    .oneOf([yup.ref('newPassword'), null], 'The passwords do not match'),
 });
 
 const SettingsModalForm = () => {
   const user = useSelector(selectAuthUserData);
+
   const [isPasswordVisible, setPasswordVisibility] = useState(false);
   const [isRepeatPasswordVisible, setRepeatPasswordVisibility] =
     useState(false);
   const [isNewPasswordVisible, setNewPasswordVisibility] = useState(false);
-
-  const error = useSelector(selectAuthError);
 
   const dispatch = useDispatch();
 
@@ -66,8 +63,7 @@ const SettingsModalForm = () => {
     resetPassword: '',
   };
 
-  const handleSubmit = async (values) => {
-    console.log('error: ', error);
+  const handleSubmit = (values) => {
     if (values === initialValues) {
       toast.warn('No changes were made.');
       return;
@@ -82,13 +78,9 @@ const SettingsModalForm = () => {
         changedFields[fieldName] = values[fieldName];
       }
     });
+
     console.log(changedFields);
-    try {
-      await dispatch(userInfoThunk(changedFields));
-      toast('Wow so easy !');
-    } catch (error) {
-      toast.error(error);
-    }
+    dispatch(userInfoThunk(changedFields));
 
     return;
   };

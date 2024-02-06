@@ -1,5 +1,6 @@
 import { useDispatch, useSelector } from 'react-redux';
 import { useEffect, useMemo } from 'react';
+import { selectWaterIsLoading } from '/src/redux/waterSelectors';
 import { selectTodayWater } from '/src/redux/waterSelectors';
 import { todayWaterThunk } from '/src/redux/waterOperations';
 import { ReactComponent as Glass } from '/src/svgs/icons/glass.svg';
@@ -20,6 +21,7 @@ import {
 
 const Today = () => {
   const todayData = useSelector(selectTodayWater);
+  const isLoading = useSelector(selectWaterIsLoading);
 
   const dispatch = useDispatch();
 
@@ -37,6 +39,7 @@ const Today = () => {
   return (
     <>
       <Text>Today</Text>
+      {isLoading && <StyledInfo>Please wait. Loading...</StyledInfo> }
       {Array.isArray(todayPortions) && todayPortions.length > 0 ? (
         <StyledList>
           {todayPortions

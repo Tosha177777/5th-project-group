@@ -75,6 +75,7 @@ export function DailyNormaModal({ closeModal }) {
       setWaterResult(0);
       closeModal();
     }
+    alert('Something went wrong');
   };
 
   const requiredWaterCalculation = (gender, weight, time) => {

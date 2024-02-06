@@ -1,5 +1,5 @@
 import { useDispatch, useSelector } from 'react-redux';
-import { useEffect, useMemo } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 import { selectWaterIsLoading } from '/src/redux/waterSelectors';
 import { selectTodayWater } from '/src/redux/waterSelectors';
 import { todayWaterThunk } from '/src/redux/waterOperations';
@@ -18,10 +18,16 @@ import {
   StyledEAddBtn,
   StyledInfo,
 } from './Today.styled';
+import { AddWater } from '../AddWater/AddWater';
+import { EditWater } from '../AddWater/EditWater';
+import { DeleteWater } from '../AddWater/DeleteWater';
 
 const Today = () => {
   const todayData = useSelector(selectTodayWater);
   const isLoading = useSelector(selectWaterIsLoading);
+  const [isOpenedAdd, setIsOpenedAdd] = useState(false);
+  const [isOpenedEdit, setIsOpenedEdit] = useState(false);
+  const [isOpenedDel, setIsOpenedDel] = useState(false);
 
   const dispatch = useDispatch();
 
@@ -36,6 +42,18 @@ const Today = () => {
     return [];
   }, [todayData]);
 
+  const onAddWaterModal = () => {
+    setIsOpenedAdd(!isOpenedAdd);
+  };
+
+  const onEditWaterModal = () => {
+    setIsOpenedEdit(!isOpenedEdit);
+  };
+
+  const onDeleteWaterModal = () => {
+    setIsOpenedDel(!isOpenedDel);
+  };
+
   return (
     <>
       <Text>Today</Text>
@@ -48,10 +66,10 @@ const Today = () => {
                 <Glass />
                 <StyledAmount>{date}</StyledAmount>
                 <StyledTime>{waterVolume}</StyledTime>
-                <StyledEditBtn>
+                <StyledEditBtn onClick={onEditWaterModal}>
                   <EditIcon />
                 </StyledEditBtn>
-                <StyledEDeleteBtn>
+                <StyledEDeleteBtn onClick={onDeleteWaterModal}>
                   <Trashbin />
                 </StyledEDeleteBtn>
               </StyledItem>
@@ -63,10 +81,14 @@ const Today = () => {
           There are no records for today. Press &quot;Add Water&quot; to add.
         </StyledInfo>
       )}
-      <StyledEAddBtn>
+      <StyledEAddBtn onClick={onAddWaterModal}>
         <Plus />
         <span>Add water</span>
       </StyledEAddBtn>
+
+      {isOpenedAdd && <AddWater onClose={onAddWaterModal} />}
+      {isOpenedEdit && <EditWater onClose={onEditWaterModal} />}
+      {isOpenedDel && <DeleteWater onClose={onDeleteWaterModal} />}
     </>
   );
 };

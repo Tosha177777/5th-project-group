@@ -42,7 +42,6 @@ export const DeleteWater = ({ onClose, id }) => {
   };
 
   const onClick = () => {
-    console.log(id);
     dispatch(deleteWaterThunk(id));
   };
 

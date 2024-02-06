@@ -6,6 +6,7 @@ import {
   requestAddWater,
   requestDeleteWaterById,
   requestUpdateWaterById,
+  requestUpdateWaterRate,
 } from '../services/waterAPI';
 
 export const todayWaterThunk = createAsyncThunk(

@@ -1,32 +1,33 @@
-// import { useEffect, useState } from 'react';
+import { useSelector } from 'react-redux';
+import { selectWaterIsLoading } from '../../redux/waterSelectors';
 import { 
   HomeContainer, 
   Container, 
-  DailyContainer, 
   ControllContainer, 
-  ProgressWrapper
 } from './HomePage.styled';
 import DailyWaterRate from '/src/components/DailyWaterRate/DailyWaterRate';
 import ProgressBar from '/src/components/ProgressBar/ProgressBar';
-import {Today} from '/src/components/Today/Today.jsx';
+import Calendar from '../../components/Calendar/Calendar';
+import { Loader } from '../../components/Loader/Loader';
 
 const HomePage = () => {
   
+  const isLoading = useSelector(selectWaterIsLoading);
 
   return (
     <>    
       <HomeContainer></HomeContainer>
-      {/* <Container> */}
+      <Container>
         <DailyWaterRate />
         <ProgressBar/>
-  
-     {/* <DailyContainer/> */}
-     {/* <ProgressWrapper>
+     
        <ControllContainer>
-         <Today />
+       {isLoading && <Loader />}
+        <DailyWaterRate />
+        <Calendar />
        </ControllContainer>
-     </ProgressWrapper> */}
-    {/* </Container> */}
+     
+     </Container>
 
   </>
 );

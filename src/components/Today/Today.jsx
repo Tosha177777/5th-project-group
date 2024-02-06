@@ -9,7 +9,7 @@ import {
     GlassSvg
  } from './Today.styled';
 
-export const Today = () => {
+const Today = () => {
     return (
       <>
       <TodayContainer>
@@ -30,3 +30,4 @@ export const Today = () => {
     );
 }
 
+export default Today;

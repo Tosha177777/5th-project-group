@@ -1,4 +1,4 @@
-import{p as Ut,n as U,c as G,m as Ft,j as x,r as m,u as E,R as Cs,f as Ji,q as to,I as xn,t as eo}from"./index-b7881a79.js";const Nt=t=>t.water,As=Ut(Nt,t=>t.waterToDrink),no=Ut(Nt,t=>t.todayWaterConsumption),so=Ut(Nt,t=>t.monthWaterConsumption),io=Ut(Nt,t=>t.isLoading);Ut(Nt,t=>t.error);const oo=U.div`
+import{p as Ut,n as U,c as G,m as Ft,j as x,r as m,u as E,R as Cs,f as Ji,q as to,I as xn,t as eo}from"./index-263ff0f2.js";const Nt=t=>t.water,As=Ut(Nt,t=>t.waterToDrink),no=Ut(Nt,t=>t.todayWaterConsumption),so=Ut(Nt,t=>t.monthWaterConsumption),io=Ut(Nt,t=>t.isLoading);Ut(Nt,t=>t.error);const oo=U.div`
   position: absolute;
   max-width: 320px;
   width: 100%;

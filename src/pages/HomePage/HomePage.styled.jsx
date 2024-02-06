@@ -88,55 +88,25 @@ export const Container = styled.div`
 
 `;
 
-export const DailyContainer = styled.div`
-  padding: 24px 0 0px 0;
 
-  @media only screen and (min-width: 768px) {
-    max-width: 768px;
-    padding: 40px 0 0px 0;
-  }
-  @media only screen and (min-width: 1440px) {
-    min-width: 650px;
-    padding: 52px 0 0 0;
-  }
-  p {
-    front-size: 18px;
-    color: #407bff;
-    padding: 30px;
-  }
-`;
 export const ControllContainer = styled.div`
-  padding: 40px 0px;
+display: flex;
+flex-direction: column;
+gap: 40px;
 
-  @media only screen and (min-width: 768px) {
-    padding: 44px 0px;
-  }
+@media only screen and (max-width: 1439px) {
+  padding-bottom: 40px;
+}
 
-  @media only screen and (min-width: 1440px) {
-    padding: 20px 0px 40px 0;
-  }
+@media only screen and (min-width: 768px) {
+  gap: 40px;
+}
+
+@media only screen and (min-width: 1440px) {
+  flex-direction: row;
+  gap: 32px;
+}
 `;
 
-export const ProgressWrapper = styled.div`
-  box-sizing: border-box;
-  max-width: 100%;
-  background: var(--Secondary-color-2, #ecf2ff);
-  box-shadow: 0px 4px 14px 0px rgba(64, 123, 255, 0.3);
-  border-radius: 10px;
-  padding: 24px 8px;
-  height: 836px;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  gap: 10px;
 
-  @media only screen and (min-width: 768px) {
-    padding: 32px 24px;
-    height: 688px;
-  }
 
-  @media only screen and (min-width: 1440px) {
-    max-width: 592px;
-    max-height: 680px;
-  }
-`;

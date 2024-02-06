@@ -11,6 +11,8 @@ export const Overlay = styled.div`
   width: 100vw;
   height: 100vh;
 
+  padding-right: 17px;
+
   display: flex;
   justify-content: center;
   align-items: center;
@@ -107,6 +109,7 @@ export const LogoutBtn = styled.button`
   line-height: 20px;
   letter-spacing: 0%;
   color: ${colors.primaryColorWhite};
+  box-shadow: 0px 4px 8px 0px rgba(64, 123, 255, 0.34);
 
   @media (min-width: 768px) {
     width: 160px;

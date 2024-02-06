@@ -3,9 +3,11 @@ import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import * as Yup from 'yup';
-import { Formik, Field, ErrorMessage } from 'formik';
+import { Formik, Field} from 'formik';
 import { loginThunk } from '../../redux/authOperations';
 import {
+  StyledError,
+  StyledFieldName,
   StyledForm,
   StyledSubmitBtn,
   StyledToggleBtn,
@@ -50,12 +52,12 @@ const SignInForm = () => {
       <StyledForm autoComplete="off">
         <h1>Sign In</h1>
         <label>
-          <span>Enter your email</span>
+          <StyledFieldName>Enter your email</StyledFieldName>
           <Field name="email" type="email" placeholder="E-mail" />
-          <ErrorMessage name="email" component="p" />
+          <StyledError name="email" component="span"/>
         </label>
         <label>
-          <span>Enter your password</span>
+          <StyledFieldName>Enter your password</StyledFieldName>
           <Field
             name="password"
             type={isPasswordVisible ? 'text' : 'password'}
@@ -68,12 +70,11 @@ const SignInForm = () => {
           >
             {isPasswordVisible ? <Eye /> : <SlashedEye />}
           </StyledToggleBtn>
-          <ErrorMessage name="password" component="p" />
+          <StyledError name="password" component="span"/>
         </label>
         <StyledSubmitBtn type="submit">Sign In</StyledSubmitBtn>
         <Link to="/signup">Sign up</Link>
-      </StyledForm>
-      
+      </StyledForm>      
     </Formik>
   );
 };

@@ -1,56 +1,96 @@
-import { ErrorMessage, Field, Formik } from 'formik';
-import { useSelector } from 'react-redux';
-// import { useDispatch } from 'react-redux';
-import * as Yup from 'yup';
+import { ErrorMessage, Formik } from 'formik';
+import { useDispatch, useSelector } from 'react-redux';
+import * as yup from 'yup';
+import { useState } from 'react';
+import { toast } from 'react-toastify';
 
 import {
   GenderBox,
   GenderText,
+  PassLab,
   PasswordBox,
   PasswordText,
+  Radio,
   SaveButton,
   StyledField,
   StyledForm,
+  StyledToggleBtn,
   Text,
+  UserBox,
   UserInfoBox,
+  UserInfoSpan,
+  UserLabel,
   YourGender,
 } from './SettingsModalForm.styled';
-import { selectAuthIsLoading } from '/src/redux/authSelectors';
+import { selectAuthUserData } from '/src/redux/authSelectors';
+import { userInfoThunk } from '/src/redux/userInfoOperations';
+import { ReactComponent as Eye } from '/src/svgs/icons/eye.svg';
+import { ReactComponent as SlashedEye } from '/src/svgs/icons/slashed-eye.svg';
+import { selectAuthError } from '/src/redux/authSelectors';
 
-const SignInSchema = Yup.object().shape({
-  gender: Yup.string(),
-  name: Yup.string(),
-  email: Yup.string().email('Please enter a valid email'),
-  password: Yup.string()
+const SignInSchema = yup.object().shape({
+  gender: yup.string(),
+  name: yup.string().min(2, 'Name must be 2 or more characters'),
+  email: yup.string().email('Please enter a valid email'),
+  oldPassword: yup
+    .string()
     .min(8, 'Password must be 8 or more characters')
     .max(30),
+  newPassword: yup
+    .string()
+    .min(8, 'Password must be 8 or more characters')
+    .max(30),
+  resetPassword: yup
+    .string()
+    .oneOf([yup.ref('newPassword'), null], 'The passwords do not match')
+    .required('Repeat password field is required'),
 });
 
 const SettingsModalForm = () => {
-  const user = useSelector(selectAuthIsLoading);
+  const user = useSelector(selectAuthUserData);
+  const [isPasswordVisible, setPasswordVisibility] = useState(false);
+  const [isRepeatPasswordVisible, setRepeatPasswordVisibility] =
+    useState(false);
+  const [isNewPasswordVisible, setNewPasswordVisibility] = useState(false);
 
-  //   const dispatch = useDispatch();
+  const error = useSelector(selectAuthError);
+
+  const dispatch = useDispatch();
+
   const initialValues = {
-    gender: '',
-    name: '',
+    gender: user.gender || 'female',
+    name: user.name || '',
     email: user.email,
-    password: '',
+    oldPassword: '',
     newPassword: '',
     resetPassword: '',
   };
 
-  const handleSubmit = (values) => {
-    const changedFields = {};
+  const handleSubmit = async (values) => {
+    console.log('error: ', error);
+    if (values === initialValues) {
+      toast.warn('No changes were made.');
+      return;
+    }
 
+    const changedFields = {};
     Object.keys(values).forEach((fieldName) => {
-      if (values[fieldName] !== initialValues[fieldName]) {
+      if (
+        values[fieldName] !== initialValues[fieldName] &&
+        fieldName !== 'resetPassword'
+      ) {
         changedFields[fieldName] = values[fieldName];
       }
     });
+    console.log(changedFields);
+    try {
+      await dispatch(userInfoThunk(changedFields));
+      toast('Wow so easy !');
+    } catch (error) {
+      toast.error(error);
+    }
 
-    console.log('Changed Fields:', changedFields);
-
-    // dispatch(loginThunk(userValues));
+    return;
   };
 
   return (
@@ -59,63 +99,127 @@ const SettingsModalForm = () => {
       validationSchema={SignInSchema}
       onSubmit={handleSubmit}
     >
-      <StyledForm autoComplete="off">
-        <UserInfoBox>
-          <YourGender>Your gender identity</YourGender>
-          <GenderBox role="group">
-            <label htmlFor="woman">
-              <Field type="radio" name="gender" value="woman" />
-              <GenderText>Woman</GenderText>
-            </label>
-            <label htmlFor="man">
-              <Field type="radio" name="gender" value="man" />
-              <GenderText>Man</GenderText>
-            </label>
-          </GenderBox>
+      {(props) => (
+        <StyledForm autoComplete="off">
+          <div className="box">
+            <UserInfoBox>
+              <YourGender>Your gender identity</YourGender>
+              <GenderBox role="group">
+                <label htmlFor="female">
+                  <Radio
+                    type="radio"
+                    name="gender"
+                    value="female"
+                    checked={props.values.gender === 'female'}
+                  />
+                  <GenderText>Woman</GenderText>
+                </label>
+                <label htmlFor="male">
+                  <Radio
+                    type="radio"
+                    name="gender"
+                    value="male"
+                    checked={props.values.gender === 'male'}
+                  />
+                  <GenderText>Man</GenderText>
+                </label>
+              </GenderBox>
+              <UserBox>
+                <div>
+                  <UserLabel htmlFor="name">
+                    <UserInfoSpan>Your name</UserInfoSpan>
+                    <StyledField
+                      name="name"
+                      type="text"
+                      id="name"
+                      placeholder=""
+                      value={props.values.name}
+                      pattern=".{2,}"
+                    />
+                  </UserLabel>
+                  <ErrorMessage name="name" component="p" />
+                </div>
+                <div>
+                  <UserLabel htmlFor="email">
+                    <UserInfoSpan>E-mail</UserInfoSpan>
+                    <StyledField
+                      name="email"
+                      type="email"
+                      id="email"
+                      value={props.values.email}
+                      placeholder="E-mail"
+                    />
+                  </UserLabel>
+                  <ErrorMessage name="email" component="p" />
+                </div>
+              </UserBox>
+            </UserInfoBox>
 
-          <label htmlFor="name">
-            Your name
-            <StyledField name="name" type="text" placeholder="" />
-            <ErrorMessage name="name" />
-          </label>
-          <label className="label" htmlFor="email">
-            E-mail
-            <StyledField name="email" type="email" placeholder="E-mail" />
-            <ErrorMessage name="email" />
-          </label>
-        </UserInfoBox>
-        <Text>Password</Text>
-        <PasswordBox>
-          <label htmlFor="password">
-            <PasswordText>Outdated password:</PasswordText>
-            <StyledField
-              name="password"
-              type="password"
-              placeholder="Password"
-            />
-            <ErrorMessage name="password" />
-          </label>
-          <label htmlFor="newPassword">
-            <PasswordText>New Password:</PasswordText>
-            <StyledField
-              name="newPassword"
-              type="password"
-              placeholder="Password"
-            />
-            <ErrorMessage name="newPassword" />
-          </label>
-          <label htmlFor="resetPassword">
-            <PasswordText>Repeat New Password:</PasswordText>
-            <StyledField
-              name="resetPassword"
-              type="password"
-              placeholder="Password"
-            />
-            <ErrorMessage name="resetPassword" />
-          </label>
-        </PasswordBox>
-        <SaveButton type="submit">Save</SaveButton>
-      </StyledForm>
+            <PasswordBox>
+              <Text>Password</Text>
+              <div>
+                <PassLab htmlFor="oldPassword">
+                  <PasswordText>Outdated password:</PasswordText>
+                  <StyledField
+                    name="oldPassword"
+                    type={isPasswordVisible ? 'text' : 'password'}
+                    placeholder="Password"
+                    pattern=".{8,}"
+                  />
+                  <StyledToggleBtn
+                    type="button"
+                    onClick={() => setPasswordVisibility(!isPasswordVisible)}
+                  >
+                    {isPasswordVisible ? <Eye /> : <SlashedEye />}
+                  </StyledToggleBtn>
+                </PassLab>
+                <ErrorMessage name="oldPassword" component="p" />
+              </div>
+              <div>
+                <PassLab htmlFor="newPassword">
+                  <PasswordText>New Password:</PasswordText>
+                  <StyledField
+                    name="newPassword"
+                    type={isNewPasswordVisible ? 'text' : 'password'}
+                    placeholder="Password"
+                    pattern=".{8,}"
+                  />
+                  <StyledToggleBtn
+                    type="button"
+                    onClick={() =>
+                      setNewPasswordVisibility(!isNewPasswordVisible)
+                    }
+                  >
+                    {isNewPasswordVisible ? <Eye /> : <SlashedEye />}
+                  </StyledToggleBtn>
+                </PassLab>
+                <ErrorMessage name="newPassword" component="p" />
+              </div>
+              <div>
+                <PassLab htmlFor="resetPassword">
+                  <PasswordText>Repeat New Password:</PasswordText>
+                  <StyledField
+                    name="resetPassword"
+                    type={isRepeatPasswordVisible ? 'text' : 'password'}
+                    placeholder="Password"
+                    pattern=".{8,}"
+                  />
+                  <StyledToggleBtn
+                    type="button"
+                    onClick={() =>
+                      setRepeatPasswordVisibility(!isRepeatPasswordVisible)
+                    }
+                  >
+                    {isRepeatPasswordVisible ? <Eye /> : <SlashedEye />}
+                  </StyledToggleBtn>
+                </PassLab>
+                <ErrorMessage name="resetPassword" component="p" />
+              </div>
+            </PasswordBox>
+          </div>
+          <SaveButton type="submit">Save</SaveButton>
+        </StyledForm>
+      )}
     </Formik>
   );
 };

@@ -1,12 +1,5 @@
-import axios from 'axios';
-
-const instance = axios.create({
-  baseURL: `https://water-tracker-o2xv.onrender.com/`,
-});
-
-export const setToken = (token) => {
-  instance.defaults.headers.common.Authorization = `Bearer ${token}`;
-};
+import { instance } from "./instance";
+import { setToken } from "./authApi";
 
 export const requestPhotoUpdate = async (fileImg) => {
   const formData = new FormData();
@@ -19,4 +12,10 @@ export const requestPhotoUpdate = async (fileImg) => {
   });
   setToken(data.token);
   return data.avatarURL;
+};
+
+export const requestInfoUpdate = async (formData) => {
+  const { data } = await instance.patch('users', formData);
+  setToken(data.token);
+  return data.user;
 };

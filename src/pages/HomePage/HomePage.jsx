@@ -6,37 +6,27 @@ import {
   ControllContainer, 
   ProgressWrapper
 } from './HomePage.styled';
-// import ProgressBar from './ProgresBar';
-import {Today} from '../../components/Today/Today.jsx';
+import DailyWaterRate from '/src/components/DailyWaterRate/DailyWaterRate';
+import ProgressBar from '/src/components/ProgressBar/ProgressBar';
+import {Today} from '/src/components/Today/Today.jsx';
 
 const HomePage = () => {
-  // const [progress, setProgress] = useState(0);
-  // useEffect(() => {
-  //   const id = setInterval(() => {
-  //     setProgress(Math.random()*100);
-  //   }, 3000);
-  //   return () => {
-  //     clearInterval(id);
-  //   }
-  // }, []);
+  
 
   return (
-    <>
-    <Container>
-     <HomeContainer></HomeContainer>
+    <>    
+      <HomeContainer></HomeContainer>
+      {/* <Container> */}
+        <DailyWaterRate />
+        <ProgressBar/>
   
-     <DailyContainer>
-       <p>My daily norma</p>
-       <span>1.5 L edit</span>
-
-   {/* <ProgressBar value={progress} /> */}
-     </DailyContainer>
-     <ProgressWrapper>
+     {/* <DailyContainer/> */}
+     {/* <ProgressWrapper>
        <ControllContainer>
          <Today />
        </ControllContainer>
-     </ProgressWrapper>
-    </Container>
+     </ProgressWrapper> */}
+    {/* </Container> */}
 
   </>
 );

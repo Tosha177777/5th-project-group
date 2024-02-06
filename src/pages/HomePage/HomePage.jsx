@@ -1,10 +1,7 @@
-import { useSelector } from 'react-redux';
-import { selectWaterIsLoading } from '/src/redux/waterSelectors';
 import DailyWaterRate from '/src/components/DailyWaterRate/DailyWaterRate';
 import ProgressBar from '/src/components/ProgressBar/ProgressBar';
-import  Today  from '/src/components/Today/Today.jsx';
-import Calendar from '/src/components/Calendar/Calendar';
-import { Loader } from '/src/components/Loader/Loader';
+import Today  from '/src/components/Today/Today.jsx';
+import Month from '/src/components/Calendar/Month/Month';
 import {
   HomeContainer,
   StyledContainer,
@@ -14,8 +11,6 @@ import {
 } from './HomePage.styled';
 
 const HomePage = () => {  
-  const isLoading = useSelector(selectWaterIsLoading);
-
   return (
     <>
       <HomeContainer></HomeContainer>
@@ -26,11 +21,9 @@ const HomePage = () => {
         </StyledDataWrap>
         <StyledInfoWrap>
           <StyledTodayInfo>
-    {isLoading && <Loader/> }
             <Today />
           </StyledTodayInfo>
-    {isLoading && <Loader/> }
-          <Calendar />          
+            <Month />          
         </StyledInfoWrap>
       </StyledContainer>
     </>

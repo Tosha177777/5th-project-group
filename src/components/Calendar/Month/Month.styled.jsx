@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 
+
 export const CalendarContainer = styled.div`
   display: flex;
   flex-direction: column;
@@ -35,9 +36,11 @@ export const MonthNavigation = styled.div`
 `;
 
 export const ArrowButton = styled.button`
+ 
   cursor: pointer;
   margin: 0 10px;
   background-color: rgba(0, 0, 255, 0);
+  border: none;
 `;
 
 export const Day = styled.div`

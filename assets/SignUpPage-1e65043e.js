@@ -1,4 +1,4 @@
-import{n as o,F as k,c as i,E as j,b as S,d as s,e as v,r as d,f as $,j as e,g as C,h as a,S as c,i as m,L as E,k as z,l as P,m as B,s as F}from"./index-f61a27ee.js";const V=o(k)`
+import{n as o,F as k,c as i,E as j,b as S,d as s,e as v,r as d,f as $,j as e,g as C,h as a,S as c,i as m,L as E,k as z,l as P,m as B,s as F}from"./index-6f682d08.js";const V=o(k)`
   display: flex;
   flex-direction: column;
   gap: 16px;
@@ -157,7 +157,7 @@ import{n as o,F as k,c as i,E as j,b as S,d as s,e as v,r as d,f as $,j as e,g a
         url('src/images/desktop/background-element-main-page@2x.png');
     }
   }
-`,A=o.h3`
+`,A=o.p`
   margin-top: 20px;
   width: 280px;
   font-size: 18px;

@@ -1,4 +1,4 @@
-import{u as e,c as o,F as u,E as h,b,d as a,r as f,f as y,j as i,g as w,h as s,S as k,i as C,L as $,o as S,m as j,s as v}from"./index-f61a27ee.js";const z=e(u)`
+import{u as e,c as o,F as u,E as h,b,d as a,r as f,f as y,j as i,g as w,h as s,S as k,i as C,L as $,o as S,m as j,s as v}from"./index-6f682d08.js";const z=e(u)`
   display: flex;
   flex-direction: column;
   gap: 16px;
@@ -249,7 +249,7 @@ import{u as e,c as o,F as u,E as h,b,d as a,r as f,f as y,j as i,g as w,h as s,S
         url('src/images/desktop/background-element-main-page@2x.png');
     }
   }
-`,V=e.h3`
+`,V=e.p`
   margin-top: 20px;
   width: 280px;
   font-size: 18px;

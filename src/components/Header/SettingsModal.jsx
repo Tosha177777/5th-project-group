@@ -20,13 +20,10 @@ import { useDispatch, useSelector } from 'react-redux';
 import { selectAuthUserData } from '/src/redux/authSelectors';
 import { userPhotoThunk } from '../../redux/userInfoOperations';
 import SettingsModalForm from './SettingsModalForm/SettingsModalForm';
-import { toast } from 'react-toastify';
-import { selectAuthError } from '/src/redux/authSelectors';
 
 const SettingsModal = ({ onClose }) => {
   const dispatch = useDispatch();
 
-  const error = useSelector(selectAuthError);
   const user = useSelector(selectAuthUserData);
   const userPhoto = user.avatarURL;
   const userEmail = user.email;
@@ -40,9 +37,7 @@ const SettingsModal = ({ onClose }) => {
     if (file) {
       setSelectedFile(URL.createObjectURL(file));
       dispatch(userPhotoThunk(file));
-      toast('Wow so beautiful !');
     }
-    toast(error.message);
     return;
   };
 

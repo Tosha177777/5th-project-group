@@ -1,5 +1,3 @@
-
-=======
 import { useDispatch, useSelector } from 'react-redux';
 import { useEffect, useMemo } from 'react';
 import { selectWaterIsLoading } from '/src/redux/waterSelectors';
@@ -41,7 +39,7 @@ const Today = () => {
   return (
     <>
       <Text>Today</Text>
-      {isLoading && <StyledInfo>Please wait. Loading...</StyledInfo> }
+      {isLoading && <StyledInfo>Please wait. Loading...</StyledInfo>}
       {Array.isArray(todayPortions) && todayPortions.length > 0 ? (
         <StyledList>
           {todayPortions
@@ -62,8 +60,7 @@ const Today = () => {
         </StyledList>
       ) : (
         <StyledInfo>
-          There are no records for today. Press &quot;Add Water&quot; to
-          add.
+          There are no records for today. Press &quot;Add Water&quot; to add.
         </StyledInfo>
       )}
       <StyledEAddBtn>
@@ -73,6 +70,5 @@ const Today = () => {
     </>
   );
 };
-
 
 export default Today;

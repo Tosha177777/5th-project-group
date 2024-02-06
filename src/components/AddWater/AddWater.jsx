@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect } from 'react';
 import { useFormik } from 'formik';
 import * as Yup from 'yup';
 import { v4 as uuidv4 } from 'uuid';
@@ -26,9 +26,7 @@ import {
 
 import { ReactComponent as Cross } from '../../svgs/icons/cross.svg';
 
-export const AddWater = ({ onSave }) => {
-  const [isModalOpen, setIsModalOpen] = useState(true);
-
+export const AddWater = ({ onSave, onClose }) => {
   const getCurrentTime = () => {
     const now = new Date();
     const hours = now.getHours();
@@ -55,20 +53,27 @@ export const AddWater = ({ onSave }) => {
     },
   });
 
-  const closeModal = () => {
-    setIsModalOpen(false);
-  };
+  useEffect(() => {
+    const handleKeyDown = (e) => {
+      if (e.key === 'Escape') {
+        onClose();
+      }
+    };
 
-  const handleModalClick = (e) => {
-    if (e.target === e.currentTarget) {
-      closeModal();
+    window.addEventListener('keydown', handleKeyDown);
+    return () => {
+      window.removeEventListener('keydown', handleKeyDown);
+    };
+  }, [onClose]);
+
+  const handleClick = (e) => {
+    if (e.currentTarget === e.target) {
+      onClose();
     }
   };
 
-  const handleKeyDown = (e) => {
-    if (e.key === 'Escape') {
-      closeModal();
-    }
+  const handleCloseX = () => {
+    onClose();
   };
 
   const { amountWater, time, firstWater } = formik.values;
@@ -82,15 +87,10 @@ export const AddWater = ({ onSave }) => {
   };
 
   return (
-    <AddWaterModal
-      onClick={handleModalClick}
-      onKeyDown={handleKeyDown}
-      tabIndex="0"
-      style={{ display: isModalOpen ? 'block' : 'none' }}
-    >
+    <AddWaterModal onClick={handleClick}>
       <AddWaterForm onSubmit={formik.handleSubmit}>
         <PageName>Edit the entered amount of water</PageName>
-        <CloseBtn onClick={closeModal}>
+        <CloseBtn onClick={handleCloseX}>
           <Cross />
         </CloseBtn>
 

@@ -1,5 +1,5 @@
 import styled from '@emotion/styled';
-import colors from '../../root/root';
+import colors from '/src/root/root';
 
 export const StyledWrap = styled.div`
 width: 100%;
@@ -20,6 +20,7 @@ export const StyledWrapper = styled.div`
 margin-bottom: 16px;
 
 @media (min-width: 768px) {
+  padding-bottom: 8px;
     margin-bottom: 0;
     width: 356px;
   }
@@ -34,6 +35,10 @@ margin-bottom: 8px;
 font-size: 18px;
 line-height: 1.33;
 color: ${colors.primaryColorBlue};
+
+@media (min-width: 768px) {
+    margin-bottom: 16px;    
+  }
 
 `
 
@@ -69,7 +74,7 @@ border-radius: 10px;
 export const StyledDote = styled.div`
 position: absolute;
 top: -4px;
-left: 193px;              //add valuable
+left: 0;              
 width: 14px;
 height: 14px;
 background-color:${colors.primaryColorWhite};
@@ -133,7 +138,7 @@ box-shadow: 0 4px 8px 0 rgba(64, 123, 255, 0.34);
   }
 
 :hover {
-   box-shadow: none;
+   box-shadow: 0 4px 14px 0 rgba(64, 123, 255, 0.54);
   }
 
 span{
@@ -145,11 +150,12 @@ line-height: 1.25;
 color: ${colors.primaryColorWhite};
 
 @media (min-width: 768px) {
+    padding: 0 5px;
     font-size: 18px;
     line-height: 1.33;
   }
 
-  @media (min-width: 768px) {
+  @media (min-width: 1440px) {
     padding: 0;
   }
 }

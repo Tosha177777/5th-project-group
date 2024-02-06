@@ -22,9 +22,11 @@ export function DailyNormaModal({ closeModal }) {
   const [waterResult, setWaterResult] = useState(0);
   useEffect(() => {
     window.addEventListener('keydown', hendleKeyDown);
+    document.body.style.overflow = 'hidden';
 
     return () => {
       window.removeEventListener('keydown', hendleKeyDown);
+      document.body.style.overflow = 'auto';
     };
   });
 
@@ -64,10 +66,14 @@ export function DailyNormaModal({ closeModal }) {
   const onSubmit = async (event) => {
     event.preventDefault();
     const water = {
-      waterRate: waterResult,
+      waterRate: waterResult * 1000,
     };
     if (waterResult > 0) {
       dispatch(changeWaterRate(water));
+      setWeight(0);
+      setActiveTime(0);
+      setWaterResult(0);
+      closeModal();
     }
   };
 
@@ -140,6 +146,7 @@ export function DailyNormaModal({ closeModal }) {
           <label className="weight-lable">
             <input
               type="number"
+              min={0}
               name="weight"
               value={weight}
               onChange={onInputChange}
@@ -153,6 +160,7 @@ export function DailyNormaModal({ closeModal }) {
           <label className="activeTime-lable">
             <input
               type="number"
+              min={0}
               name="activeTime"
               value={activeTime}
               onChange={onInputChange}
@@ -171,6 +179,8 @@ export function DailyNormaModal({ closeModal }) {
           <label className="waterToDrink-lable">
             <input
               type="number"
+              min={0}
+              max={15}
               name="waterToDrink"
               value={waterResult}
               onChange={onInputChange}

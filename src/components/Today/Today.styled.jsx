@@ -1,77 +1,103 @@
 import styled from 'styled-components';
-import {ReactComponent as Trash} from '../../svgs/icons/trash.svg';
-import {ReactComponent as Pencil} from '../../svgs/icons/pencil.svg';
-import {ReactComponent as Plus} from '../../svgs/icons/plus.svg';
-import {ReactComponent as Glass} from '../../svgs/icons/glass.svg';
+import colors from '/src/root/root';
 
-export const TodayContainer=styled.div`
-    box-sizing: content-box;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 12px 0px;
-    height: 26px;
-    border-bottom: 1px solid #d7e3ff;
+export const Text = styled.p`
+    margin-bottom: 16px;
+    font-size: 24px;
+    line-height: 1.25;
+    font-weight: 500;
+    color: ${colors.primaryColorBlack};
 
-    p {
-
-      font-family: Roboto;
-      font-size: 18px;
-    }
+    @media (min-width: 768px) {
+    font-size: 26px;
+    line-height: 1.23;   
+  }
 `;
 
-export const PencilSvg=styled(Pencil)`
-
-    color: blue;
-    margin-left: 120px;
-    margin-right: 12px;
-`;
-
-export const BtnDelet=styled.button`
-    background-color: #ffffff;
-`;
- export const TrashSvg=styled(Trash)`
-
-    color: #EF5050;
- `;
-export const PlusSvg=styled(Plus)`
-    position: relative;
-    color: blue;
-    top:-90%;
-    left: -45%;
-    padding: 0px 8px -10px 12px;
-    margin: 0px 8px 0px 8px;
-`;
-
-export const BtnAdd=styled.button`
-    width: 97px;
-    height: 20px;
-    padding-top: 8px; 
-
-    p {
-                
-        font-family: Roboto;
-        font-size: 16px;
-         
-    }
-
-    @media only screen and (min-width: 768px){
-        width: 114px;
-        height: 24px;
-    }
-`;
-export const Text=styled.p`
-    margin-left: 8px;
-    margin-right: 16px;
+export const StyledList = styled.ul`
+ margin-bottom: 12px;
+ display: flex;
+ flex-direction: column;
+`
+export const StyledItem = styled.li`
+ display: flex;
+ align-items: center;
+ padding: 12px 0;
+ margin-bottom: 12px;
+ border-bottom: 1px solid ${colors.secondaryColor6};
+ 
+`
+export const StyledAmount = styled.p`
+    margin-left: 12px;
     font-size: 18px;
+    line-height: 1.33;
 `;
 
-export const GlassSvg=styled(Glass)`
-    width: 26px;
-    height: 26px;
+export const StyledTime = styled.p`
+    margin-left: 12px;
+    margin-right: 38px;
+    font-size: 12px;
+    line-height: 2;
+    color: ${colors.primaryColorBlack};
 
-    @media only screen and (min-width: 768px){
-        width: 36px;
-        height: 36px; 
+    @media (min-width: 768px) {
+    margin-right: auto;
+    margin-left: 16px;
+  }
+`;
+
+export const StyledEditBtn = styled.button`
+    padding: 0;
+    border: none;
+    background-color: transparent;
+    stroke: ${colors.secondaryColor4};
+    margin-right: 18px;
+    
+    :hover {
+    border-bottom: 1px solid ${colors.secondaryColor4};
     }
 `;
+
+export const StyledEDeleteBtn = styled.button`
+    padding: 0;
+    border: none;
+    background-color: transparent;
+    stroke: ${colors.secondaryColor3};
+
+    :hover {
+    border-bottom: 1px solid ${colors.secondaryColor3};
+    }
+`;
+
+export const StyledEAddBtn = styled.button`
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    padding: 0;
+    border: none;
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 1.25;
+    color: ${colors.primaryColorBlue};
+    background-color: transparent;
+    transition: color ease-in-out 250ms;
+
+    :hover {
+    color: ${colors.secondaryColor5};
+    fill: ${colors.secondaryColor5};
+    }
+`;
+
+export const StyledInfo = styled.p`
+    margin-right: auto;
+    margin-left: auto;
+    margin-bottom: 30px;
+    width: 250px;
+    text-align: center;
+    font-size: 16px;
+    line-height: 1.33;
+    color: ${colors.secondaryColor4}; 
+`;
+
+
+

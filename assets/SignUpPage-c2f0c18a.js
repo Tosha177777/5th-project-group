@@ -1,4 +1,4 @@
-import{n as o,F as k,c as i,E as j,b as S,d as s,e as v,r as d,f as $,j as e,g as C,h as n,S as c,i as m,L as E,k as z,l as P,m as B,s as F}from"./index-263ff0f2.js";const V=o(k)`
+import{n as o,F as k,c as i,E as j,b as S,d as s,e as v,r as d,f as $,j as e,g as C,h as a,S as c,i as m,L as E,k as z,l as P,m as B,s as F}from"./index-f61a27ee.js";const V=o(k)`
   display: flex;
   flex-direction: column;
   gap: 16px;
@@ -67,10 +67,16 @@ import{n as o,F as k,c as i,E as j,b as S,d as s,e as v,r as d,f as $,j as e,g a
   border: none;
   background-color: ${i.primaryColorBlue};
   color: ${i.primaryColorWhite};
+  box-shadow: 0 4px 8px 0 rgba(64, 123, 255, 0.34);
+
   @media (min-width: 768px) {
     font-size: 18px;
   }
-`,a=o.span`
+
+  :hover {
+   box-shadow: 0 4px 14px 0 rgba(64, 123, 255, 0.54);
+  }
+`,n=o.span`
     display: block;
     margin-bottom: 8px;
     font-size: 18px;
@@ -88,7 +94,7 @@ import{n as o,F as k,c as i,E as j,b as S,d as s,e as v,r as d,f as $,j as e,g a
   margin-left: 4px;
   font-size: 14px;
   color: ${i.secondaryColor3};
-`,R=S().shape({email:s().email("Please enter a valid email").required("E-mail is required"),password:s().min(8,"Password must be 8 or more characters").max(64).required("Password is required"),repeatPassword:s().oneOf([v("password"),null],"The passwords do not match").required("Repeat password field is required")}),U=()=>{const[r,g]=d.useState(!1),[t,u]=d.useState(!1),p=$(),h={email:"",password:"",repeatPassword:""},b=({email:w,password:f},{resetForm:y})=>{event.preventDefault(),p(z({email:w,password:f})),p(P()),y()};return e.jsx(C,{initialValues:h,validationSchema:R,onSubmit:b,children:e.jsxs(V,{children:[e.jsx("h1",{children:"Sign Up"}),e.jsxs("label",{children:[e.jsx(a,{children:"Enter your email"}),e.jsx(n,{name:"email",type:"email",placeholder:"E-mail"}),e.jsx(l,{name:"email",component:"span"})]}),e.jsxs("label",{children:[e.jsx(a,{children:"Enter your password"}),e.jsx(n,{name:"password",type:r?"text":"password",placeholder:"Password",pattern:".{8,}"}),e.jsx(x,{type:"button",onClick:()=>g(!r),children:r?e.jsx(c,{}):e.jsx(m,{})}),e.jsx(l,{name:"password",component:"span"})]}),e.jsxs("label",{children:[e.jsx(a,{children:"Repeat password"}),e.jsx(n,{name:"repeatPassword",type:t?"text":"password",placeholder:"Repeat password",pattern:".{8,}"}),e.jsx(x,{type:"button",onClick:()=>u(!t),children:t?e.jsx(c,{}):e.jsx(m,{})}),e.jsx(l,{name:"repeatPassword",component:"span"})]}),e.jsx(q,{type:"submit",children:"Sign Up"}),e.jsx(E,{to:"/signin",children:"Sign in"})]})})},T=o.div`
+`,R=S().shape({email:s().email("Please enter a valid email").required("E-mail is required"),password:s().min(8,"Password must be 8 or more characters").max(64).required("Password is required"),repeatPassword:s().oneOf([v("password"),null],"The passwords do not match").required("Repeat password field is required")}),U=()=>{const[r,g]=d.useState(!1),[t,u]=d.useState(!1),p=$(),h={email:"",password:"",repeatPassword:""},b=({email:w,password:f},{resetForm:y})=>{event.preventDefault(),p(z({email:w,password:f})),p(P()),y()};return e.jsx(C,{initialValues:h,validationSchema:R,onSubmit:b,children:e.jsxs(V,{children:[e.jsx("h1",{children:"Sign Up"}),e.jsxs("label",{children:[e.jsx(n,{children:"Enter your email"}),e.jsx(a,{name:"email",type:"email",placeholder:"E-mail"}),e.jsx(l,{name:"email",component:"span"})]}),e.jsxs("label",{children:[e.jsx(n,{children:"Enter your password"}),e.jsx(a,{name:"password",type:r?"text":"password",placeholder:"Password",pattern:".{8,}"}),e.jsx(x,{type:"button",onClick:()=>g(!r),children:r?e.jsx(c,{}):e.jsx(m,{})}),e.jsx(l,{name:"password",component:"span"})]}),e.jsxs("label",{children:[e.jsx(n,{children:"Repeat password"}),e.jsx(a,{name:"repeatPassword",type:t?"text":"password",placeholder:"Repeat password",pattern:".{8,}"}),e.jsx(x,{type:"button",onClick:()=>u(!t),children:t?e.jsx(c,{}):e.jsx(m,{})}),e.jsx(l,{name:"repeatPassword",component:"span"})]}),e.jsx(q,{type:"submit",children:"Sign Up"}),e.jsx(E,{to:"/signin",children:"Sign in"})]})})},T=o.div`
   max-width: 320px;
   width: 100%;
   height: 570px;

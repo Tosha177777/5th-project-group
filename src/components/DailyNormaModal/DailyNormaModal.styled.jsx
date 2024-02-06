@@ -138,8 +138,8 @@ export const ModalForm = styled.form`
   .chek-title:not(:last-child) {
     margin-right: 24px;
   }
-
-  .check:before {
+  .check {
+    cursor: pointer;
   }
   .weight-title {
     margin-bottom: 8px;
@@ -158,6 +158,9 @@ export const ModalForm = styled.form`
     line-height: 20px;
   }
 
+  .form-input:focus-visible {
+    outline: none;
+  }
   @media (min-width: 768px) {
     .form-input {
       width: 656px;
@@ -236,6 +239,10 @@ export const ModalForm = styled.form`
     border: transparent;
     box-shadow: 0px 4px 8px 0px rgba(64, 123, 255, 0.34);
     cursor: pointer;
+    transition: all 250ms cubic-bezier(0.4, 0, 0.2, 1);
+    &:hover:focus {
+      background-color: #4054ff;
+    }
   }
 
   @media (min-width: 768px) {

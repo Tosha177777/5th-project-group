@@ -3,8 +3,8 @@ import { Link } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import * as yup from 'yup';
 import { Formik, Field} from 'formik';
-import { clearAuthError, registerThunk } from '../../redux/authOperations';
-import colors from '../../root/root';
+import { clearAuthError, registerThunk } from '/src/redux/authOperations';
+
 import {
   StyledError,
   StyledFieldName,
@@ -12,8 +12,8 @@ import {
   StyledSubmitBtn,
   StyledToggleBtn,
 } from './SignUpForm.styled';
-import { ReactComponent as Eye } from '../../svgs/icons/eye.svg';
-import { ReactComponent as SlashedEye } from '../../svgs/icons/slashed-eye.svg';
+import { ReactComponent as Eye } from '/src/svgs/icons/eye.svg';
+import { ReactComponent as SlashedEye } from '/src/svgs/icons/slashed-eye.svg';
 
 const SignUpSchema = yup.object().shape({
   email: yup

@@ -72,8 +72,14 @@ export const StyledSubmitBtn = styled.button`
   border: none;
   background-color: ${colors.primaryColorBlue};
   color: ${colors.primaryColorWhite};
+  box-shadow: 0 4px 8px 0 rgba(64, 123, 255, 0.34);
+
   @media (min-width: 768px) {
     font-size: 18px;
+  }
+
+  :hover {
+   box-shadow: 0 4px 14px 0 rgba(64, 123, 255, 0.54);
   }
 `
 export const StyledFieldName = styled.span`

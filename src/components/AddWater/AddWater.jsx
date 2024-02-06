@@ -1,5 +1,6 @@
 import { useEffect } from 'react';
 import { useFormik } from 'formik';
+import { useDispatch } from 'react-redux';
 import * as Yup from 'yup';
 import { v4 as uuidv4 } from 'uuid';
 import {
@@ -25,8 +26,11 @@ import {
 } from './AddWater.styled';
 
 import { ReactComponent as Cross } from '../../svgs/icons/cross.svg';
+import { addWaterThunk } from '../../redux/waterOperations';
 
-export const AddWater = ({ onSave, onClose }) => {
+export const AddWater = ({ onClose }) => {
+  const dispatch = useDispatch();
+
   const getCurrentTime = () => {
     const now = new Date();
     const hours = now.getHours();
@@ -49,7 +53,7 @@ export const AddWater = ({ onSave, onClose }) => {
     }),
     onSubmit: ({ amountWater, time }) => {
       const id = uuidv4();
-      onSave({ id, amountWater, time });
+      dispatch(addWaterThunk({ id, amountWater, time }));
     },
   });
 

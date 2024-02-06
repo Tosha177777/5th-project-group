@@ -1,5 +1,5 @@
 import { useEffect } from 'react';
-// import { useDispatch } from 'react-redux';
+import { useDispatch } from 'react-redux';
 
 import {
   BtnBox,
@@ -13,10 +13,10 @@ import {
   XCrosBtn,
 } from './DeleteWater.styled';
 import { ReactComponent as Xcros } from '/src/svgs/icons/xcros.svg';
-// import { deleteWaterThunk } from '';
+import { deleteWaterThunk } from '../../redux/waterOperations';
 
 export const DeleteWater = ({ onClose, id }) => {
-  // const dispatch = useDispatch();
+  const dispatch = useDispatch();
 
   useEffect(() => {
     const handleKeyDown = (e) => {
@@ -43,7 +43,7 @@ export const DeleteWater = ({ onClose, id }) => {
 
   const onClick = () => {
     console.log(id);
-    // dispatch(deleteWaterThunk(id));
+    dispatch(deleteWaterThunk(id));
   };
 
   return (

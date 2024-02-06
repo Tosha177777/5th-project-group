@@ -39,9 +39,14 @@ const SignInSchema = yup.object().shape({
     .string()
     .min(8, 'Password must be 8 or more characters')
     .max(30),
-  resetPassword: yup
-    .string()
-    .oneOf([yup.ref('newPassword'), null], 'The passwords do not match'),
+  resetPassword: yup.string().when('newPassword', {
+    is: (newPassword) => newPassword && newPassword.length > 0,
+    then: yup
+      .string()
+      .oneOf([yup.ref('newPassword')], 'The passwords do not match')
+      .required('Repeat new password is required'),
+    otherwise: yup.string(),
+  }),
 });
 
 const SettingsModalForm = () => {

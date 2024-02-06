@@ -1,6 +1,6 @@
 import { useCallback, useEffect, useRef, useState } from 'react';
-import { Day, DayCell, DayPercent } from '../Month.styled';
-import CalendarModal from '../../Modal/CalendarModal';
+import { Day, DayCell, DayPercent } from '../Month/Month.styled';
+import CalendarModal from '../Modal/CalendarModal';
 import { AnimatePresence } from 'framer-motion';
 
 const DayComponent = ({ calendarRef, day, waterPercentage }) => {

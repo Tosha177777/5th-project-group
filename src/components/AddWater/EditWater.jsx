@@ -1,4 +1,5 @@
-import { useState } from 'react';
+import { useEffect } from 'react';
+import { useDispatch } from 'react-redux';
 import { useFormik } from 'formik';
 import * as Yup from 'yup';
 import {
@@ -27,16 +28,10 @@ import {
 
 import { ReactComponent as Glass } from '../../svgs/icons/glass.svg';
 import { ReactComponent as Cross } from '../../svgs/icons/cross.svg';
+import { updateWaterThunk } from '../../redux/waterOperations';
 
-export const EditWater = ({ onSave, waterCardsSave }) => {
-  const [isModalOpen, setIsModalOpen] = useState(true);
-
-  const getCurrentTime = () => {
-    const now = new Date();
-    const hours = now.getHours();
-    const minutes = (now.getMinutes() < 10 ? '0' : '') + now.getMinutes();
-    return `${hours}:${minutes}`;
-  };
+export const EditWater = ({ waterCardsSave, onClose, recordId }) => {
+  const dispatch = useDispatch();
 
   const convertTo12HourFormat = (time24) => {
     const [hours, minutes] = time24.split(':');
@@ -46,11 +41,27 @@ export const EditWater = ({ onSave, waterCardsSave }) => {
     return `${hour12}:${minutes} ${period}`;
   };
 
+  const convertTimeToISOString = (timeString) => {
+    const now = new Date();
+    const [hours, minutes] = timeString.split(':').map(Number);
+
+    now.setHours(hours + 2, minutes);
+
+    return now.toISOString();
+  };
+
+  const convertISOToTime = (isoString) => {
+    const date = new Date(isoString);
+    const hours = date.getUTCHours().toString().padStart(2, '0');
+    const minutes = date.getUTCMinutes().toString().padStart(2, '0');
+
+    return `${hours}:${minutes}`;
+  };
+
   const formik = useFormik({
     initialValues: {
-      amountWater: 0,
-      time: getCurrentTime(),
-      waterCards: [waterCardsSave],
+      amountWater: waterCardsSave.amountWater,
+      time: convertISOToTime(waterCardsSave.time),
     },
     validationSchema: Yup.object({
       amountWater: Yup.number()
@@ -60,34 +71,41 @@ export const EditWater = ({ onSave, waterCardsSave }) => {
       time: Yup.string().required('Recording time is required'),
     }),
     onSubmit: async ({ amountWater, time }) => {
-      const UpdateWaterCard = {
-        amountWater: amountWater,
-        time: time,
+      const waterVolume = amountWater;
+      const date = convertTimeToISOString(time);
+
+      const updatedWaterCard = {
+        waterVolume,
+        date,
       };
-
-      await formik.setFieldValue('waterCards', [UpdateWaterCard]);
-
-      onSave({ amountWater, time });
+      dispatch(updateWaterThunk({ recordId, newRecord: updatedWaterCard }));
     },
   });
 
-  const closeModal = () => {
-    setIsModalOpen(false);
-  };
+  useEffect(() => {
+    const handleKeyDown = (e) => {
+      if (e.key === 'Escape') {
+        onClose();
+      }
+    };
 
-  const handleModalClick = (e) => {
-    if (e.target === e.currentTarget) {
-      closeModal();
+    window.addEventListener('keydown', handleKeyDown);
+    return () => {
+      window.removeEventListener('keydown', handleKeyDown);
+    };
+  }, [onClose]);
+
+  const handleClick = (e) => {
+    if (e.currentTarget === e.target) {
+      onClose();
     }
   };
 
-  const handleKeyDown = (e) => {
-    if (e.key === 'Escape') {
-      closeModal();
-    }
+  const handleCloseX = () => {
+    onClose();
   };
 
-  const { amountWater, time, waterCards } = formik.values;
+  const { amountWater, time } = formik.values;
 
   const handleMinusClick = () => {
     formik.setFieldValue('amountWater', Math.max(0, amountWater - 50));
@@ -98,27 +116,20 @@ export const EditWater = ({ onSave, waterCardsSave }) => {
   };
 
   return (
-    <AddWaterModal
-      onClick={handleModalClick}
-      onKeyDown={handleKeyDown}
-      tabIndex="0"
-      style={{ display: isModalOpen ? 'block' : 'none' }}
-    >
+    <AddWaterModal onClick={handleClick}>
       <AddWaterForm onSubmit={formik.handleSubmit}>
         <PageName>Edit the entered amount of water</PageName>
-        <CloseBtn onClick={closeModal}>
+        <CloseBtn onClick={handleCloseX}>
           <Cross />
         </CloseBtn>
 
-        {waterCards.length > 0 && (
-          <WaterCardsDiv>
-            <WaterCards>
-              <Glass />
-              <p>{`${waterCards[0].amountWater} ml`}</p>
-              <TimeCards>{convertTo12HourFormat(waterCards[0].time)}</TimeCards>
-            </WaterCards>
-          </WaterCardsDiv>
-        )}
+        <WaterCardsDiv>
+          <WaterCards>
+            <Glass />
+            <p>{`${amountWater} ml`}</p>
+            <TimeCards>{convertTo12HourFormat(time)}</TimeCards>
+          </WaterCards>
+        </WaterCardsDiv>
 
         <PageText>Correct entered data:</PageText>
         <ContainerModal>

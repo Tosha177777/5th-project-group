@@ -295,6 +295,7 @@ export const BtnSave = styled.button`
   outline: none;
 
   background-color: #407bff;
+  box-shadow: 0px 4px 8px 0px #407bff57;
 
   font-family: Roboto;
   font-size: 16px;
@@ -310,6 +311,10 @@ export const BtnSave = styled.button`
 
   @media only screen and (min-width: 1440x) {
     min-width: 160px;
+  }
+
+  &: hover {
+    box-shadow: 0px 4px 14px 0px #407bff8a;
   }
 `;
 

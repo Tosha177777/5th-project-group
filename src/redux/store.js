@@ -13,7 +13,7 @@ import storage from 'redux-persist/lib/storage';
 
 import { authReducer } from './authReducer';
 // import { userReducer } from './userInfoReducer';
-import { waterRateReducer } from './waterReducer';
+import { waterReducer } from './waterReducer';
 const authConfig = {
   key: 'auth',
   version: 1,
@@ -23,7 +23,7 @@ const authConfig = {
 
 const rootReducer = combineReducers({
   auth: persistReducer(authConfig, authReducer),
-  water: waterRateReducer,
+  water: waterReducer,
 });
 
 export const store = configureStore({

@@ -11,6 +11,8 @@ export const Overlay = styled.div`
   width: 100vw;
   height: 100vh;
 
+  padding-right: 17px;
+
   display: flex;
   justify-content: center;
   align-items: center;
@@ -27,9 +29,13 @@ export const Modal = styled.div`
   border-radius: 10px;
 
   @media (min-width: 768px) {
-    max-width: 592px;
+    max-width: 708px;
 
-    height: 860px;
+    padding: 32px 24px;
+  }
+
+  @media (min-width: 1440px) {
+    max-width: 1008px;
   }
 `;
 
@@ -39,6 +45,7 @@ export const TextWithBtn = styled.div`
   align-items: center;
 
   justify-content: space-between;
+  margin-bottom: 24px;
 `;
 
 export const Title = styled.h2`
@@ -48,8 +55,6 @@ export const Title = styled.h2`
   letter-spacing: 0%;
   text-align: left;
   color: ${colors.primaryColorBlack};
-
-  margin-bottom: 24px;
 `;
 
 export const XCrosBtn = styled.button`

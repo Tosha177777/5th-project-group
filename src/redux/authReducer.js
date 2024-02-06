@@ -6,7 +6,7 @@ import {
   logoutThunk,
   refreshThunk,
 } from './authOperations';
-import { userPhotoThunk } from './userInfoOperations';
+import { userInfoThunk, userPhotoThunk } from './userInfoOperations';
 
 const INITIAL_STATE = {
   token: null,
@@ -14,7 +14,6 @@ const INITIAL_STATE = {
     email: null,
     userName: null,
     gender: '',
-    waterUser: null,
     avatarURL: null,
   },
   isSignedIn: false,
@@ -61,6 +60,14 @@ const authSlice = createSlice({
         state.isSignedIn = true;
       })
 
+      //-------------------Info Update----------
+
+      .addCase(userInfoThunk.fulfilled, (state, action) => {
+        state.isLoading = false;
+        state.user = action.payload;
+        state.isSignedIn = true;
+      })
+
       //-----------LogOut------------------
       .addCase(logoutThunk.fulfilled, () => {
         return INITIAL_STATE;
@@ -69,7 +76,8 @@ const authSlice = createSlice({
         isAnyOf(
           logoutThunk.pending,
           loginThunk.pending,
-          refreshThunk.rejected,
+          refreshThunk.pending,
+          userInfoThunk.pending,
           registerThunk.pending
         ),
         (state) => {
@@ -82,7 +90,8 @@ const authSlice = createSlice({
           logoutThunk.rejected,
           loginThunk.rejected,
           registerThunk.rejected,
-          refreshThunk.rejected
+          refreshThunk.rejected,
+          userInfoThunk.rejected
         ),
         (state, action) => {
           state.isLoading = false;

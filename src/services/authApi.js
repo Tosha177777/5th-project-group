@@ -1,8 +1,4 @@
-import axios from 'axios';
-
-const instance = axios.create({
-  baseURL: `https://water-tracker-o2xv.onrender.com/`,
-});
+import { instance } from "./instance";
 
 export const setToken = (token) => {
   instance.defaults.headers.common.Authorization = `Bearer ${token}`;
@@ -32,7 +28,3 @@ export const requestRefreshUser = async () => {
   return data;
 };
 
-export const reqestChangeWaterRate = async (water) => {
-  const { data } = await instance.patch('water-rate', water);
-  return data;
-};

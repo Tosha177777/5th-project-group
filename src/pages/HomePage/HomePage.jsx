@@ -1,4 +1,10 @@
-// import { useEffect, useState } from 'react';
+import { useSelector } from 'react-redux';
+import { selectWaterIsLoading } from '/src/redux/waterSelectors';
+import DailyWaterRate from '/src/components/DailyWaterRate/DailyWaterRate';
+import ProgressBar from '/src/components/ProgressBar/ProgressBar';
+import  Today  from '/src/components/Today/Today.jsx';
+import Calendar from '/src/components/Calendar/Calendar';
+import { Loader } from '/src/components/Loader/Loader';
 import {
   HomeContainer,
   StyledContainer,
@@ -6,11 +12,10 @@ import {
   StyledInfoWrap,
   StyledTodayInfo
 } from './HomePage.styled';
-import DailyWaterRate from '/src/components/DailyWaterRate/DailyWaterRate';
-import ProgressBar from '/src/components/ProgressBar/ProgressBar';
-import  Today  from '/src/components/Today/Today.jsx';
 
-const HomePage = () => {
+const HomePage = () => {  
+  const isLoading = useSelector(selectWaterIsLoading);
+
   return (
     <>
       <HomeContainer></HomeContainer>
@@ -21,11 +26,11 @@ const HomePage = () => {
         </StyledDataWrap>
         <StyledInfoWrap>
           <StyledTodayInfo>
+    {isLoading && <Loader/> }
             <Today />
           </StyledTodayInfo>
-
-          {/* тут вставити календар */}
-
+    {isLoading && <Loader/> }
+          <Calendar />          
         </StyledInfoWrap>
       </StyledContainer>
     </>

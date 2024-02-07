@@ -34,8 +34,10 @@ const Today = () => {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(todayWaterThunk());
-  }, [dispatch, waterCards]);
+    if (selectedItemId !== null) {
+      dispatch(todayWaterThunk());
+    }
+  }, [dispatch, waterCards, selectedItemId]);
 
   const onAddWaterModal = () => {
     setIsOpenedAdd(!isOpenedAdd);

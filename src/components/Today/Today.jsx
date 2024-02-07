@@ -72,7 +72,8 @@ const Today = () => {
                   hour: 'numeric',
                   minute: 'numeric',
                   hour12: true,
-                }).format(new Date(date))}{' '}
+                  timeZone: 'UTC',
+                }).format(new Date(date))}
               </StyledTime>
               <StyledEditBtn onClick={() => onEditWaterModal(_id)}>
                 <EditIcon />

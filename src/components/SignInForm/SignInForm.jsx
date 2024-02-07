@@ -1,9 +1,8 @@
-
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import * as Yup from 'yup';
-import { Formik, Field} from 'formik';
+import { Formik, Field } from 'formik';
 import { loginThunk } from '../../redux/authOperations';
 import {
   StyledError,
@@ -27,7 +26,7 @@ const SignInSchema = Yup.object().shape({
 
 const SignInForm = () => {
   const [isPasswordVisible, setPasswordVisibility] = useState(false);
-  
+
   const dispatch = useDispatch();
   const initialValues = {
     email: '',
@@ -35,7 +34,6 @@ const SignInForm = () => {
   };
 
   const handleSubmit = ({ email, password }, { resetForm }) => {
-    console.log({ email, password });
     const userValues = { email, password };
 
     dispatch(loginThunk(userValues));
@@ -48,13 +46,12 @@ const SignInForm = () => {
       validationSchema={SignInSchema}
       onSubmit={handleSubmit}
     >
-      
       <StyledForm autoComplete="off">
         <h1>Sign In</h1>
         <label>
           <StyledFieldName>Enter your email</StyledFieldName>
           <Field name="email" type="email" placeholder="E-mail" />
-          <StyledError name="email" component="span"/>
+          <StyledError name="email" component="span" />
         </label>
         <label>
           <StyledFieldName>Enter your password</StyledFieldName>
@@ -70,11 +67,11 @@ const SignInForm = () => {
           >
             {isPasswordVisible ? <Eye /> : <SlashedEye />}
           </StyledToggleBtn>
-          <StyledError name="password" component="span"/>
+          <StyledError name="password" component="span" />
         </label>
         <StyledSubmitBtn type="submit">Sign In</StyledSubmitBtn>
         <Link to="/signup">Sign up</Link>
-      </StyledForm>      
+      </StyledForm>
     </Formik>
   );
 };

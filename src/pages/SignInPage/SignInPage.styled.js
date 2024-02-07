@@ -1,8 +1,8 @@
 import styled from 'styled-components';
 import colors from '../../root/root';
 
-const mobBottle = 'src/images/mobile/bottle-sign-in@1x.png';
-const mobBubbles = 'src/images/mobile/background-element-sign-in@1x.png';
+import mobBottle from 'src/images/mobile/bottle-sign-in@1x.png';
+import mobBubbles from 'src/images/mobile/background-element-sign-in@1x.png';
 
 export const StyledForm = styled.form`
   display: flex;

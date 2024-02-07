@@ -1,4 +1,4 @@
-import{u as e,c as o,F as u,E as h,b,d as a,r as f,f as y,j as i,g as w,h as s,S as k,i as C,L as $,o as S,m as j,s as v}from"./index-934a0586.js";const z=e(u)`
+import{u as e,c as o,F as u,E as h,b,d as n,r as f,f as y,j as i,g as w,h as t,S as k,i as C,L as $,o as S,m as j,s as v}from"./index-512222c3.js";const z=e(u)`
   display: flex;
   flex-direction: column;
   gap: 16px;
@@ -77,7 +77,7 @@ import{u as e,c as o,F as u,E as h,b,d as a,r as f,f as y,j as i,g as w,h as s,S
   :hover {
    box-shadow: 0 4px 14px 0 rgba(64, 123, 255, 0.54);
   }
-`,l=e.span`
+`,a=e.span`
     display: block;
     margin-bottom: 8px;
     font-size: 18px;
@@ -91,11 +91,11 @@ import{u as e,c as o,F as u,E as h,b,d as a,r as f,f as y,j as i,g as w,h as s,S
   border: none;
   cursor: pointer;
   stroke: ${o.primaryColorBlue};
-`,p=e(h)`
+`,s=e(h)`
     margin-left: 4px;
     font-size: 14px;
     color: ${o.secondaryColor3};
-  `,F=b().shape({email:a().email("Please enter a valid email").required("E-mail is required"),password:a().min(8,"Password must be 8 or more characters").max(30).required("Password is required")}),P=()=>{const[r,d]=f.useState(!1),c=y(),x={email:"",password:""},m=({email:n,password:t},{resetForm:g})=>{console.log({email:n,password:t}),c(S({email:n,password:t})),g()};return i.jsx(w,{initialValues:x,validationSchema:F,onSubmit:m,children:i.jsxs(z,{autoComplete:"off",children:[i.jsx("h1",{children:"Sign In"}),i.jsxs("label",{children:[i.jsx(l,{children:"Enter your email"}),i.jsx(s,{name:"email",type:"email",placeholder:"E-mail"}),i.jsx(p,{name:"email",component:"span"})]}),i.jsxs("label",{children:[i.jsx(l,{children:"Enter your password"}),i.jsx(s,{name:"password",type:r?"text":"password",placeholder:"Password",pattern:".{8,}"}),i.jsx(E,{type:"button",onClick:()=>d(!r),children:r?i.jsx(k,{}):i.jsx(C,{})}),i.jsx(p,{name:"password",component:"span"})]}),i.jsx(B,{type:"submit",children:"Sign In"}),i.jsx($,{to:"/signup",children:"Sign up"})]})})};e.form`
+  `,F=b().shape({email:n().email("Please enter a valid email").required("E-mail is required"),password:n().min(8,"Password must be 8 or more characters").max(30).required("Password is required")}),P=()=>{const[r,l]=f.useState(!1),p=y(),d={email:"",password:""},c=({email:x,password:m},{resetForm:g})=>{p(S({email:x,password:m})),g()};return i.jsx(w,{initialValues:d,validationSchema:F,onSubmit:c,children:i.jsxs(z,{autoComplete:"off",children:[i.jsx("h1",{children:"Sign In"}),i.jsxs("label",{children:[i.jsx(a,{children:"Enter your email"}),i.jsx(t,{name:"email",type:"email",placeholder:"E-mail"}),i.jsx(s,{name:"email",component:"span"})]}),i.jsxs("label",{children:[i.jsx(a,{children:"Enter your password"}),i.jsx(t,{name:"password",type:r?"text":"password",placeholder:"Password",pattern:".{8,}"}),i.jsx(E,{type:"button",onClick:()=>l(!r),children:r?i.jsx(k,{}):i.jsx(C,{})}),i.jsx(s,{name:"password",component:"span"})]}),i.jsx(B,{type:"submit",children:"Sign In"}),i.jsx($,{to:"/signup",children:"Sign up"})]})})};e.form`
   display: flex;
   flex-direction: column;
   gap: 16px;

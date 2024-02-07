@@ -53,8 +53,7 @@ const Today = () => {
   return (
     <>
       <Text>Today</Text>
-      {isLoading &&
-        <StyledInfo>Please wait. Loading...</StyledInfo>}
+      {isLoading && <StyledInfo>Please wait. Loading...</StyledInfo>}
       {todayPortions.length > 0 ? (
         <StyledList>
           {todayPortions.map(({ _id, date, waterVolume }) => (
@@ -62,19 +61,17 @@ const Today = () => {
               <Glass />
               <StyledAmount>{waterVolume} ml</StyledAmount>
               <StyledTime>{date} </StyledTime>
-              <StyledEditBtn onClick={onEditWaterModal(_id)}>
+              <StyledEditBtn onClick={() => onEditWaterModal(_id)}>
                 <EditIcon />
               </StyledEditBtn>
-              <StyledEDeleteBtn onClick={onDeleteWaterModal(_id)}>
+              <StyledEDeleteBtn onClick={() => onDeleteWaterModal(_id)}>
                 <Trashbin />
               </StyledEDeleteBtn>
             </StyledItem>
           ))}
         </StyledList>
       ) : (
-        <StyledInfo>
-            No notes yet
-        </StyledInfo>
+        <StyledInfo>No notes yet</StyledInfo>
       )}
       <StyledEAddBtn onClick={onAddWaterModal}>
         <Plus />
@@ -82,8 +79,12 @@ const Today = () => {
       </StyledEAddBtn>
 
       {isOpenedAdd && <AddWater onClose={onAddWaterModal} />}
-      {isOpenedEdit && <EditWater onClose={onEditWaterModal} itemId={selectedItemId}/>}
-      {isOpenedDel && <DeleteWater onClose={onDeleteWaterModal} itemId={selectedItemId}/>}
+      {isOpenedEdit && (
+        <EditWater onClose={onEditWaterModal} waterCardsSave={selectedItemId} />
+      )}
+      {isOpenedDel && (
+        <DeleteWater onClose={onDeleteWaterModal} itemId={selectedItemId} />
+      )}
     </>
   );
 };

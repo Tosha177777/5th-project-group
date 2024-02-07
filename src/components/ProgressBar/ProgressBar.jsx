@@ -1,5 +1,6 @@
 import { useDispatch, useSelector } from 'react-redux';
-import { selectTodayWater } from '/src/redux/waterSelectors';
+import { todayWaterThunk } from '/src/redux/waterOperations';
+import { selectTodayPercentage } from '../../redux/waterSelectors';
 import { ReactComponent as Plus } from '/src/svgs/icons/plus-circle.svg';
 import {
   StyledButton,
@@ -12,11 +13,12 @@ import {
   StyledWrap,
   StyledWrapper,
 } from './ProgressBar.styled';
-import { useEffect, useMemo, useRef } from 'react';
-import { todayWaterThunk } from '/src/redux/waterOperations';
+import { useEffect, useRef, useState } from 'react';
+import { AddWater } from '../AddWater/AddWater';
 
 const ProgressBar = () => {
-  const todayData = useSelector(selectTodayWater);
+  const todayPercentage = useSelector(selectTodayPercentage);
+  const [isOpenedAdd, setIsOpenedAdd] = useState(false);
 
   const progressLineRef = useRef(null);
   const achievedProgressRef = useRef(null);
@@ -26,14 +28,11 @@ const ProgressBar = () => {
 
   useEffect(() => {
     dispatch(todayWaterThunk());
-  }, [dispatch]);
+  }, [dispatch, todayPercentage]);
 
-  const waterPercentage = useMemo(() => {
-    if (todayData) {
-      return todayData.percentage;
-    }
-    return 0;
-  }, [todayData]);
+   const onAddWaterModal = () => {
+    setIsOpenedAdd(!isOpenedAdd);
+  };
 
   useEffect(() => {
     const progressLine = progressLineRef.current;
@@ -42,16 +41,16 @@ const ProgressBar = () => {
 
     if (progressLine && achievedProgress && achievedPercent) {
       progressLine.style.width = `${
-        waterPercentage > 100 ? 100 : waterPercentage
+        todayPercentage > 100 ? 100 : todayPercentage
       }%`;
       achievedProgress.style.left = `${
-        waterPercentage > 100 ? 100 : waterPercentage - 1
+        todayPercentage > 100 ? 100 : todayPercentage - 1
       }%`;
       achievedPercent.style.left = `${
-        waterPercentage > 100 ? 100 : waterPercentage
+        todayPercentage > 100 ? 100 : todayPercentage
       }%`;
     }
-  }, [waterPercentage]);
+  }, [todayPercentage]);
 
   return (
     <StyledWrap>
@@ -64,18 +63,20 @@ const ProgressBar = () => {
         <StyledNumberWrap>
           <p>0%</p>
           <p>100%</p>
-          {waterPercentage > 0 || waterPercentage < 100 ? (
+          {todayPercentage > 0 || todayPercentage < 100 ? (
             <StyledPercentage ref={achievedPercentRef}>
-              {waterPercentage}%
+              {todayPercentage}%
             </StyledPercentage>
           ) : null}
         </StyledNumberWrap>
       </StyledWrapper>
-      <StyledButton>
+      <StyledButton onClick={onAddWaterModal}>
         <Plus />
         <span>Add Water</span>
       </StyledButton>
+    {isOpenedAdd && <AddWater onClose={onAddWaterModal} />}
     </StyledWrap>
+    
   );
 };
 

@@ -15,9 +15,8 @@ import {
 import { ReactComponent as Xcros } from '/src/svgs/icons/xcros.svg';
 import { deleteWaterThunk } from '/src/redux/waterOperations';
 
-export const DeleteWater = ({ onClose, itemId }) => {
+export const DeleteWater = ({ onClose, recordId }) => {
   const dispatch = useDispatch();
-  
 
   useEffect(() => {
     const handleKeyDown = (e) => {
@@ -43,7 +42,13 @@ export const DeleteWater = ({ onClose, itemId }) => {
   };
 
   const onClick = () => {
-    dispatch(deleteWaterThunk(itemId));
+    const result = dispatch(deleteWaterThunk(recordId));
+
+    if (result) {
+      onClose();
+    } else {
+      console.error('Dispatch was not successful');
+    }
   };
 
   return (

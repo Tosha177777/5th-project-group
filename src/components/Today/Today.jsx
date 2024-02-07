@@ -29,12 +29,15 @@ const Today = () => {
   const [isOpenedEdit, setIsOpenedEdit] = useState(false);
   const [isOpenedDel, setIsOpenedDel] = useState(false);
   const [selectedItemId, setSelectedItemId] = useState(null);
+  const [waterCards, setWaterCards] = useState({});
 
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(todayWaterThunk());
-  }, [dispatch]);
+    if (selectedItemId !== null) {
+      dispatch(todayWaterThunk());
+    }
+  }, [dispatch, waterCards, selectedItemId]);
 
   const onAddWaterModal = () => {
     setIsOpenedAdd(!isOpenedAdd);
@@ -42,7 +45,11 @@ const Today = () => {
 
   const onEditWaterModal = (_id) => {
     setIsOpenedEdit(!isOpenedEdit);
+    const selectedWaterPortion = todayPortions.find(
+      (portion) => portion._id === _id
+    );
     setSelectedItemId(_id);
+    setWaterCards(selectedWaterPortion);
   };
 
   const onDeleteWaterModal = (_id) => {
@@ -53,28 +60,31 @@ const Today = () => {
   return (
     <>
       <Text>Today</Text>
-      {isLoading &&
-        <StyledInfo>Please wait. Loading...</StyledInfo>}
+      {isLoading && <StyledInfo>Please wait. Loading...</StyledInfo>}
       {todayPortions.length > 0 ? (
         <StyledList>
           {todayPortions.map(({ _id, date, waterVolume }) => (
             <StyledItem key={_id}>
               <Glass />
               <StyledAmount>{waterVolume} ml</StyledAmount>
-              <StyledTime>{date} </StyledTime>
-              <StyledEditBtn onClick={()=>onEditWaterModal(_id)}>
+              <StyledTime>
+                {new Intl.DateTimeFormat('en', {
+                  hour: 'numeric',
+                  minute: 'numeric',
+                  hour12: true,
+                }).format(new Date(date))}{' '}
+              </StyledTime>
+              <StyledEditBtn onClick={() => onEditWaterModal(_id)}>
                 <EditIcon />
               </StyledEditBtn>
-              <StyledEDeleteBtn onClick={()=>onDeleteWaterModal(_id)}>
+              <StyledEDeleteBtn onClick={() => onDeleteWaterModal(_id)}>
                 <Trashbin />
               </StyledEDeleteBtn>
             </StyledItem>
           ))}
         </StyledList>
       ) : (
-        <StyledInfo>
-            No notes yet
-        </StyledInfo>
+        <StyledInfo>No notes yet</StyledInfo>
       )}
       <StyledEAddBtn onClick={onAddWaterModal}>
         <Plus />
@@ -82,8 +92,16 @@ const Today = () => {
       </StyledEAddBtn>
 
       {isOpenedAdd && <AddWater onClose={onAddWaterModal} />}
-      {isOpenedEdit && <EditWater onClose={onEditWaterModal} itemId={selectedItemId}/>}
-      {isOpenedDel && <DeleteWater onClose={onDeleteWaterModal} itemId={selectedItemId}/>}
+      {isOpenedEdit && (
+        <EditWater
+          waterCardsSave={waterCards}
+          onClose={onEditWaterModal}
+          recordId={selectedItemId}
+        />
+      )}
+      {isOpenedDel && (
+        <DeleteWater onClose={onDeleteWaterModal} recordId={selectedItemId} />
+      )}
     </>
   );
 };

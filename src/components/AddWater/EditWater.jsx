@@ -31,11 +31,11 @@ import { ReactComponent as Cross } from '../../svgs/icons/cross.svg';
 import { updateWaterThunk } from '../../redux/waterOperations';
 import { selectTodayPortions } from '../../redux/waterSelectors';
 
-export const EditWater = ({ waterCardsSave, onClose, itemId }) => {
+export const EditWater = ({ waterCardsSave, onClose, recordId }) => {
   const dispatch = useDispatch();
   const todayPortions = useSelector(selectTodayPortions);
 
-    const convertTo12HourFormat = (time24) => {
+  const convertTo12HourFormat = (time24) => {
     const [hours, minutes] = time24.split(':');
     const hour = parseInt(hours, 10);
     const period = hour >= 12 ? 'PM' : 'AM';
@@ -62,8 +62,8 @@ export const EditWater = ({ waterCardsSave, onClose, itemId }) => {
 
   const formik = useFormik({
     initialValues: {
-      amountWater: waterCardsSave.amountWater,
-      time: convertISOToTime(waterCardsSave.time),
+      amountWater: waterCardsSave.waterVolume,
+      time: convertISOToTime(waterCardsSave.date),
     },
     validationSchema: Yup.object({
       amountWater: Yup.number()
@@ -80,7 +80,15 @@ export const EditWater = ({ waterCardsSave, onClose, itemId }) => {
         waterVolume,
         date,
       };
-      dispatch(updateWaterThunk({ itemId, newRecord: updatedWaterCard }));
+      const result = dispatch(
+        updateWaterThunk({ recordId, newRecord: updatedWaterCard })
+      );
+
+      if (result) {
+        onClose();
+      } else {
+        console.error('Dispatch was not successful');
+      }
     },
   });
 
@@ -185,4 +193,3 @@ export const EditWater = ({ waterCardsSave, onClose, itemId }) => {
     </AddWaterModal>
   );
 };
-

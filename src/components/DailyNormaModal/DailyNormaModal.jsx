@@ -11,7 +11,7 @@ import {
 
 import { ReactComponent as Xcros } from '../../svgs/icons/xcros.svg';
 import { useDispatch } from 'react-redux';
-import { changeWaterRate } from '../../redux/waterReducer';
+import { updateWaterRateThunk } from '../../redux/waterOperations';
 
 export function DailyNormaModal({ closeModal }) {
   const dispatch = useDispatch();
@@ -69,12 +69,13 @@ export function DailyNormaModal({ closeModal }) {
       waterRate: waterResult * 1000,
     };
     if (waterResult > 0) {
-      dispatch(changeWaterRate(water));
+      dispatch(updateWaterRateThunk(water));
       setWeight(0);
       setActiveTime(0);
       setWaterResult(0);
       closeModal();
     }
+    alert('Something went wrong');
   };
 
   const requiredWaterCalculation = (gender, weight, time) => {
@@ -94,7 +95,7 @@ export function DailyNormaModal({ closeModal }) {
   return (
     <Overlay onClick={closeOnBackdrop}>
       <DailyNormaModalContent>
-        <ExitBtn>
+        <ExitBtn onClick={closeModal}>
           <Xcros />
         </ExitBtn>
 

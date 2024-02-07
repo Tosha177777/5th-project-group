@@ -13,7 +13,7 @@ box-shadow: 0 4px 8px 0 rgba(158, 187, 255, 0.12);
     margin-bottom: 326px;
   }
 
-  @media (min-width: 768px) {
+  @media (min-width: 1440px) {
     margin-bottom: 466px;
   }
 

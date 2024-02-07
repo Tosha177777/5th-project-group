@@ -1,10 +1,10 @@
 import { useState, useEffect, useRef } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
-import Icons from '../../../svgs/icons/eye.svg';
+import Icons from '/src/svgs/icons/eye.svg';
 
-import { monthWaterThunk } from '../../../redux/waterOperations';
-import { selectMonthWater } from '../../../redux/waterSelectors';
+import { monthWaterThunk } from '/src/redux/waterOperations';
+import { selectMonthWater } from '/src/redux/waterSelectors';
 
 import {
   ArrowButton,
@@ -12,11 +12,11 @@ import {
   DaysContainer,
   MonthNavigation,
   MonthControl,
-  Month,
+  StyledMonth,
 } from './Month.styled';
-import DayComponent from './DayComponent/DayComponent';
+import DayComponent from '../DayComponent/DayComponent';
 
-const Calendar = () => {
+const Month = () => {
   const [currentDate, setCurrentDate] = useState(new Date());
   const dispatch = useDispatch();
   const waterForMonth = useSelector(selectMonthWater);
@@ -76,11 +76,11 @@ const Calendar = () => {
               <use href={Icons + '#arrow-left'}></use>
             </svg>
           </ArrowButton>
-          <Month>
+          <StyledMonth>
             {new Intl.DateTimeFormat('en-US', { month: 'long' }).format(
               currentDate
             )}
-          </Month>
+          </StyledMonth>
           <ArrowButton aria-label="Previous month" onClick={handleNextMonth}>
             <svg width="14" height="14">
               <use href={Icons + '#arrow-right'}></use>
@@ -93,4 +93,4 @@ const Calendar = () => {
   );
 };
 
-export default Calendar;
+export default Month;

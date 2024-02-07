@@ -73,7 +73,7 @@ const Today = () => {
         </StyledList>
       ) : (
         <StyledInfo>
-          There are no records for today. Press &quot;Add Water&quot; to add.
+            No notes yet
         </StyledInfo>
       )}
       <StyledEAddBtn onClick={onAddWaterModal}>

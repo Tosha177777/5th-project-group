@@ -31,25 +31,33 @@ const SignInSchema = yup.object().shape({
   gender: yup.string(),
   name: yup.string().min(2, 'Name must be 2 or more characters'),
   email: yup.string().email('Please enter a valid email'),
-  oldPassword: yup
-    .string()
-    .min(8, 'Password must be 8 or more characters')
-    .max(30),
-  newPassword: yup
-    .string()
-    .min(8, 'Password must be 8 or more characters')
-    .max(30),
+  oldPassword: yup.string().when('newPassword', {
+    is: (newPassword) => newPassword && newPassword.length > 0,
+    then: () => yup.string().required('Old password is required'),
+    otherwise: () => yup.string().notRequired(),
+  }),
+  newPassword: yup.string().when('oldPassword', {
+    is: (oldPassword) => oldPassword && oldPassword.length > 0,
+    then: () =>
+      yup
+        .string()
+        .min(8, 'Password must be 2 or more characters')
+        .max(30, 'Too much characters')
+        .required('New password is required'),
+    otherwise: () => yup.string().notRequired(),
+  }),
   resetPassword: yup.string().when('newPassword', {
     is: (newPassword) => newPassword && newPassword.length > 0,
-    then: yup
-      .string()
-      .oneOf([yup.ref('newPassword')], 'The passwords do not match')
-      .required('Repeat new password is required'),
-    otherwise: yup.string(),
+    then: () =>
+      yup
+        .string()
+        .required('Repeat password is required')
+        .oneOf([yup.ref('newPassword'), null], 'Passwords must match'),
+    otherwise: () => yup.string().notRequired(),
   }),
 });
 
-const SettingsModalForm = () => {
+const SettingsModalForm = ({ onClose }) => {
   const user = useSelector(selectAuthUserData);
 
   const [isPasswordVisible, setPasswordVisibility] = useState(false);
@@ -68,7 +76,7 @@ const SettingsModalForm = () => {
     resetPassword: '',
   };
 
-  const handleSubmit = (values) => {
+  const handleSubmit = async (values) => {
     if (values === initialValues) {
       toast.warn('No changes were made.');
       return;
@@ -85,7 +93,14 @@ const SettingsModalForm = () => {
     });
 
     console.log(changedFields);
-    dispatch(userInfoThunk(changedFields));
+    try {
+      const result = await dispatch(userInfoThunk(changedFields));
+      if (!result.error) {
+        onClose();
+      }
+    } catch (error) {
+      console.error(error);
+    }
 
     return;
   };

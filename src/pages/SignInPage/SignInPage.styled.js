@@ -1,6 +1,9 @@
 import styled from 'styled-components';
 import colors from '../../root/root';
 
+const mobBottle = 'src/images/mobile/bottle-sign-in@1x.png';
+const mobBubbles = 'src/images/mobile/background-element-sign-in@1x.png';
+
 export const StyledForm = styled.form`
   display: flex;
   flex-direction: column;
@@ -105,8 +108,7 @@ export const StyledBackgroundWrap = styled.div`
   top: 26px;
   left: 0;
   z-index: -10;
-  background-image: url('src/images/mobile/bottle-sign-in@1x.png'),
-    url('src/images/mobile/background-element-sign-in@1x.png');
+  background-image: url(${mobBottle}), url(${mobBubbles});
   background-size: 280px, cover;
   background-repeat: no-repeat;
   background-position:

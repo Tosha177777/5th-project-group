@@ -6,7 +6,6 @@ import * as yup from 'yup';
 import { Formik, Field} from 'formik';
 import { clearAuthError, registerThunk } from '/src/redux/authOperations';
 
-
 import {
   StyledError,
   StyledFieldName,

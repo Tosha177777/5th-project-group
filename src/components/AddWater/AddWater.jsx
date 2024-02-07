@@ -1,6 +1,6 @@
 import { useEffect } from 'react';
 import { useFormik } from 'formik';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import * as Yup from 'yup';
 // import { v4 as uuidv4 } from 'uuid';
 import {
@@ -27,9 +27,11 @@ import {
 
 import { ReactComponent as Cross } from '../../svgs/icons/cross.svg';
 import { addWaterThunk } from '../../redux/waterOperations';
+import { selectTodayPortions } from '../../redux/waterSelectors';
 
 export const AddWater = ({ onClose }) => {
   const dispatch = useDispatch();
+  const todayPortions = useSelector(selectTodayPortions);
 
   const getCurrentTime = () => {
     const now = new Date();
@@ -100,7 +102,7 @@ export const AddWater = ({ onClose }) => {
     onClose();
   };
 
-  const { amountWater, time, firstWater } = formik.values;
+  const { amountWater, time} = formik.values;
 
   const handleMinusClick = () => {
     formik.setFieldValue('amountWater', Math.max(0, amountWater - 50));
@@ -118,7 +120,7 @@ export const AddWater = ({ onClose }) => {
           <Cross />
         </CloseBtn>
 
-        {firstWater && <p>No notes yet</p>}
+        {!todayPortions.length && <p>No notes yet</p>}
 
         <PageText>Correct entered data:</PageText>
         <ContainerModal>

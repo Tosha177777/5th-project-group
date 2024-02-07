@@ -1,5 +1,5 @@
 import { useEffect } from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { useFormik } from 'formik';
 import * as Yup from 'yup';
 import {
@@ -29,9 +29,11 @@ import {
 import { ReactComponent as Glass } from '../../svgs/icons/glass.svg';
 import { ReactComponent as Cross } from '../../svgs/icons/cross.svg';
 import { updateWaterThunk } from '../../redux/waterOperations';
+import { selectTodayPortions } from '../../redux/waterSelectors';
 
 export const EditWater = ({ waterCardsSave, onClose, itemId }) => {
   const dispatch = useDispatch();
+  const todayPortions = useSelector(selectTodayPortions);
 
     const convertTo12HourFormat = (time24) => {
     const [hours, minutes] = time24.split(':');
@@ -122,6 +124,8 @@ export const EditWater = ({ waterCardsSave, onClose, itemId }) => {
         <CloseBtn onClick={handleCloseX}>
           <Cross />
         </CloseBtn>
+
+        {!todayPortions.length && <p>No notes yet</p>}
 
         <WaterCardsDiv>
           <WaterCards>

@@ -62,10 +62,10 @@ const Today = () => {
               <Glass />
               <StyledAmount>{waterVolume} ml</StyledAmount>
               <StyledTime>{date} </StyledTime>
-              <StyledEditBtn onClick={onEditWaterModal(_id)}>
+              <StyledEditBtn onClick={()=>onEditWaterModal(_id)}>
                 <EditIcon />
               </StyledEditBtn>
-              <StyledEDeleteBtn onClick={onDeleteWaterModal(_id)}>
+              <StyledEDeleteBtn onClick={()=>onDeleteWaterModal(_id)}>
                 <Trashbin />
               </StyledEDeleteBtn>
             </StyledItem>

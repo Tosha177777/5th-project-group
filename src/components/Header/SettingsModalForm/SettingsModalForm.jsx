@@ -31,11 +31,10 @@ const SignInSchema = yup.object().shape({
   gender: yup.string(),
   name: yup.string().min(2, 'Name must be 2 or more characters'),
   email: yup.string().email('Please enter a valid email'),
-  oldPassword: yup.string().when('newPassword', {
-    is: (newPassword) => newPassword && newPassword.length > 0,
-    then: () => yup.string().required('Old password is required'),
-    otherwise: () => yup.string().notRequired(),
-  }),
+  oldPassword: yup
+    .string()
+    .min(8, 'Password must be 8 or more characters')
+    .max(30),
   newPassword: yup.string().when('oldPassword', {
     is: (oldPassword) => oldPassword && oldPassword.length > 0,
     then: () =>

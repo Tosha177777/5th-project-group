@@ -72,7 +72,7 @@ export const EditWater = ({ waterCardsSave, onClose, recordId }) => {
         .required('Amount of water is required'),
       time: Yup.string().required('Recording time is required'),
     }),
-    onSubmit: ({ amountWater, time }) => {
+    onSubmit: async ({ amountWater, time }) => {
       const waterVolume = amountWater;
       const date = convertTimeToISOString(time);
 
@@ -80,7 +80,7 @@ export const EditWater = ({ waterCardsSave, onClose, recordId }) => {
         waterVolume,
         date,
       };
-      const result = dispatch(
+      const result = await dispatch(
         updateWaterThunk({ recordId, newRecord: updatedWaterCard })
       );
 

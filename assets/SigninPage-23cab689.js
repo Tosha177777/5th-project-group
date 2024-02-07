@@ -1,4 +1,4 @@
-import{u as e,c as o,F as u,E as h,b,d as n,r as f,f as y,j as i,g as w,h as t,S as k,i as C,L as $,o as S,m as j,s as v}from"./index-512222c3.js";const z=e(u)`
+import{u as e,c as o,F as u,E as h,b,d as n,r as f,f as y,j as i,g as w,h as t,S as k,i as $,L as C,o as S,m as j,s as v}from"./index-d73ba46a.js";const z=e(u)`
   display: flex;
   flex-direction: column;
   gap: 16px;
@@ -95,7 +95,7 @@ import{u as e,c as o,F as u,E as h,b,d as n,r as f,f as y,j as i,g as w,h as t,S
     margin-left: 4px;
     font-size: 14px;
     color: ${o.secondaryColor3};
-  `,F=b().shape({email:n().email("Please enter a valid email").required("E-mail is required"),password:n().min(8,"Password must be 8 or more characters").max(30).required("Password is required")}),P=()=>{const[r,l]=f.useState(!1),p=y(),d={email:"",password:""},c=({email:x,password:m},{resetForm:g})=>{p(S({email:x,password:m})),g()};return i.jsx(w,{initialValues:d,validationSchema:F,onSubmit:c,children:i.jsxs(z,{autoComplete:"off",children:[i.jsx("h1",{children:"Sign In"}),i.jsxs("label",{children:[i.jsx(a,{children:"Enter your email"}),i.jsx(t,{name:"email",type:"email",placeholder:"E-mail"}),i.jsx(s,{name:"email",component:"span"})]}),i.jsxs("label",{children:[i.jsx(a,{children:"Enter your password"}),i.jsx(t,{name:"password",type:r?"text":"password",placeholder:"Password",pattern:".{8,}"}),i.jsx(E,{type:"button",onClick:()=>l(!r),children:r?i.jsx(k,{}):i.jsx(C,{})}),i.jsx(s,{name:"password",component:"span"})]}),i.jsx(B,{type:"submit",children:"Sign In"}),i.jsx($,{to:"/signup",children:"Sign up"})]})})};e.form`
+  `,F=b().shape({email:n().email("Please enter a valid email").required("E-mail is required"),password:n().min(8,"Password must be 8 or more characters").max(30).required("Password is required")}),P=()=>{const[r,l]=f.useState(!1),p=y(),d={email:"",password:""},c=({email:m,password:x},{resetForm:g})=>{p(S({email:m,password:x})),g()};return i.jsx(w,{initialValues:d,validationSchema:F,onSubmit:c,children:i.jsxs(z,{autoComplete:"off",children:[i.jsx("h1",{children:"Sign In"}),i.jsxs("label",{children:[i.jsx(a,{children:"Enter your email"}),i.jsx(t,{name:"email",type:"email",placeholder:"E-mail"}),i.jsx(s,{name:"email",component:"span"})]}),i.jsxs("label",{children:[i.jsx(a,{children:"Enter your password"}),i.jsx(t,{name:"password",type:r?"text":"password",placeholder:"Password",pattern:".{8,}"}),i.jsx(E,{type:"button",onClick:()=>l(!r),children:r?i.jsx(k,{}):i.jsx($,{})}),i.jsx(s,{name:"password",component:"span"})]}),i.jsx(B,{type:"submit",children:"Sign In"}),i.jsx(C,{to:"/signup",children:"Sign up"})]})})},I="src/images/mobile/bottle-sign-in@1x.png",V="src/images/mobile/background-element-sign-in@1x.png";e.form`
   display: flex;
   flex-direction: column;
   gap: 16px;
@@ -186,7 +186,7 @@ import{u as e,c as o,F as u,E as h,b,d as n,r as f,f as y,j as i,g as w,h as t,S
   border: none;
   cursor: pointer;
   stroke: ${o.primaryColorBlue};
-`;const I=e.div`
+`;const q=e.div`
   max-width: 320px;
   width: 100%;
   height: 570px;
@@ -194,8 +194,7 @@ import{u as e,c as o,F as u,E as h,b,d as n,r as f,f as y,j as i,g as w,h as t,S
   top: 26px;
   left: 0;
   z-index: -10;
-  background-image: url('src/images/mobile/bottle-sign-in@1x.png'),
-    url('src/images/mobile/background-element-sign-in@1x.png');
+  background-image: url(${I}), url(${V});
   background-size: 280px, cover;
   background-repeat: no-repeat;
   background-position:
@@ -249,7 +248,7 @@ import{u as e,c as o,F as u,E as h,b,d as n,r as f,f as y,j as i,g as w,h as t,S
         url('src/images/desktop/background-element-main-page@2x.png');
     }
   }
-`,V=e.p`
+`,W=e.p`
   margin-top: 20px;
   width: 280px;
   font-size: 18px;
@@ -264,4 +263,4 @@ import{u as e,c as o,F as u,E as h,b,d as n,r as f,f as y,j as i,g as w,h as t,S
     margin-left: auto;
     margin-right: 133px;
   }
-`,L=()=>{const r=j(v);return i.jsxs(i.Fragment,{children:[i.jsx(I,{}),i.jsx(P,{}),r&&i.jsx(V,{children:r})]})};export{L as default};
+`,T=()=>{const r=j(v);return i.jsxs(i.Fragment,{children:[i.jsx(q,{}),i.jsx(P,{}),r&&i.jsx(W,{children:r})]})};export{T as default};

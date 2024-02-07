@@ -60,11 +60,21 @@ export const AddWater = ({ onClose }) => {
         .required('Amount of water is required'),
       time: Yup.string().required('Recording time is required'),
     }),
-    onSubmit: ({ amountWater, time }) => {
-      // const id = uuidv4();
-      const waterVolume = amountWater;
-      const date = convertTimeToISOString(time);
-      dispatch(addWaterThunk({ waterVolume, date }));
+    onSubmit: async ({ amountWater, time }) => {
+      try {
+        const waterVolume = amountWater;
+        const date = convertTimeToISOString(time);
+
+        const result = await dispatch(addWaterThunk({ waterVolume, date }));
+
+        if (result) {
+          onClose();
+        } else {
+          console.error('Dispatch was not successful');
+        }
+      } catch (error) {
+        console.error('Error submitting form:', error);
+      }
     },
   });
 

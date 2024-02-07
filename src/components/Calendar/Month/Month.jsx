@@ -1,8 +1,8 @@
 import { useState, useEffect, useRef } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
-import Icons from '/src/svgs/icons/eye.svg';
-
+import {ReactComponent as Solidl} from '../../../svgs/icons/solidl.svg';
+import {ReactComponent as Solid} from '../../../svgs/icons/solid.svg';
 import { monthWaterThunk } from '/src/redux/waterOperations';
 import { selectMonthWater } from '/src/redux/waterSelectors';
 
@@ -72,9 +72,7 @@ const Month = () => {
         <h2>Month</h2>
         <MonthControl>
           <ArrowButton aria-label="Previous month" onClick={handlePrevMonth}>
-            <svg width="14" height="14">
-              <use href={Icons + '#arrow-left'}></use>
-            </svg>
+            <Solidl />
           </ArrowButton>
           <StyledMonth>
             {new Intl.DateTimeFormat('en-US', { month: 'long' }).format(
@@ -82,9 +80,7 @@ const Month = () => {
             )}
           </StyledMonth>
           <ArrowButton aria-label="Previous month" onClick={handleNextMonth}>
-            <svg width="14" height="14">
-              <use href={Icons + '#arrow-right'}></use>
-            </svg>
+             <Solid />
           </ArrowButton>
         </MonthControl>
       </MonthNavigation>

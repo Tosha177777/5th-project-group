@@ -90,7 +90,7 @@ const SettingsModal = ({ onClose }) => {
             <StyledSpan>Upload photo</StyledSpan>
           </Label>
         </PhotoUploadBox>
-        <SettingsModalForm />
+        <SettingsModalForm onClose={onClose} />
       </Modal>
     </Overlay>
   );

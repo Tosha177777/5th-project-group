@@ -67,7 +67,13 @@ const Today = () => {
             <StyledItem key={_id}>
               <Glass />
               <StyledAmount>{waterVolume} ml</StyledAmount>
-              <StyledTime>{date} </StyledTime>
+              <StyledTime>
+                {new Intl.DateTimeFormat('en', {
+                  hour: 'numeric',
+                  minute: 'numeric',
+                  hour12: true,
+                }).format(new Date(date))}{' '}
+              </StyledTime>
               <StyledEditBtn onClick={() => onEditWaterModal(_id)}>
                 <EditIcon />
               </StyledEditBtn>

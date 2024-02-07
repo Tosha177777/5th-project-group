@@ -33,6 +33,10 @@ export const StyledForm = styled(Form)`
     line-height: 18px;
     color: ${colors.secondaryColor3};
   }
+
+  input::placeholder {
+    color: ${colors.secondaryColor4};
+  }
 `;
 
 export const Radio = styled(Field)`

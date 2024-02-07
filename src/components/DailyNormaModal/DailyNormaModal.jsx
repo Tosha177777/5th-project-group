@@ -77,7 +77,7 @@ export function DailyNormaModal({ closeModal }) {
       setValid(true);
       return;
     }
-    dispatch(updateWaterRateThunk(water));
+    await dispatch(updateWaterRateThunk(water));
     setWeight(0);
     setActiveTime(0);
     setWaterResult(0);

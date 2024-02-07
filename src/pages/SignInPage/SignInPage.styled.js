@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 import colors from '../../root/root';
+
 export const StyledForm = styled.form`
   display: flex;
   flex-direction: column;

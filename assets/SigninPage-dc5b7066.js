@@ -1,4 +1,4 @@
-import{u as r,c as o,F as h,E as b,b as y,d as t,r as S,f as M,j as e,g as f,h as n,S as B,i as k,L as Q,o as w,m as v,s as j}from"./index-1e8a67a1.js";import{d as C,a as F}from"./background-element-main-page@2x-b99c692e.js";const I=r(h)`
+import{u as r,c as o,F as h,E as b,b as y,d as t,r as S,f as M,j as e,g as f,h as n,S as B,i as k,L as Q,o as w,m as v,s as j}from"./index-d3be41a3.js";import{d as C,a as F}from"./background-element-main-page@2x-b99c692e.js";const I=r(h)`
   display: flex;
   flex-direction: column;
   gap: 16px;

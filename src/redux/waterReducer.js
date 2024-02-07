@@ -4,7 +4,7 @@ import {
   monthWaterThunk,
   addWaterThunk,
   deleteWaterThunk,
-  updateWaterThunk
+  updateWaterThunk,
 } from './waterOperations';
 
 const INITIAL_STATE = {
@@ -24,8 +24,8 @@ const waterRateSlice = createSlice({
     builder
       .addCase(todayWaterThunk.fulfilled, (state, action) => {
         state.isLoading = false;
-        state.error = null;
         state.todayWaterConsumption = action.payload;
+        state.error = null;
       })
       .addCase(monthWaterThunk.fulfilled, (state, action) => {
         state.isLoading = false;
@@ -37,7 +37,8 @@ const waterRateSlice = createSlice({
         state.error = null;
         if (state.todayWaterConsumption.dayPortions.length) {
           state.todayWaterConsumption.dayPortions = [
-            ...state.todayWaterConsumption.dayPortions, action.payload
+            ...state.todayWaterConsumption.dayPortions,
+            action.payload,
           ];
         } else {
           state.todayWaterConsumption.dayPortions.push(action.payload);
@@ -54,12 +55,15 @@ const waterRateSlice = createSlice({
       .addCase(updateWaterThunk.fulfilled, (state, action) => {
         state.isLoading = false;
         state.error = null;
-        const indexToUpdate = state.todayWaterConsumption.dayPortions.findIndex(portion => portion._id === action.payload._id);
+        const indexToUpdate = state.todayWaterConsumption.dayPortions.findIndex(
+          (portion) => portion._id === action.payload._id
+        );
         if (indexToUpdate !== -1) {
-        state.todayWaterConsumption.dayPortions[indexToUpdate] = action.payload;
+          state.todayWaterConsumption.dayPortions[indexToUpdate] =
+            action.payload;
         }
       })
-      
+
       .addMatcher(
         isAnyOf(
           todayWaterThunk.pending,

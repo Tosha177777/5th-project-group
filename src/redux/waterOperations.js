@@ -4,7 +4,7 @@ import {
   requestMonthWater,
   requestAddWater,
   requestDeleteWaterById,
-  requestUpdateWaterById
+  requestUpdateWaterById,
 } from '../services/waterAPI';
 import { setToken } from '../services/authApi';
 
@@ -15,7 +15,7 @@ export const todayWaterThunk = createAsyncThunk(
     const token = state.auth.token;
     try {
       setToken(token);
-      const data  = await requestTodayWater();
+      const data = await requestTodayWater();
       return data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);
@@ -30,7 +30,7 @@ export const monthWaterThunk = createAsyncThunk(
     const token = state.auth.token;
     try {
       setToken(token);
-      const data = await requestMonthWater(month);
+      const data = await requestMonthWater(month + 1);
       return data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);

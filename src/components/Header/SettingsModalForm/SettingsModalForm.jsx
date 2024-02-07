@@ -91,7 +91,6 @@ const SettingsModalForm = ({ onClose }) => {
       }
     });
 
-    console.log(changedFields);
     try {
       const result = await dispatch(userInfoThunk(changedFields));
       if (!result.error) {

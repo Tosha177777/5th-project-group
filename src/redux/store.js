@@ -22,8 +22,8 @@ const authConfig = {
 };
 
 const rootReducer = combineReducers({
-  auth: persistReducer(authConfig, authReducer),
   water: waterReducer,
+  auth: persistReducer(authConfig, authReducer),
 });
 
 export const store = configureStore({

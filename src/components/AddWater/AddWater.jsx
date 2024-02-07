@@ -102,7 +102,7 @@ export const AddWater = ({ onClose }) => {
     onClose();
   };
 
-  const { amountWater, time} = formik.values;
+  const { amountWater, time } = formik.values;
 
   const handleMinusClick = () => {
     formik.setFieldValue('amountWater', Math.max(0, amountWater - 50));

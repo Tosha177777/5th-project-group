@@ -7,7 +7,7 @@ const DayComponent = ({ calendarRef, day, waterPercentage }) => {
   const [activeModal, setActiveModal] = useState(null);
   const ref = useRef(null);
 
-  const handleClick = e => {
+  const handleClick = (e) => {
     if (ref.current && !ref.current.contains(e.target)) {
       setActiveModal(null);
     }
@@ -21,7 +21,7 @@ const DayComponent = ({ calendarRef, day, waterPercentage }) => {
   }, []);
 
   const toggleModal = useCallback((modalId = null) => {
-    setActiveModal(prevModal => (prevModal === modalId ? null : modalId));
+    setActiveModal((prevModal) => (prevModal === modalId ? null : modalId));
   }, []);
 
   return (
@@ -32,7 +32,7 @@ const DayComponent = ({ calendarRef, day, waterPercentage }) => {
             calendarRef={calendarRef}
             refData={ref}
             key={day}
-            waterData={waterPercentage}
+            waterData={waterPercentage?.percentage}
           />
         )}
       </AnimatePresence>
@@ -40,13 +40,14 @@ const DayComponent = ({ calendarRef, day, waterPercentage }) => {
         ref={ref}
         onClick={() => toggleModal(day)}
         $isOutlineVisible={
-          !waterPercentage || waterPercentage.dailyNormFulfillment < 100
+          !waterPercentage?.percentage ||
+          waterPercentage.dailyNormFulfillment < 100
         }
       >
         {day}
       </Day>
       <DayPercent>
-        {waterPercentage ? `${waterPercentage.dailyNormFulfillment}%` : '0%'}
+        {waterPercentage?.percentage ? `${waterPercentage.percentage}%` : '0%'}
       </DayPercent>
     </DayCell>
   );

@@ -41,8 +41,8 @@ export const DeleteWater = ({ onClose, recordId }) => {
     onClose();
   };
 
-  const onClick = () => {
-    const result = dispatch(deleteWaterThunk(recordId));
+  const onClick = async () => {
+    const result = await dispatch(deleteWaterThunk(recordId));
 
     if (result) {
       onClose();

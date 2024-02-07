@@ -68,7 +68,7 @@ export const MonthControl = styled.div`
   justify-content: center;
 `;
 
-export const Month = styled.span`
+export const StyledMonth = styled.span`
   font-size: 16px;
   line-height: 20px;
 `;

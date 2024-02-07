@@ -10,7 +10,7 @@ import {
 } from '../services/authApi.js';
 
 export const registerThunk = createAsyncThunk(
-  'auth/register',
+  'auth/signup',
   async (formData, thunkAPI) => {
     try {
       const regData = await requestRegister(formData);
@@ -22,7 +22,7 @@ export const registerThunk = createAsyncThunk(
 );
 
 export const loginThunk = createAsyncThunk(
-  'auth/login',
+  'auth/signin',
   async (formData, thunkAPI) => {
     try {
       const response = await requestLogin(formData);

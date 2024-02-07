@@ -66,7 +66,7 @@ export const StyledBackgroundWrap = styled.div`
   }
 `;
 
-export const StyledErrorMessage = styled.h3`
+export const StyledErrorMessage = styled.p`
   margin-top: 20px;
   width: 280px;
   font-size: 18px;

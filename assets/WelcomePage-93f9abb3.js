@@ -1,4 +1,4 @@
-import{u as e,j as A,c as n,r as o,a as s}from"./index-a79575aa.js";const d=e.div`
+import{u as e,j as A,c as n,r as o,a as s}from"./index-1270d7e2.js";const d=e.div`
   @media screen and (max-width: 767px) {
     padding-bottom: 40px;
   }

@@ -30,10 +30,10 @@ import { ReactComponent as Glass } from '../../svgs/icons/glass.svg';
 import { ReactComponent as Cross } from '../../svgs/icons/cross.svg';
 import { updateWaterThunk } from '../../redux/waterOperations';
 
-export const EditWater = ({ waterCardsSave, onClose, recordId }) => {
+export const EditWater = ({ waterCardsSave, onClose, itemId }) => {
   const dispatch = useDispatch();
 
-  const convertTo12HourFormat = (time24) => {
+    const convertTo12HourFormat = (time24) => {
     const [hours, minutes] = time24.split(':');
     const hour = parseInt(hours, 10);
     const period = hour >= 12 ? 'PM' : 'AM';
@@ -65,12 +65,12 @@ export const EditWater = ({ waterCardsSave, onClose, recordId }) => {
     },
     validationSchema: Yup.object({
       amountWater: Yup.number()
-        .min(1, 'You should drink at least some water')
-        .max(3000, 'It is unlikely you drank so much water')
+        .min(50, 'You should drink at least some water')
+        .max(5000, 'It is unlikely you drank so much water')
         .required('Amount of water is required'),
       time: Yup.string().required('Recording time is required'),
     }),
-    onSubmit: async ({ amountWater, time }) => {
+    onSubmit: ({ amountWater, time }) => {
       const waterVolume = amountWater;
       const date = convertTimeToISOString(time);
 
@@ -78,7 +78,7 @@ export const EditWater = ({ waterCardsSave, onClose, recordId }) => {
         waterVolume,
         date,
       };
-      dispatch(updateWaterThunk({ recordId, newRecord: updatedWaterCard }));
+      dispatch(updateWaterThunk({ itemId, newRecord: updatedWaterCard }));
     },
   });
 
@@ -181,3 +181,4 @@ export const EditWater = ({ waterCardsSave, onClose, recordId }) => {
     </AddWaterModal>
   );
 };
+

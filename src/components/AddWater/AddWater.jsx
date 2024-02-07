@@ -74,7 +74,6 @@ export const AddWater = ({ onClose }) => {
         onClose();
       }
     };
-
     window.addEventListener('keydown', handleKeyDown);
     return () => {
       window.removeEventListener('keydown', handleKeyDown);

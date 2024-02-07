@@ -60,6 +60,7 @@ export const StyledEditBtn = styled.button`
 
 export const StyledEDeleteBtn = styled.button`
     padding: 0;
+    margin-right: 4px;
     border: none;
     background-color: transparent;
     stroke: ${colors.secondaryColor3};

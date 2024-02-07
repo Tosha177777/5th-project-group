@@ -87,6 +87,18 @@ export const StyledInfoWrap = styled.div`
 `;
 export const StyledTodayInfo = styled.div`
   height: 260px;
+  overflow-y: auto;
+  margin-bottom: 24px;
+
+  &::-webkit-scrollbar {
+    width: 4px;
+    height: 100%;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background-color: ${colors.secondaryColor4};
+    border-radius: 8px;
+  }
 `;
 
 export const StyledDataWrap = styled.div`

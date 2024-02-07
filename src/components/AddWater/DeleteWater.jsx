@@ -13,10 +13,11 @@ import {
   XCrosBtn,
 } from './DeleteWater.styled';
 import { ReactComponent as Xcros } from '/src/svgs/icons/xcros.svg';
-import { deleteWaterThunk } from '../../redux/waterOperations';
+import { deleteWaterThunk } from '/src/redux/waterOperations';
 
-export const DeleteWater = ({ onClose, id }) => {
+export const DeleteWater = ({ onClose, itemId }) => {
   const dispatch = useDispatch();
+  
 
   useEffect(() => {
     const handleKeyDown = (e) => {
@@ -42,7 +43,7 @@ export const DeleteWater = ({ onClose, id }) => {
   };
 
   const onClick = () => {
-    dispatch(deleteWaterThunk(id));
+    dispatch(deleteWaterThunk(itemId));
   };
 
   return (

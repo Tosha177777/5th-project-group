@@ -29,12 +29,12 @@ const waterRateSlice = createSlice({
       })
       .addCase(monthWaterThunk.fulfilled, (state, action) => {
         state.isLoading = false;
-        state.error = null;
         state.monthWaterConsumption = action.payload;
+        state.error = null;
       })
       .addCase(addWaterThunk.fulfilled, (state, action) => {
         state.isLoading = false;
-        state.error = null;
+
         if (state.todayWaterConsumption.dayPortions.length) {
           state.todayWaterConsumption.dayPortions = [
             ...state.todayWaterConsumption.dayPortions,
@@ -43,18 +43,20 @@ const waterRateSlice = createSlice({
         } else {
           state.todayWaterConsumption.dayPortions.push(action.payload);
         }
+        state.error = null;
       })
       .addCase(deleteWaterThunk.fulfilled, (state, action) => {
         state.isLoading = false;
-        state.error = null;
+
         state.todayWaterConsumption.dayPortions =
           state.todayWaterConsumption.dayPortions.filter(
             (portion) => portion._id !== action.payload._id
           );
+        state.error = null;
       })
       .addCase(updateWaterThunk.fulfilled, (state, action) => {
         state.isLoading = false;
-        state.error = null;
+
         const indexToUpdate = state.todayWaterConsumption.dayPortions.findIndex(
           (portion) => portion._id === action.payload._id
         );
@@ -62,6 +64,7 @@ const waterRateSlice = createSlice({
           state.todayWaterConsumption.dayPortions[indexToUpdate] =
             action.payload;
         }
+        state.error = null;
       })
 
       .addMatcher(

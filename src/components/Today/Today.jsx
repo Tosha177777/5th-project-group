@@ -29,12 +29,13 @@ const Today = () => {
   const [isOpenedEdit, setIsOpenedEdit] = useState(false);
   const [isOpenedDel, setIsOpenedDel] = useState(false);
   const [selectedItemId, setSelectedItemId] = useState(null);
+  const [waterCards, setWaterCards] = useState({});
 
   const dispatch = useDispatch();
 
   useEffect(() => {
     dispatch(todayWaterThunk());
-  }, [dispatch]);
+  }, [dispatch, waterCards]);
 
   const onAddWaterModal = () => {
     setIsOpenedAdd(!isOpenedAdd);
@@ -42,7 +43,11 @@ const Today = () => {
 
   const onEditWaterModal = (_id) => {
     setIsOpenedEdit(!isOpenedEdit);
+    const selectedWaterPortion = todayPortions.find(
+      (portion) => portion._id === _id
+    );
     setSelectedItemId(_id);
+    setWaterCards(selectedWaterPortion);
   };
 
   const onDeleteWaterModal = (_id) => {
@@ -80,10 +85,14 @@ const Today = () => {
 
       {isOpenedAdd && <AddWater onClose={onAddWaterModal} />}
       {isOpenedEdit && (
-        <EditWater onClose={onEditWaterModal} waterCardsSave={selectedItemId} />
+        <EditWater
+          waterCardsSave={waterCards}
+          onClose={onEditWaterModal}
+          recordId={selectedItemId}
+        />
       )}
       {isOpenedDel && (
-        <DeleteWater onClose={onDeleteWaterModal} itemId={selectedItemId} />
+        <DeleteWater onClose={onDeleteWaterModal} recordId={selectedItemId} />
       )}
     </>
   );

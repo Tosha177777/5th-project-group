@@ -113,14 +113,14 @@ export const AddWater = ({ onClose }) => {
   return (
     <AddWaterModal onClick={handleClick}>
       <AddWaterForm onSubmit={formik.handleSubmit}>
-        <PageName>Edit the entered amount of water</PageName>
+        <PageName>Add water</PageName>
         <CloseBtn onClick={handleCloseX}>
           <Cross />
         </CloseBtn>
 
         {firstWater && <p>No notes yet</p>}
 
-        <PageText>Correct entered data:</PageText>
+        <PageText>Choose a value:</PageText>
         <ContainerModal>
           <AmountWater>Amount of water:</AmountWater>
           <InputAndBtnWaterContainer>

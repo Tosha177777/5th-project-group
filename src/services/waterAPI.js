@@ -1,5 +1,5 @@
-import { instance } from "./instance";
-import { setToken } from "./authApi";
+import { instance } from './instance';
+import { setToken } from './authApi';
 
 export const requestTodayWater = async () => {
   const { data } = await instance.get(`water/today`);
@@ -20,7 +20,7 @@ export const requestAddWater = async (newData) => {
 };
 
 export const requestDeleteWaterById = async (recordId) => {
-  const { data } = await instance.post(`water/${recordId}`);
+  const { data } = await instance.delete(`water/${recordId}`);
   setToken(data.token);
   return data;
 };
@@ -36,4 +36,3 @@ export const requestUpdateWaterRate = async (newRate) => {
   setToken(data.token);
   return data;
 };
-

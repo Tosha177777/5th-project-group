@@ -4,14 +4,15 @@ import {
   monthWaterThunk,
   addWaterThunk,
   deleteWaterThunk,
-  updateWaterThunk,
-  updateWaterRateThunk
+  updateWaterThunk
 } from './waterOperations';
 
 const INITIAL_STATE = {
-  waterToDrink: 2000,
-  todayWaterConsumption: [],
-  monthWaterCOnsumption: [],
+  todayWaterConsumption: {
+    dayPortions: [],
+    percentage: 0,
+  },
+  monthWaterConsumption: [],
   isLoading: false,
   error: null,
 };
@@ -24,36 +25,43 @@ const waterRateSlice = createSlice({
       .addCase(todayWaterThunk.fulfilled, (state, action) => {
         state.isLoading = false;
         state.error = null;
-        state.today = action.payload;
+        state.todayWaterConsumption = action.payload;
       })
       .addCase(monthWaterThunk.fulfilled, (state, action) => {
         state.isLoading = false;
         state.error = null;
-        state.today = action.payload;
+        state.monthWaterConsumption = action.payload;
       })
       .addCase(addWaterThunk.fulfilled, (state, action) => {
         state.isLoading = false;
         state.error = null;
-        state.today = action.payload;
+        if (state.todayWaterConsumption.dayPortions.length) {
+          state.todayWaterConsumption.dayPortions = [
+            ...state.todayWaterConsumption.dayPortions, action.payload
+          ];
+        } else {
+          state.todayWaterConsumption.dayPortions.push(action.payload);
+        }
       })
       .addCase(deleteWaterThunk.fulfilled, (state, action) => {
         state.isLoading = false;
         state.error = null;
-        state.today = action.payload;
+        state.todayWaterConsumption.dayPortions =
+          state.todayWaterConsumption.dayPortions.filter(
+            (portion) => portion._id !== action.payload._id
+          );
       })
       .addCase(updateWaterThunk.fulfilled, (state, action) => {
         state.isLoading = false;
         state.error = null;
-        state.today = action.payload;
+        const indexToUpdate = state.todayWaterConsumption.dayPortions.findIndex(portion => portion._id === action.payload._id);
+        if (indexToUpdate !== -1) {
+        state.todayWaterConsumption.dayPortions[indexToUpdate] = action.payload;
+        }
       })
-      .addCase(updateWaterRateThunk.fulfilled, (state, action) => {
-        state.isLoading = false;
-        state.error = null;
-        state.waterToDrink = action.payload;
-      })
+      
       .addMatcher(
         isAnyOf(
-          updateWaterRateThunk.pending,
           todayWaterThunk.pending,
           monthWaterThunk.pending,
           addWaterThunk.pending,
@@ -67,7 +75,6 @@ const waterRateSlice = createSlice({
       )
       .addMatcher(
         isAnyOf(
-          updateWaterRateThunk.rejected,
           todayWaterThunk.rejected,
           monthWaterThunk.rejected,
           addWaterThunk.rejected,

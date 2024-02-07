@@ -1,8 +1,8 @@
 import { useDispatch, useSelector } from 'react-redux';
-import { useEffect, useMemo, useState } from 'react';
+import { useEffect, useState } from 'react';
+import { todayWaterThunk } from '../../redux/waterOperations';
 import { selectWaterIsLoading } from '/src/redux/waterSelectors';
-import { selectTodayWater } from '/src/redux/waterSelectors';
-import { todayWaterThunk } from '/src/redux/waterOperations';
+import { selectTodayPortions } from '/src/redux/waterSelectors';
 import { ReactComponent as Glass } from '/src/svgs/icons/glass.svg';
 import { ReactComponent as EditIcon } from '/src/svgs/icons/pencil.svg';
 import { ReactComponent as Trashbin } from '/src/svgs/icons/trash.svg';
@@ -23,11 +23,12 @@ import {
 } from './Today.styled';
 
 const Today = () => {
-  const todayData = useSelector(selectTodayWater);
+  const todayPortions = useSelector(selectTodayPortions);
   const isLoading = useSelector(selectWaterIsLoading);
   const [isOpenedAdd, setIsOpenedAdd] = useState(false);
   const [isOpenedEdit, setIsOpenedEdit] = useState(false);
   const [isOpenedDel, setIsOpenedDel] = useState(false);
+  const [selectedItemId, setSelectedItemId] = useState(null);
 
   const dispatch = useDispatch();
 
@@ -35,50 +36,44 @@ const Today = () => {
     dispatch(todayWaterThunk());
   }, [dispatch]);
 
-  const todayPortions = useMemo(() => {
-    if (todayData) {
-      return todayData.dayPortions;
-    }
-    return [];
-  }, [todayData]);
-
   const onAddWaterModal = () => {
     setIsOpenedAdd(!isOpenedAdd);
   };
 
-  const onEditWaterModal = () => {
+  const onEditWaterModal = (_id) => {
     setIsOpenedEdit(!isOpenedEdit);
+    setSelectedItemId(_id);
   };
 
-  const onDeleteWaterModal = () => {
+  const onDeleteWaterModal = (_id) => {
     setIsOpenedDel(!isOpenedDel);
+    setSelectedItemId(_id);
   };
 
   return (
     <>
       <Text>Today</Text>
-      {isLoading && <StyledInfo>Please wait. Loading...</StyledInfo>}
-      {Array.isArray(todayPortions) && todayPortions.length > 0 ? (
+      {isLoading &&
+        <StyledInfo>Please wait. Loading...</StyledInfo>}
+      {todayPortions.length > 0 ? (
         <StyledList>
-          {todayPortions
-            .map(({ id, date, waterVolume }) => (
-              <StyledItem key={id}>
-                <Glass />
-                <StyledAmount>{date}</StyledAmount>
-                <StyledTime>{waterVolume}</StyledTime>
-                <StyledEditBtn onClick={onEditWaterModal}>
-                  <EditIcon />
-                </StyledEditBtn>
-                <StyledEDeleteBtn onClick={onDeleteWaterModal}>
-                  <Trashbin />
-                </StyledEDeleteBtn>
-              </StyledItem>
-            ))
-            .join('')}
+          {todayPortions.map(({ _id, date, waterVolume }) => (
+            <StyledItem key={_id}>
+              <Glass />
+              <StyledAmount>{waterVolume} ml</StyledAmount>
+              <StyledTime>{date} </StyledTime>
+              <StyledEditBtn onClick={onEditWaterModal(_id)}>
+                <EditIcon />
+              </StyledEditBtn>
+              <StyledEDeleteBtn onClick={onDeleteWaterModal(_id)}>
+                <Trashbin />
+              </StyledEDeleteBtn>
+            </StyledItem>
+          ))}
         </StyledList>
       ) : (
         <StyledInfo>
-          There are no records for today. Press &quot;Add Water&quot; to add.
+            No notes yet
         </StyledInfo>
       )}
       <StyledEAddBtn onClick={onAddWaterModal}>
@@ -87,8 +82,8 @@ const Today = () => {
       </StyledEAddBtn>
 
       {isOpenedAdd && <AddWater onClose={onAddWaterModal} />}
-      {isOpenedEdit && <EditWater onClose={onEditWaterModal} />}
-      {isOpenedDel && <DeleteWater onClose={onDeleteWaterModal} />}
+      {isOpenedEdit && <EditWater onClose={onEditWaterModal} itemId={selectedItemId}/>}
+      {isOpenedDel && <DeleteWater onClose={onDeleteWaterModal} itemId={selectedItemId}/>}
     </>
   );
 };

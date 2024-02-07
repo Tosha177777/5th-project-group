@@ -1,12 +1,10 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
-
 import {
   requestTodayWater,
   requestMonthWater,
   requestAddWater,
   requestDeleteWaterById,
-  requestUpdateWaterById,
-  requestUpdateWaterRate,
+  requestUpdateWaterById
 } from '../services/waterAPI';
 import { setToken } from '../services/authApi';
 
@@ -17,7 +15,7 @@ export const todayWaterThunk = createAsyncThunk(
     const token = state.auth.token;
     try {
       setToken(token);
-      const data = await requestTodayWater();
+      const data  = await requestTodayWater();
       return data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);
@@ -79,21 +77,6 @@ export const updateWaterThunk = createAsyncThunk(
       setToken(token);
       const { recordId, newRecord } = data;
       const updatedRecord = await requestUpdateWaterById(recordId, newRecord);
-      return updatedRecord;
-    } catch (error) {
-      return thunkAPI.rejectWithValue(error.message);
-    }
-  }
-);
-
-export const updateWaterRateThunk = createAsyncThunk(
-  'waterRate/update',
-  async (newRecord, thunkAPI) => {
-    const state = thunkAPI.getState();
-    const token = state.auth.token;
-    try {
-      setToken(token);
-      const updatedRecord = await requestUpdateWaterRate(newRecord);
       return updatedRecord;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);

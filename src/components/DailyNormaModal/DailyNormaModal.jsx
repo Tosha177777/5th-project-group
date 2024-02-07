@@ -9,9 +9,9 @@ import {
   Overlay,
 } from './DailyNormaModal.styled';
 
-import { ReactComponent as Xcros } from '../../svgs/icons/xcros.svg';
+import { ReactComponent as Xcros } from '/src/svgs/icons/xcros.svg';
 import { useDispatch } from 'react-redux';
-import { updateWaterRateThunk } from '../../redux/waterOperations';
+import { updateWaterRateThunk } from '/src/redux/userInfoOperations';
 
 export function DailyNormaModal({ closeModal }) {
   const dispatch = useDispatch();

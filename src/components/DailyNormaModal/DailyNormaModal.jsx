@@ -20,6 +20,7 @@ export function DailyNormaModal({ closeModal }) {
   const [gender, setGender] = useState('woman');
   const [requiredWater, setRequiredWater] = useState(0);
   const [waterResult, setWaterResult] = useState(0);
+  const [valid, setValid] = useState(false);
   useEffect(() => {
     window.addEventListener('keydown', hendleKeyDown);
     document.body.style.overflow = 'hidden';
@@ -68,14 +69,20 @@ export function DailyNormaModal({ closeModal }) {
     const water = {
       waterRate: waterResult * 1000,
     };
-    if (waterResult > 0) {
-      dispatch(updateWaterRateThunk(water));
-      setWeight(0);
-      setActiveTime(0);
-      setWaterResult(0);
-      closeModal();
+    if (waterResult <= 0) {
+      setValid(true);
+      return;
     }
-    alert('Something went wrong');
+    if (waterResult > 15) {
+      setValid(true);
+      return;
+    }
+    dispatch(updateWaterRateThunk(water));
+    setWeight(0);
+    setActiveTime(0);
+    setWaterResult(0);
+    setValid(false);
+    closeModal();
   };
 
   const requiredWaterCalculation = (gender, weight, time) => {
@@ -180,8 +187,8 @@ export function DailyNormaModal({ closeModal }) {
           <label className="waterToDrink-lable">
             <input
               type="number"
-              min={0}
-              max={15}
+              // min={0}
+              // max={15}
               name="waterToDrink"
               value={waterResult}
               onChange={onInputChange}
@@ -189,6 +196,9 @@ export function DailyNormaModal({ closeModal }) {
               required
             />
           </label>
+          {valid && (
+            <p className="valid-text">Enter a value between 1 and 15</p>
+          )}
           <button type="submit" className="submit-btn">
             Save
           </button>

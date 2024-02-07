@@ -254,4 +254,9 @@ export const ModalForm = styled.form`
       margin-left: auto;
     }
   }
+
+  .valid-text {
+    color: red;
+    margin-top: -20px;
+  }
 `;

@@ -26,14 +26,14 @@ const ProgressBar = () => {
 
   const dispatch = useDispatch();
 
-  const percentage = useMemo(() => {
+   const percentage = useMemo(() => {
     if (todayPercentage) {
       return todayPercentage > 100 ? 100 : todayPercentage;
     }
     return 0;
   }, [todayPercentage]);
 
-  useEffect(() => {
+    useEffect(() => {
     dispatch(todayWaterThunk());
   }, [dispatch]);
 
@@ -47,6 +47,7 @@ const ProgressBar = () => {
     setIsOpenedAdd(!isOpenedAdd);
   };
 
+  
   return (
     <StyledWrap>
       <StyledWrapper>
@@ -69,7 +70,7 @@ const ProgressBar = () => {
         <Plus />
         <span>Add Water</span>
       </StyledButton>
-      {isOpenedAdd && <AddWater onClose={onAddWaterModal} />}
+      {isOpenedAdd && <AddWater onClose={onAddWaterModal}/>}
     </StyledWrap>
   );
 };

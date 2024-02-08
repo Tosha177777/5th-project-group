@@ -1,6 +1,22 @@
 import styled from '@emotion/styled';
 import colors from '../../root/root';
 
+import mobBottle from 'src/images/mobile/bottle-sign-in@1x.png';
+import mobBubbles from 'src/images/mobile/background-element-sign-in@1x.png';
+
+import mobBottle2x from '/src/images/mobile/bottle-sign-in@1x.png';
+import mobBubbles2x from '/src/images/mobile/background-element-sign-in@1x.png';
+
+import tabBottle from 'src/images/tablet/bottle-for-sign-in@1x.png';
+import tabBottle2x from 'src/images/tablet/bottle-for-sign-in@2x.png';
+
+import deskBottle from 'src/images/desktop/bottle-for-sign-in@1x.png';
+import deskBub from 'src/images/desktop/background-element-main-page@1x.png';
+
+import deskBottle2x from 'src/images/desktop/bottle-for-sign-in@2x.png';
+import deskBub2x from 'src/images/desktop/background-element-main-page@2x.png';
+
+
 export const StyledBackgroundWrap = styled.div`
   max-width: 320px;
   width: 100%;
@@ -9,8 +25,8 @@ export const StyledBackgroundWrap = styled.div`
   top: 26px;
   left: 0;
   z-index: -10;
-  background-image: url('src/images/mobile/bottle-sign-in@1x.png'),
-    url('src/images/mobile/background-element-sign-in@1x.png');
+  background-image: url(${mobBottle}),
+    url(${mobBubbles});
   background-size: 280px, cover;
   background-repeat: no-repeat;
   background-position:
@@ -21,8 +37,8 @@ export const StyledBackgroundWrap = styled.div`
     (-webkit-min-device-pixel-ratio: 2),
     (min-resolution: 192dpi),
     (min-resolution: 2dppx) {
-    background-image: url('src/images/mobile/bottle-sign-in@2x.png'),
-      url('src/images/mobile/background-element-sign-in@2x.png');
+    background-image: url(${mobBottle2x}),
+      url(${mobBubbles2x});
   }
 
   @media (min-width: 768px) {
@@ -31,7 +47,7 @@ export const StyledBackgroundWrap = styled.div`
     height: 680px;
     top: -104px;
     left: 0;
-    background-image: url('src/images/tablet/bottle-for-sign-in@1x.png');
+    background-image: url(${tabBottle});tabBottle2x
     background-size: cover;
     background-position: top 0 left 0;
 
@@ -39,7 +55,7 @@ export const StyledBackgroundWrap = styled.div`
       (-webkit-min-device-pixel-ratio: 2),
       (min-resolution: 192dpi),
       (min-resolution: 2dppx) {
-      background-image: url('src/images/tablet/bottle-for-sign-in@2x.png');
+      background-image: url(${tabBottle2x});
     }
   }
 
@@ -49,8 +65,8 @@ export const StyledBackgroundWrap = styled.div`
     height: 100%;
     top: -149px;
     left: 18px;
-    background-image: url('src/images/desktop/bottle-for-sign-in@1x.png'),
-      url('src/images/desktop/background-element-main-page@1x.png');
+    background-image: url(${deskBottle}),
+      url(${deskBub});
     background-size: 916px, 1404px;
     background-position:
       top 28px left -51px,
@@ -60,8 +76,8 @@ export const StyledBackgroundWrap = styled.div`
       (-webkit-min-device-pixel-ratio: 2),
       (min-resolution: 192dpi),
       (min-resolution: 2dppx) {
-      background-image: url('src/images/desktop/bottle-for-sign-in@2x.png'),
-        url('src/images/desktop/background-element-main-page@2x.png');
+      background-image: url(${deskBottle2x}),
+        url(${deskBub2x});
     }
   }
 `;

@@ -27,11 +27,14 @@ import {
 
 import { ReactComponent as Cross } from '../../svgs/icons/cross.svg';
 import { addWaterThunk } from '../../redux/waterOperations';
-import { selectTodayPortions } from '../../redux/waterSelectors';
+import { selectTodayPercentage, selectTodayPortions } from '../../redux/waterSelectors';
+import { selectUserNorma } from '../../redux/authSelectors';
 
 export const AddWater = ({ onClose }) => {
   const dispatch = useDispatch();
   const todayPortions = useSelector(selectTodayPortions);
+  const userPercentage = useSelector(selectTodayPercentage);
+  const userNorma = useSelector(selectUserNorma);
 
   const getCurrentTime = () => {
     const now = new Date();
@@ -48,6 +51,10 @@ export const AddWater = ({ onClose }) => {
 
     return now.toISOString();
   };
+
+    const onChangePercent = (percentage, norma, portionAmount) => {
+    return percentage += (Math.ceil(portionAmount/norma*10)*10)
+  }
 
   const formik = useFormik({
     initialValues: {
@@ -69,6 +76,8 @@ export const AddWater = ({ onClose }) => {
 
         const result = await dispatch(addWaterThunk({ waterVolume, date }));
 
+        onChangePercent(userPercentage, userNorma, waterVolume);
+      
         if (result) {
           onClose();
         } else {

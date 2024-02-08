@@ -15,3 +15,7 @@ export const selectAuthIsSignedIn = createSelector(
   selectAuth,
   (auth) => auth.isSignedIn
 );
+export const selectUserNorma = createSelector(
+  selectAuth,
+  (auth) => auth.user.waterRate
+);

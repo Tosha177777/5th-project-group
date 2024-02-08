@@ -7,6 +7,7 @@ import {
   updateWaterThunk,
 } from './waterOperations';
 
+
 const INITIAL_STATE = {
   todayWaterConsumption: {
     dayPortions: [],
@@ -34,7 +35,6 @@ const waterRateSlice = createSlice({
       })
       .addCase(addWaterThunk.fulfilled, (state, action) => {
         state.isLoading = false;
-
         if (state.todayWaterConsumption.dayPortions.length) {
           state.todayWaterConsumption.dayPortions = [
             ...state.todayWaterConsumption.dayPortions,
@@ -42,7 +42,9 @@ const waterRateSlice = createSlice({
           ];
         } else {
           state.todayWaterConsumption.dayPortions.push(action.payload);
-        }
+        }      
+        // state.todayWaterConsumption.percentage += (action.payload.waterVolume/userNorma)
+        
         state.error = null;
       })
       .addCase(deleteWaterThunk.fulfilled, (state, action) => {

@@ -9,10 +9,7 @@ import {
 
 
 const INITIAL_STATE = {
-  todayWaterConsumption: {
-    dayPortions: [],
-    percentage: 0,
-  },
+  todayWaterConsumption:[],
   monthWaterConsumption: [],
   isLoading: false,
   error: null,
@@ -35,23 +32,21 @@ const waterRateSlice = createSlice({
       })
       .addCase(addWaterThunk.fulfilled, (state, action) => {
         state.isLoading = false;
-        if (state.todayWaterConsumption.dayPortions.length) {
-          state.todayWaterConsumption.dayPortions = [
-            ...state.todayWaterConsumption.dayPortions,
+        if (state.todayWaterConsumption.length) {
+          state.todayWaterConsumption = [
+            ...state.todayWaterConsumption,
             action.payload,
           ];
         } else {
-          state.todayWaterConsumption.dayPortions.push(action.payload);
-        }      
-        // state.todayWaterConsumption.percentage += (action.payload.waterVolume/userNorma)
-        
-        state.error = null;
+          state.todayWaterConsumption.push(action.payload);
+        }   
+         state.error = null;
       })
       .addCase(deleteWaterThunk.fulfilled, (state, action) => {
         state.isLoading = false;
 
-        state.todayWaterConsumption.dayPortions =
-          state.todayWaterConsumption.dayPortions.filter(
+        state.todayWaterConsumption =
+          state.todayWaterConsumption.filter(
             (portion) => portion._id !== action.payload._id
           );
         state.error = null;
@@ -59,11 +54,11 @@ const waterRateSlice = createSlice({
       .addCase(updateWaterThunk.fulfilled, (state, action) => {
         state.isLoading = false;
 
-        const indexToUpdate = state.todayWaterConsumption.dayPortions.findIndex(
+        const indexToUpdate = state.todayWaterConsumption.findIndex(
           (portion) => portion._id === action.payload._id
         );
         if (indexToUpdate !== -1) {
-          state.todayWaterConsumption.dayPortions[indexToUpdate] =
+          state.todayWaterConsumption[indexToUpdate] =
             action.payload;
         }
         state.error = null;

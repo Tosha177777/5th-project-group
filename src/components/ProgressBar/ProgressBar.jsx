@@ -1,6 +1,7 @@
 import { useDispatch, useSelector } from 'react-redux';
 import { todayWaterThunk } from '/src/redux/waterOperations';
-import { selectTodayPercentage } from '../../redux/waterSelectors';
+import { selectTodayWater } from '/src/redux/waterSelectors';
+import {selectUserNorma} from '/src/redux/authSelectors.js'
 import { ReactComponent as Plus } from '/src/svgs/icons/plus-circle.svg';
 import {
   StyledButton,
@@ -17,7 +18,8 @@ import { useEffect, useMemo, useState } from 'react';
 import { AddWater } from '../AddWater/AddWater';
 
 const ProgressBar = () => {
-  const todayPercentage = useSelector(selectTodayPercentage);
+  const todayPortions = useSelector(selectTodayWater);
+  const userNorma = useSelector(selectUserNorma);
   const [isOpenedAdd, setIsOpenedAdd] = useState(false);
 
   const [progressWidth, setProgressWidth] = useState(0);
@@ -26,22 +28,25 @@ const ProgressBar = () => {
 
   const dispatch = useDispatch();
 
-   const percentage = useMemo(() => {
-    if (todayPercentage) {
-      return todayPercentage > 100 ? 100 : todayPercentage;
-    }
-    return 0;
-  }, [todayPercentage]);
+  const todayPercentage = useMemo(() => {
+    if (todayPortions.length) {
+      const todayWater = Math.ceil(todayPortions.reduce((prevValue, portion) => {
+        return prevValue += portion.waterVolume;
+      }, 0) / userNorma * 10) * 10;
+      return todayWater > 100 ? 100 : todayWater;
+    } return 0;
+  }, [todayPortions, userNorma]);    
+  
 
     useEffect(() => {
     dispatch(todayWaterThunk());
   }, [dispatch]);
 
   useEffect(() => {
-    setProgressWidth(percentage);
-    setAchievedProgressLeft(percentage);
-    setAchievedPercentLeft(percentage);
-  }, [percentage]);
+    setProgressWidth(todayPercentage);
+    setAchievedProgressLeft(todayPercentage);
+    setAchievedPercentLeft(todayPercentage);
+  }, [todayPercentage]);
 
   const onAddWaterModal = () => {
     setIsOpenedAdd(!isOpenedAdd);

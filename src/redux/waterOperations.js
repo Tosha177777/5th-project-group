@@ -4,7 +4,7 @@ import {
   requestMonthWater,
   requestAddWater,
   requestDeleteWaterById,
-  requestUpdateWaterById,
+  requestUpdateWaterById
 } from '../services/waterAPI';
 import { setToken } from '../services/authApi';
 
@@ -83,3 +83,4 @@ export const updateWaterThunk = createAsyncThunk(
     }
   }
 );
+

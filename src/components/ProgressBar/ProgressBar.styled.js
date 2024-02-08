@@ -67,7 +67,7 @@ export const StyledProgressLine = styled.div`
 position: absolute;                   
 height: 8px;
 background-color:${colors.secondaryColor4};
-border-radius: 10px;
+border-radius: 10px 0 0 10px;
 
 `
 

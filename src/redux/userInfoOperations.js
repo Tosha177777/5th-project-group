@@ -4,6 +4,7 @@ import { setToken } from '../services/authApi';
 import { toast } from 'react-toastify';
 import { requestUpdateWaterRate } from '../services/waterAPI';
 
+
 export const userPhotoThunk = createAsyncThunk(
   'users/avatar',
   async (formData, thunkAPI) => {
@@ -37,6 +38,7 @@ export const userInfoThunk = createAsyncThunk(
     }
   }
 );
+
 
 export const updateWaterRateThunk = createAsyncThunk(
   'water-rate/update',

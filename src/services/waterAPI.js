@@ -32,7 +32,7 @@ export const requestUpdateWaterById = async (recordId, newData) => {
 };
 
 export const requestUpdateWaterRate = async (newRate) => {
-  const { data } = await instance.patch(`water-rate`, newRate);
+  const { data } = await instance.patch(`users/water-rate`, newRate);
   setToken(data.token);
-  return data;
+  return data.waterRate;
 };

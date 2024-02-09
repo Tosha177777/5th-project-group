@@ -27,12 +27,12 @@ import {
 
 import { ReactComponent as Cross } from '../../svgs/icons/cross.svg';
 import { addWaterThunk } from '../../redux/waterOperations';
-import { selectTodayPortions } from '../../redux/waterSelectors';
+import { selectTodayWater } from '../../redux/waterSelectors';
 
 export const AddWater = ({ onClose }) => {
   const dispatch = useDispatch();
-  const todayPortions = useSelector(selectTodayPortions);
-
+  const todayPortions = useSelector(selectTodayWater);
+ 
   const getCurrentTime = () => {
     const now = new Date();
     const hours = now.getHours();
@@ -49,7 +49,7 @@ export const AddWater = ({ onClose }) => {
     return now.toISOString();
   };
 
-  const formik = useFormik({
+    const formik = useFormik({
     initialValues: {
       amountWater: 0,
       time: getCurrentTime(),
@@ -68,7 +68,7 @@ export const AddWater = ({ onClose }) => {
         const date = convertTimeToISOString(time);
 
         const result = await dispatch(addWaterThunk({ waterVolume, date }));
-
+   
         if (result) {
           onClose();
         } else {

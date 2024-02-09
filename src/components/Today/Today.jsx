@@ -2,7 +2,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useEffect, useState } from 'react';
 import { todayWaterThunk } from '../../redux/waterOperations';
 import { selectWaterIsLoading } from '/src/redux/waterSelectors';
-import { selectTodayPortions } from '/src/redux/waterSelectors';
+import { selectTodayWater } from '/src/redux/waterSelectors';
 import { ReactComponent as Glass } from '/src/svgs/icons/glass.svg';
 import { ReactComponent as EditIcon } from '/src/svgs/icons/pencil.svg';
 import { ReactComponent as Trashbin } from '/src/svgs/icons/trash.svg';
@@ -23,7 +23,7 @@ import {
 } from './Today.styled';
 
 const Today = () => {
-  const todayPortions = useSelector(selectTodayPortions);
+  const todayPortions = useSelector(selectTodayWater);
   const isLoading = useSelector(selectWaterIsLoading);
   const [isOpenedAdd, setIsOpenedAdd] = useState(false);
   const [isOpenedEdit, setIsOpenedEdit] = useState(false);

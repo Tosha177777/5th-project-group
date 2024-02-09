@@ -29,11 +29,11 @@ import {
 import { ReactComponent as Glass } from '../../svgs/icons/glass.svg';
 import { ReactComponent as Cross } from '../../svgs/icons/cross.svg';
 import { updateWaterThunk } from '../../redux/waterOperations';
-import { selectTodayPortions } from '../../redux/waterSelectors';
+import { selectTodayWater } from '../../redux/waterSelectors';
 
 export const EditWater = ({ waterCardsSave, onClose, recordId }) => {
   const dispatch = useDispatch();
-  const todayPortions = useSelector(selectTodayPortions);
+  const todayPortions = useSelector(selectTodayWater);
 
   const convertTo12HourFormat = (time24) => {
     const [hours, minutes] = time24.split(':');

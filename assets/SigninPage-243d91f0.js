@@ -1,4 +1,4 @@
-import{n as i,F as $,c as o,E as S,b as v,d as a,e as B,r as d,f as C,j as e,g as E,h as s,S as x,i as c,L as z,k as P,l as F,m as V,s as q}from"./index-dfb41ba1.js";import{m,a as u,t as R,b as U,d as T,c as A}from"./bottle-for-sign-in@2x-e8cd8e67.js";import{d as D,a as L}from"./background-element-main-page@2x-b99c692e.js";const M=i($)`
+import{u as i,c as o,F as b,E as w,b as y,d as t,r as f,f as k,j as e,g as $,h as a,S,i as j,L as v,o as B,m as C,s as E}from"./index-6171a1fc.js";import{m as n,a as s,t as z,b as F,d as P,c as I}from"./bottle-for-sign-in@2x-e8cd8e67.js";import{d as V,a as q}from"./background-element-main-page@2x-b99c692e.js";const L=i(b)`
   display: flex;
   flex-direction: column;
   gap: 16px;
@@ -23,7 +23,7 @@ import{n as i,F as $,c as o,E as S,b as v,d as a,e as B,r as d,f as C,j as e,g a
   label {
     position: relative;
   }
-  
+ 
   input {
     padding: 12px 10px;
     width: 100%;
@@ -39,6 +39,7 @@ import{n as i,F as $,c as o,E as S,b as v,d as a,e as B,r as d,f as C,j as e,g a
   }
   input:focus {
     outline-color: ${o.secondaryColor6};
+  
   }
   input:invalid {
     color: ${o.secondaryColor3};
@@ -48,7 +49,7 @@ import{n as i,F as $,c as o,E as S,b as v,d as a,e as B,r as d,f as C,j as e,g a
   input::-ms-clear {
     display: none;
   }
-
+  
   a {
     width: fit-content;
     font-size: 16px;
@@ -59,7 +60,7 @@ import{n as i,F as $,c as o,E as S,b as v,d as a,e as B,r as d,f as C,j as e,g a
   a:hover {
     color: ${o.secondaryColor5};
   }
-`,W=i.button`
+`,M=i.button`
   padding: 8px 30px;
   font-size: 16px;
   line-height: 1.25;
@@ -76,13 +77,13 @@ import{n as i,F as $,c as o,E as S,b as v,d as a,e as B,r as d,f as C,j as e,g a
   :hover {
    box-shadow: 0 4px 14px 0 rgba(64, 123, 255, 0.54);
   }
-`,n=i.span`
+`,l=i.span`
     display: block;
     margin-bottom: 8px;
     font-size: 18px;
     line-height: 1.33;
     color: ${o.primaryColorBlack};
- `,h=i.button`
+ `,T=i.button`
   position: absolute;
   right: 10px;
   top: 44px;
@@ -90,11 +91,11 @@ import{n as i,F as $,c as o,E as S,b as v,d as a,e as B,r as d,f as C,j as e,g a
   border: none;
   cursor: pointer;
   stroke: ${o.primaryColorBlue};
-`,l=i(S)`
-  margin-left: 4px;
-  font-size: 14px;
-  color: ${o.secondaryColor3};
-`,I=v().shape({email:a().email("Please enter a valid email").required("E-mail is required"),password:a().min(8,"Password must be 8 or more characters").max(64).required("Password is required"),repeatPassword:a().oneOf([B("password"),null],"The passwords do not match").required("Repeat password field is required")}),N=()=>{const[r,g]=d.useState(!1),[t,b]=d.useState(!1),p=C(),w={email:"",password:"",repeatPassword:""},y=({email:f,password:k},{resetForm:j})=>{event.preventDefault(),p(P({email:f,password:k})),p(F()),j()};return e.jsx(E,{initialValues:w,validationSchema:I,onSubmit:y,children:e.jsxs(M,{children:[e.jsx("h1",{children:"Sign Up"}),e.jsxs("label",{children:[e.jsx(n,{children:"Enter your email"}),e.jsx(s,{name:"email",type:"email",placeholder:"E-mail"}),e.jsx(l,{name:"email",component:"span"})]}),e.jsxs("label",{children:[e.jsx(n,{children:"Enter your password"}),e.jsx(s,{name:"password",type:r?"text":"password",placeholder:"Password",pattern:".{8,}"}),e.jsx(h,{type:"button",onClick:()=>g(!r),children:r?e.jsx(x,{}):e.jsx(c,{})}),e.jsx(l,{name:"password",component:"span"})]}),e.jsxs("label",{children:[e.jsx(n,{children:"Repeat password"}),e.jsx(s,{name:"repeatPassword",type:t?"text":"password",placeholder:"Repeat password",pattern:".{8,}"}),e.jsx(h,{type:"button",onClick:()=>b(!t),children:t?e.jsx(x,{}):e.jsx(c,{})}),e.jsx(l,{name:"repeatPassword",component:"span"})]}),e.jsx(W,{type:"submit",children:"Sign Up"}),e.jsx(z,{to:"/signin",children:"Sign in"})]})})},O=i.div`
+`,p=i(w)`
+    margin-left: 4px;
+    font-size: 14px;
+    color: ${o.secondaryColor3};
+  `,W=y().shape({email:t().email("Please enter a valid email").required("E-mail is required"),password:t().min(8,"Password must be 8 or more characters").max(30).required("Password is required")}),A=()=>{const[r,d]=f.useState(!1),x=k(),m={email:"",password:""},c=({email:u,password:h},{resetForm:g})=>{x(B({email:u,password:h})),g()};return e.jsx($,{initialValues:m,validationSchema:W,onSubmit:c,children:e.jsxs(L,{autoComplete:"off",children:[e.jsx("h1",{children:"Sign In"}),e.jsxs("label",{children:[e.jsx(l,{children:"Enter your email"}),e.jsx(a,{name:"email",type:"email",placeholder:"E-mail"}),e.jsx(p,{name:"email",component:"span"})]}),e.jsxs("label",{children:[e.jsx(l,{children:"Enter your password"}),e.jsx(a,{name:"password",type:r?"text":"password",placeholder:"Password",pattern:".{8,}"}),e.jsx(T,{type:"button",onClick:()=>d(!r),children:r?e.jsx(S,{}):e.jsx(j,{})}),e.jsx(p,{name:"password",component:"span"})]}),e.jsx(M,{type:"submit",children:"Sign In"}),e.jsx(v,{to:"/signup",children:"Sign up"})]})})},D=i.div`
   max-width: 320px;
   width: 100%;
   height: 570px;
@@ -102,8 +103,7 @@ import{n as i,F as $,c as o,E as S,b as v,d as a,e as B,r as d,f as C,j as e,g a
   top: 26px;
   left: 0;
   z-index: -10;
-  background-image: url(${m}),
-    url(${u});
+  background-image: url(${n}), url(${s});
   background-size: 280px, cover;
   background-repeat: no-repeat;
   background-position:
@@ -114,8 +114,7 @@ import{n as i,F as $,c as o,E as S,b as v,d as a,e as B,r as d,f as C,j as e,g a
     (-webkit-min-device-pixel-ratio: 2),
     (min-resolution: 192dpi),
     (min-resolution: 2dppx) {
-    background-image: url(${m}),
-      url(${u});
+    background-image: url(${n}), url(${s});
   }
 
   @media (min-width: 768px) {
@@ -124,7 +123,7 @@ import{n as i,F as $,c as o,E as S,b as v,d as a,e as B,r as d,f as C,j as e,g a
     height: 680px;
     top: -104px;
     left: 0;
-    background-image: url(${R});tabBottle2x
+    background-image: url(${z});
     background-size: cover;
     background-position: top 0 left 0;
 
@@ -132,7 +131,7 @@ import{n as i,F as $,c as o,E as S,b as v,d as a,e as B,r as d,f as C,j as e,g a
       (-webkit-min-device-pixel-ratio: 2),
       (min-resolution: 192dpi),
       (min-resolution: 2dppx) {
-      background-image: url(${U});
+      background-image: url(${F});
     }
   }
 
@@ -142,8 +141,7 @@ import{n as i,F as $,c as o,E as S,b as v,d as a,e as B,r as d,f as C,j as e,g a
     height: 100%;
     top: -149px;
     left: 18px;
-    background-image: url(${T}),
-      url(${D});
+    background-image: url(${P}), url(${V});
     background-size: 916px, 1404px;
     background-position:
       top 28px left -51px,
@@ -153,11 +151,10 @@ import{n as i,F as $,c as o,E as S,b as v,d as a,e as B,r as d,f as C,j as e,g a
       (-webkit-min-device-pixel-ratio: 2),
       (min-resolution: 192dpi),
       (min-resolution: 2dppx) {
-      background-image: url(${A}),
-        url(${L});
+      background-image: url(${I}), url(${q});
     }
   }
-`,G=i.p`
+`,N=i.p`
   margin-top: 20px;
   width: 280px;
   font-size: 18px;
@@ -172,4 +169,4 @@ import{n as i,F as $,c as o,E as S,b as v,d as a,e as B,r as d,f as C,j as e,g a
     margin-left: auto;
     margin-right: 133px;
   }
-`,X=()=>{const r=V(q);return e.jsxs(e.Fragment,{children:[e.jsx(O,{}),e.jsx(N,{}),r&&e.jsx(G,{children:r})]})};export{X as default};
+`,K=()=>{const r=C(E);return e.jsxs(e.Fragment,{children:[e.jsx(D,{}),e.jsx(A,{}),r&&e.jsx(N,{children:r})]})};export{K as default};

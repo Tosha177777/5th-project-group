@@ -1,4 +1,4 @@
-import{u as n,j as e,c as t,r,a as s}from"./index-d3be41a3.js";import{d,a as g}from"./background-element-main-page@2x-b99c692e.js";const h=n.div`
+import{u as n,j as e,c as t,r,a as s}from"./index-dfb41ba1.js";import{d,a as g}from"./background-element-main-page@2x-b99c692e.js";const h=n.div`
   @media screen and (max-width: 767px) {
     padding-bottom: 40px;
   }
